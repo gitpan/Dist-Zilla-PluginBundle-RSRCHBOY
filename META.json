@@ -4,7 +4,7 @@
       "Chris Weyl <cweyl@alumni.drew.edu>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580",
+   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930",
    "license" : [
       "lgpl_2_1"
    ],
@@ -44,13 +44,14 @@
       "bugtracker" : {
          "web" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues"
       },
+      "homepage" : "http://search.cpan.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY/",
       "repository" : {
          "type" : "git",
          "url" : "git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git",
          "web" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY"
       }
    },
-   "version" : "0.001",
+   "version" : "0.002",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -171,7 +172,7 @@
          {
             "class" : "Dist::Zilla::Plugin::CompileTests",
             "name" : "CompileTests",
-            "version" : "1.103030"
+            "version" : "1.110930"
          },
          {
             "class" : "Dist::Zilla::Plugin::HasVersionTests",
@@ -191,7 +192,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MinimumPerl",
             "name" : "MinimumPerl",
-            "version" : "0.02"
+            "version" : "1.002"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReportVersions",
@@ -206,7 +207,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Authority",
             "name" : "Authority",
-            "version" : "1.004"
+            "version" : "1.005"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",

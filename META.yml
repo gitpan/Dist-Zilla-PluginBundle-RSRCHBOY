@@ -12,7 +12,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.31
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580'
+generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930'
 license: lgpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -26,8 +26,9 @@ requires:
   perl: 5.006
 resources:
   bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+  homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY/
   repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
-version: 0.001
+version: 0.002
 x_Dist_Zilla:
   plugins:
     -
@@ -125,7 +126,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CompileTests
       name: CompileTests
-      version: 1.103030
+      version: 1.110930
     -
       class: Dist::Zilla::Plugin::HasVersionTests
       name: HasVersionTests
@@ -141,7 +142,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MinimumPerl
       name: MinimumPerl
-      version: 0.02
+      version: 1.002
     -
       class: Dist::Zilla::Plugin::ReportVersions
       name: ReportVersions
@@ -153,7 +154,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Authority
       name: Authority
-      version: 1.004
+      version: 1.005
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: MetaConfig

@@ -12,7 +12,7 @@ BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 BEGIN {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.001';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.002';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -27,9 +27,7 @@ sub configure {
     my $self = shift @_;
 
     $self->add_bundle(Git => {
-        allow_dirty => 'dist.ini',
-        allow_dirty => 'README.pod',
-        allow_dirty => 'Changes',
+        allow_dirty => [ qw{ dist.ini README.pod Changes } ],
         tag_format  => '%v',
     });
 
@@ -95,7 +93,7 @@ sub configure {
         }],
 
         [ InstallRelease => {
-            install_command => 'cpanm . ||:',
+            install_command => 'cpanm .',
         }],
     );
 
@@ -116,7 +114,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 DESCRIPTION
 
