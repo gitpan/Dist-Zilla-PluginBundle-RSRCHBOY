@@ -28,7 +28,7 @@ resources:
   bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
   homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY/
   repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
-version: 0.002
+version: 0.003
 x_Dist_Zilla:
   plugins:
     -

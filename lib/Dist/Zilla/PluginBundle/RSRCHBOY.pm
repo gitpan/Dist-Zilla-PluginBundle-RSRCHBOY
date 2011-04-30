@@ -12,7 +12,7 @@ BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 BEGIN {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.002';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.003';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -25,6 +25,8 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 sub configure {
     my $self = shift @_;
+
+    $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
         allow_dirty => [ qw{ dist.ini README.pod Changes } ],
@@ -40,7 +42,6 @@ sub configure {
 
     $self->add_plugins(
         qw{
-            NextRelease
             GatherDir
             PruneCruft
             License
@@ -66,6 +67,7 @@ sub configure {
             MinimumPerl
             ReportVersions
             Prepender
+            NoSmartCommentsTests
 
             Authority
 
@@ -114,7 +116,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 DESCRIPTION
 
