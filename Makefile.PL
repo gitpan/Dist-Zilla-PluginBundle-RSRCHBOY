@@ -4,7 +4,7 @@ use warnings;
 
 BEGIN { require 5.006; }
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
@@ -20,7 +20,7 @@ my %WriteMakefileArgs = (
     'perl' => '5.004'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+    'ExtUtils::MakeMaker' => '6.30'
   },
   'DISTNAME' => 'Dist-Zilla-PluginBundle-RSRCHBOY',
   'EXE_FILES' => [],
@@ -28,11 +28,39 @@ my %WriteMakefileArgs = (
   'NAME' => 'Dist::Zilla::PluginBundle::RSRCHBOY',
   'PREREQ_PM' => {
     'Dist::Zilla' => '0',
+    'Dist::Zilla::Plugin::Authority' => '0',
+    'Dist::Zilla::Plugin::CheckPrereqsIndexed' => '0',
+    'Dist::Zilla::Plugin::CompileTests' => '0',
+    'Dist::Zilla::Plugin::ConfirmRelease' => '0',
+    'Dist::Zilla::Plugin::ConsistentVersionTest' => '0',
+    'Dist::Zilla::Plugin::EOLTests' => '0',
+    'Dist::Zilla::Plugin::ExtraTests' => '0',
+    'Dist::Zilla::Plugin::Git::NextVersion' => '0',
+    'Dist::Zilla::Plugin::GitHub::Meta' => '0',
+    'Dist::Zilla::Plugin::GitHub::Update' => '0',
+    'Dist::Zilla::Plugin::HasVersionTests' => '0',
+    'Dist::Zilla::Plugin::MetaConfig' => '0',
+    'Dist::Zilla::Plugin::MetaJSON' => '0',
+    'Dist::Zilla::Plugin::MetaYAML' => '0',
+    'Dist::Zilla::Plugin::MinimumPerl' => '0',
+    'Dist::Zilla::Plugin::NoSmartCommentsTests' => '0',
+    'Dist::Zilla::Plugin::NoTabsTests' => '0',
+    'Dist::Zilla::Plugin::PodCoverageTests' => '0',
+    'Dist::Zilla::Plugin::PodSyntaxTests' => '0',
+    'Dist::Zilla::Plugin::PodWeaver' => '0',
+    'Dist::Zilla::Plugin::PortabilityTests' => '0',
+    'Dist::Zilla::Plugin::Prepender' => '0',
+    'Dist::Zilla::Plugin::ReadmeFromPod' => '0',
+    'Dist::Zilla::Plugin::ReportVersions' => '0',
+    'Dist::Zilla::Plugin::TaskWeaver' => '0',
+    'Dist::Zilla::Plugin::TestRelease' => '0',
+    'Dist::Zilla::Plugin::UploadToCPAN' => '0',
+    'Dist::Zilla::PluginBundle::Git' => '0',
     'Dist::Zilla::Role::PluginBundle::Easy' => '0',
     'Moose' => '0',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.003',
+  'VERSION' => '0.004',
   'test' => {
     'TESTS' => 't/*.t'
   }
