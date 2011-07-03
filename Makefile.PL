@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-BEGIN { require 5.006; }
+use 5.006;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -28,6 +28,7 @@ my %WriteMakefileArgs = (
   'NAME' => 'Dist::Zilla::PluginBundle::RSRCHBOY',
   'PREREQ_PM' => {
     'Dist::Zilla' => '0',
+    'Dist::Zilla::Plugin::ArchiveRelease' => '0',
     'Dist::Zilla::Plugin::Authority' => '0',
     'Dist::Zilla::Plugin::CheckPrereqsIndexed' => '0',
     'Dist::Zilla::Plugin::CompileTests' => '0',
@@ -39,6 +40,8 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Plugin::GitHub::Meta' => '0',
     'Dist::Zilla::Plugin::GitHub::Update' => '0',
     'Dist::Zilla::Plugin::HasVersionTests' => '0',
+    'Dist::Zilla::Plugin::InstallGuide' => '0',
+    'Dist::Zilla::Plugin::InstallRelease' => '0',
     'Dist::Zilla::Plugin::MetaConfig' => '0',
     'Dist::Zilla::Plugin::MetaJSON' => '0',
     'Dist::Zilla::Plugin::MetaYAML' => '0',
@@ -50,6 +53,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Plugin::PodWeaver' => '0',
     'Dist::Zilla::Plugin::PortabilityTests' => '0',
     'Dist::Zilla::Plugin::Prepender' => '0',
+    'Dist::Zilla::Plugin::ReadmeAnyFromPod' => '0',
     'Dist::Zilla::Plugin::ReadmeFromPod' => '0',
     'Dist::Zilla::Plugin::ReportVersions' => '0',
     'Dist::Zilla::Plugin::TaskWeaver' => '0',
@@ -60,7 +64,7 @@ my %WriteMakefileArgs = (
     'Moose' => '0',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.004',
+  'VERSION' => '0.005',
   'test' => {
     'TESTS' => 't/*.t'
   }

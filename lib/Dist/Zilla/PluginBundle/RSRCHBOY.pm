@@ -12,7 +12,7 @@ BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 BEGIN {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.004';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.005';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -26,6 +26,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 use Dist::Zilla::PluginBundle::Git;
 
 use Dist::Zilla::Plugin::Authority;
+use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::CheckPrereqsIndexed;
 use Dist::Zilla::Plugin::CompileTests;
 use Dist::Zilla::Plugin::ConfirmRelease;
@@ -36,6 +37,8 @@ use Dist::Zilla::Plugin::Git::NextVersion;
 use Dist::Zilla::Plugin::GitHub::Meta;
 use Dist::Zilla::Plugin::GitHub::Update;
 use Dist::Zilla::Plugin::HasVersionTests;
+use Dist::Zilla::Plugin::InstallGuide;
+use Dist::Zilla::Plugin::InstallRelease;
 use Dist::Zilla::Plugin::MetaConfig;
 use Dist::Zilla::Plugin::MetaJSON;
 use Dist::Zilla::Plugin::MetaYAML;
@@ -48,6 +51,7 @@ use Dist::Zilla::Plugin::PodSyntaxTests;
 use Dist::Zilla::Plugin::PortabilityTests;
 use Dist::Zilla::Plugin::Prepender;
 use Dist::Zilla::Plugin::ReadmeFromPod;
+use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 use Dist::Zilla::Plugin::ReportVersions;
 use Dist::Zilla::Plugin::TaskWeaver;
 use Dist::Zilla::Plugin::TestRelease;
@@ -62,6 +66,8 @@ has is_task => (
 
 sub configure {
     my $self = shift @_;
+
+    my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
 
     $self->add_plugins(qw{ NextRelease });
 
@@ -88,8 +94,9 @@ sub configure {
             Manifest
             PkgVersion
             ReadmeFromPod
-            AutoPrereqs
-
+        },
+        [ AutoPrereqs => $autoprereq_opts ],
+        qw{
             ConsistentVersionTest
             PodCoverageTests
             PodSyntaxTests
@@ -153,7 +160,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 DESCRIPTION
 
