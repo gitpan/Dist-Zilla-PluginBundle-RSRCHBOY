@@ -11,8 +11,8 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
-BEGIN {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.005';
+{
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.006';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -28,7 +28,6 @@ use Dist::Zilla::PluginBundle::Git;
 use Dist::Zilla::Plugin::Authority;
 use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::CheckPrereqsIndexed;
-use Dist::Zilla::Plugin::CompileTests;
 use Dist::Zilla::Plugin::ConfirmRelease;
 use Dist::Zilla::Plugin::ConsistentVersionTest;
 use Dist::Zilla::Plugin::EOLTests;
@@ -54,6 +53,7 @@ use Dist::Zilla::Plugin::ReadmeFromPod;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 use Dist::Zilla::Plugin::ReportVersions;
 use Dist::Zilla::Plugin::TaskWeaver;
+use Dist::Zilla::Plugin::Test::Compile;
 use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
@@ -160,7 +160,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 DESCRIPTION
 
