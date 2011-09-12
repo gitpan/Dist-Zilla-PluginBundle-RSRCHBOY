@@ -44,13 +44,13 @@ requires:
   Dist::Zilla::Plugin::PodCoverageTests: 0
   Dist::Zilla::Plugin::PodSyntaxTests: 0
   Dist::Zilla::Plugin::PodWeaver: 0
-  Dist::Zilla::Plugin::PortabilityTests: 0
   Dist::Zilla::Plugin::Prepender: 0
   Dist::Zilla::Plugin::ReadmeAnyFromPod: 0
   Dist::Zilla::Plugin::ReadmeFromPod: 0
   Dist::Zilla::Plugin::ReportVersions: 0
   Dist::Zilla::Plugin::TaskWeaver: 0
   Dist::Zilla::Plugin::Test::Compile: 0
+  Dist::Zilla::Plugin::Test::Portability: 0
   Dist::Zilla::Plugin::TestRelease: 0
   Dist::Zilla::Plugin::UploadToCPAN: 0
   Dist::Zilla::PluginBundle::Git: 0
@@ -61,29 +61,29 @@ resources:
   bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
   homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY/
   repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
-version: 0.006
+version: 0.007
 x_Dist_Zilla:
   plugins:
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@Git/Check'
-      version: 1.112440
+      version: 1.112510
     -
       class: Dist::Zilla::Plugin::Git::Commit
       name: '@Git/Commit'
-      version: 1.112440
+      version: 1.112510
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@Git/Tag'
-      version: 1.112440
+      version: 1.112510
     -
       class: Dist::Zilla::Plugin::Git::Push
       name: '@Git/Push'
-      version: 1.112440
+      version: 1.112510
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
       name: Git::NextVersion
-      version: 1.112440
+      version: 1.112510
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: NextRelease
@@ -149,9 +149,9 @@ x_Dist_Zilla:
       name: HasVersionTests
       version: 1.101420
     -
-      class: Dist::Zilla::Plugin::PortabilityTests
-      name: PortabilityTests
-      version: 1.111840
+      class: Dist::Zilla::Plugin::Test::Portability
+      name: Test::Portability
+      version: 2.0.1
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: ExtraTests
@@ -199,7 +199,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: CheckPrereqsIndexed
-      version: 0.004
+      version: 0.005
     -
       class: Dist::Zilla::Plugin::GitHub::Meta
       name: GitHub::Meta
