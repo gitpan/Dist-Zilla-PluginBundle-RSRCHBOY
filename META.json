@@ -84,7 +84,7 @@
          "web" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY"
       }
    },
-   "version" : "0.007",
+   "version" : "0.008",
    "x_Dist_Zilla" : {
       "plugins" : [
          {

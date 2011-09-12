@@ -12,7 +12,7 @@ BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.007';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.008';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -102,7 +102,6 @@ sub configure {
             PodSyntaxTests
             NoTabsTests
             EOLTests
-            CompileTests
             HasVersionTests
             Test::Portability
             ExtraTests
@@ -160,7 +159,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.007
+version 0.008
 
 =head1 DESCRIPTION
 
