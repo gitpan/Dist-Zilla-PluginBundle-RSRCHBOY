@@ -12,7 +12,7 @@ BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.008';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.009';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -25,7 +25,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 use Dist::Zilla::PluginBundle::Git;
 
-use Dist::Zilla::Plugin::Authority;
+#use Dist::Zilla::Plugin::Authority;
 use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::CheckPrereqsIndexed;
 use Dist::Zilla::Plugin::ConfirmRelease;
@@ -51,9 +51,11 @@ use Dist::Zilla::Plugin::Prepender;
 use Dist::Zilla::Plugin::ReadmeFromPod;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 use Dist::Zilla::Plugin::ReportVersions;
+use Dist::Zilla::Plugin::SurgicalPkgVersion;
 use Dist::Zilla::Plugin::TaskWeaver;
 use Dist::Zilla::Plugin::Test::Compile;
 use Dist::Zilla::Plugin::Test::Portability;
+use Dist::Zilla::Plugin::Test::UseAllModules;
 use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
@@ -68,6 +70,7 @@ sub configure {
     my $self = shift @_;
 
     my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
+    my $prepender_opts  = $self->config_slice({ prepender_skip   => 'skip' });
 
     $self->add_plugins(qw{ NextRelease });
 
@@ -92,10 +95,11 @@ sub configure {
             MakeMaker
             InstallGuide
             Manifest
-            PkgVersion
+            SurgicalPkgVersion
             ReadmeFromPod
         },
         [ AutoPrereqs => $autoprereq_opts ],
+        [ Prepender   => $prepender_opts  ],
         qw{
             ConsistentVersionTest
             PodCoverageTests
@@ -103,14 +107,13 @@ sub configure {
             NoTabsTests
             EOLTests
             HasVersionTests
+            Test::Compile
             Test::Portability
+            Test::UseAllModules
             ExtraTests
             MinimumPerl
             ReportVersions
-            Prepender
             NoSmartCommentsTests
-
-            Authority
 
             MetaConfig
             MetaJSON
@@ -122,8 +125,9 @@ sub configure {
             CheckPrereqsIndexed
 
             GitHub::Meta
-            GitHub::Update
         },
+
+        [ 'GitHub::Update' => { metacpan => 1 } ],
 
         ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
 
@@ -159,7 +163,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 DESCRIPTION
 

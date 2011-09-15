@@ -23,7 +23,6 @@
          "requires" : {
             "Dist::Zilla" : 0,
             "Dist::Zilla::Plugin::ArchiveRelease" : 0,
-            "Dist::Zilla::Plugin::Authority" : 0,
             "Dist::Zilla::Plugin::CheckPrereqsIndexed" : 0,
             "Dist::Zilla::Plugin::ConfirmRelease" : 0,
             "Dist::Zilla::Plugin::ConsistentVersionTest" : 0,
@@ -48,9 +47,11 @@
             "Dist::Zilla::Plugin::ReadmeAnyFromPod" : 0,
             "Dist::Zilla::Plugin::ReadmeFromPod" : 0,
             "Dist::Zilla::Plugin::ReportVersions" : 0,
+            "Dist::Zilla::Plugin::SurgicalPkgVersion" : 0,
             "Dist::Zilla::Plugin::TaskWeaver" : 0,
             "Dist::Zilla::Plugin::Test::Compile" : 0,
             "Dist::Zilla::Plugin::Test::Portability" : 0,
+            "Dist::Zilla::Plugin::Test::UseAllModules" : 0,
             "Dist::Zilla::Plugin::TestRelease" : 0,
             "Dist::Zilla::Plugin::UploadToCPAN" : 0,
             "Dist::Zilla::PluginBundle::Git" : 0,
@@ -84,7 +85,7 @@
          "web" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY"
       }
    },
-   "version" : "0.008",
+   "version" : "0.009",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
