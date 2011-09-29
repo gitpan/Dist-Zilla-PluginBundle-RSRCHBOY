@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 VERSION
-    version 0.009
+    version 0.010
 
 DESCRIPTION
     This is RSRCHBOY's current Dist::Zilla dist.ini config for his packages.

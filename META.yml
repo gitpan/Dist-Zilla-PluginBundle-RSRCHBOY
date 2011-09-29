@@ -14,18 +14,20 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300000, CPAN::Meta::Converter version 2.112150'
+generated_by: 'Dist::Zilla version 4.300002, CPAN::Meta::Converter version 2.112150'
 license: lgpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Dist-Zilla-PluginBundle-RSRCHBOY
 requires:
+  Archive::Tar::Wrapper: 0
   Dist::Zilla: 0
   Dist::Zilla::Plugin::ArchiveRelease: 0
   Dist::Zilla::Plugin::CheckPrereqsIndexed: 0
   Dist::Zilla::Plugin::ConfirmRelease: 0
   Dist::Zilla::Plugin::ConsistentVersionTest: 0
+  Dist::Zilla::Plugin::CopyFilesFromBuild: 0
   Dist::Zilla::Plugin::EOLTests: 0
   Dist::Zilla::Plugin::ExtraTests: 0
   Dist::Zilla::Plugin::Git::NextVersion: 0
@@ -44,6 +46,7 @@ requires:
   Dist::Zilla::Plugin::PodSyntaxTests: 0
   Dist::Zilla::Plugin::PodWeaver: 0
   Dist::Zilla::Plugin::Prepender: 0
+  Dist::Zilla::Plugin::PruneFiles: 0
   Dist::Zilla::Plugin::ReadmeAnyFromPod: 0
   Dist::Zilla::Plugin::ReadmeFromPod: 0
   Dist::Zilla::Plugin::ReportVersions: 0
@@ -57,12 +60,17 @@ requires:
   Dist::Zilla::PluginBundle::Git: 0
   Dist::Zilla::Role::PluginBundle::Easy: 0
   Moose: 0
+  MooseX::AttributeShortcuts: 0
+  Test::NoSmartComments: 0
+  Test::Pod: 0
+  Test::Pod::Content: 0
+  Test::Pod::Coverage: 0
   namespace::autoclean: 0
 resources:
   bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
   homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY/
   repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
-version: 0.009
+version: 0.010
 x_Dist_Zilla:
   plugins:
     -
@@ -88,23 +96,23 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: NextRelease
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: GatherDir
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: PruneCruft
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::License
       name: License
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::MakeMaker
       name: MakeMaker
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::InstallGuide
       name: InstallGuide
@@ -112,11 +120,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Manifest
       name: Manifest
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::PkgVersion
       name: PkgVersion
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::PodWeaver
       name: PodWeaver
@@ -128,11 +136,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: AutoPrereqs
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: PodSyntaxTests
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::NoTabsTests
       name: NoTabsTests
@@ -152,15 +160,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::Portability
       name: Test::Portability
-      version: 2.0.1
+      version: 2.0.2
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: ExtraTests
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::ReportVersions
       name: ReportVersions
-      version: 1.110730
+      version: 1.112720
     -
       class: Dist::Zilla::Plugin::Prepender
       name: Prepender
@@ -172,27 +180,27 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: MetaConfig
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: MetaJSON
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: MetaYAML
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: TestRelease
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: ConfirmRelease
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: UploadToCPAN
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::ArchiveRelease
       name: ArchiveRelease
@@ -220,30 +228,30 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':IncModules'
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 4.300000
+      version: 4.300002
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':MainModule'
-      version: 4.300000
+      version: 4.300002
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: 0
-    version: 4.300000
+    version: 4.300002
 x_authority: cpan:RSRCHBOY
