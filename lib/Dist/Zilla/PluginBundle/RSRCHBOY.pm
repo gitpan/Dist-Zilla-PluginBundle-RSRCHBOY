@@ -12,7 +12,7 @@ BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.010';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.011';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -60,12 +60,11 @@ use Dist::Zilla::Plugin::Prepender;
 use Dist::Zilla::Plugin::PruneFiles;
 use Dist::Zilla::Plugin::ReadmeFromPod;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
-use Dist::Zilla::Plugin::ReportVersions;
+use Dist::Zilla::Plugin::ReportVersions::Tiny;
 use Dist::Zilla::Plugin::SurgicalPkgVersion;
 use Dist::Zilla::Plugin::TaskWeaver;
 use Dist::Zilla::Plugin::Test::Compile;
 use Dist::Zilla::Plugin::Test::Portability;
-use Dist::Zilla::Plugin::Test::UseAllModules;
 use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
@@ -118,10 +117,9 @@ sub configure {
             HasVersionTests
             Test::Compile
             Test::Portability
-            Test::UseAllModules
             ExtraTests
             MinimumPerl
-            ReportVersions
+            ReportVersions::Tiny
             NoSmartCommentsTests
 
             MetaConfig
@@ -181,7 +179,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.010
+version 0.011
 
 =head1 DESCRIPTION
 

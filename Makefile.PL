@@ -57,12 +57,11 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::PruneFiles" => 0,
     "Dist::Zilla::Plugin::ReadmeAnyFromPod" => 0,
     "Dist::Zilla::Plugin::ReadmeFromPod" => 0,
-    "Dist::Zilla::Plugin::ReportVersions" => 0,
+    "Dist::Zilla::Plugin::ReportVersions::Tiny" => 0,
     "Dist::Zilla::Plugin::SurgicalPkgVersion" => 0,
     "Dist::Zilla::Plugin::TaskWeaver" => 0,
     "Dist::Zilla::Plugin::Test::Compile" => 0,
     "Dist::Zilla::Plugin::Test::Portability" => 0,
-    "Dist::Zilla::Plugin::Test::UseAllModules" => 0,
     "Dist::Zilla::Plugin::TestRelease" => 0,
     "Dist::Zilla::Plugin::UploadToCPAN" => 0,
     "Dist::Zilla::PluginBundle::Git" => 0,
@@ -75,7 +74,7 @@ my %WriteMakefileArgs = (
     "Test::Pod::Coverage" => 0,
     "namespace::autoclean" => 0
   },
-  "VERSION" => "0.010",
+  "VERSION" => "0.011",
   "test" => {
     "TESTS" => "t/*.t"
   }

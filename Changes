@@ -1,5 +1,10 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
+0.011     2011-10-27 10:13:25 America/Los_Angeles
+	- switch to ReportVersions::Tiny
+	- drop Test::UseAllModules for the moment, as it dies horribly when
+	  trying to use a role
+
 0.010     2011-09-29 12:03:52 America/Los_Angeles
 	- additional prereqs (generally Test:: modules that the invoking DZ plugin
 	  doesn't explicitly require
