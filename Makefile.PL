@@ -12,12 +12,9 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Zilla your Dists like RSRCHBOY!",
   "AUTHOR" => "Chris Weyl <cweyl\@alumni.drew.edu>",
   "BUILD_REQUIRES" => {
-    "Carp" => 0,
     "File::Find" => 0,
     "File::Temp" => 0,
-    "Scalar::Util" => 0,
-    "Test::More" => "0.94",
-    "perl" => "5.004",
+    "Test::More" => "0.88",
     "strict" => 0,
     "warnings" => 0
   },
@@ -68,13 +65,14 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Moose" => 0,
     "MooseX::AttributeShortcuts" => 0,
+    "Pod::Coverage::TrustPod" => 0,
     "Test::NoSmartComments" => 0,
     "Test::Pod" => 0,
     "Test::Pod::Content" => 0,
     "Test::Pod::Coverage" => 0,
     "namespace::autoclean" => 0
   },
-  "VERSION" => "0.011",
+  "VERSION" => "0.012",
   "test" => {
     "TESTS" => "t/*.t"
   }

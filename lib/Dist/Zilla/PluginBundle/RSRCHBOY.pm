@@ -8,11 +8,8 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
-BEGIN {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
-}
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.011';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.012';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -25,11 +22,12 @@ use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 # additional deps
-use Archive::Tar::Wrapper ( );
-use Test::NoSmartComments ( );
-use Test::Pod::Coverage   ( );
-use Test::Pod             ( );
-use Test::Pod::Content    ( );
+use Archive::Tar::Wrapper   ( );
+use Test::NoSmartComments   ( );
+use Test::Pod::Coverage     ( );
+use Test::Pod               ( );
+use Test::Pod::Content      ( );
+use Pod::Coverage::TrustPod ( );
 
 use Dist::Zilla::PluginBundle::Git;
 
@@ -69,16 +67,27 @@ use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
 has is_task    => (is => 'lazy', isa => 'Bool');
-has is_cat_app => (is => 'lazy', isa => 'Bool');
+has is_app => (is => 'lazy', isa => 'Bool');
+has is_private => (is => 'lazy', isa => 'Bool');
 
-sub _build_is_task    { shift->payload->{task}    }
-sub _build_is_cat_app { shift->payload->{cat_app} }
+sub _build_is_task    { $_[0]->payload->{task}    }
+sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
+sub _build_is_private { $_[0]->payload->{private} }
 
 sub configure {
     my $self = shift @_;
 
     my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
     my $prepender_opts  = $self->config_slice({ prepender_skip   => 'skip' });
+
+    my @private_or_public
+        = $self->is_private
+        ? ()
+        : (
+            qw{ UploadToCPAN GitHub::Meta } ,
+            [ 'GitHub::Update' => { metacpan => 1 } ],
+        )
+        ;
 
     $self->add_plugins(qw{ NextRelease });
 
@@ -128,18 +137,14 @@ sub configure {
 
             TestRelease
             ConfirmRelease
-            UploadToCPAN
             CheckPrereqsIndexed
-
-            GitHub::Meta
         },
 
-        [ 'GitHub::Update' => { metacpan => 1 } ],
+        @private_or_public,
 
         ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
 
-
-        ($self->is_cat_app ?
+        ($self->is_app ?
             (
                [ PruneFiles         => { filenames => 'Makefile.PL' } ],
                [ CopyFilesFromBuild => { copy      => 'Makefile.PL' } ],
@@ -179,7 +184,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.011
+version 0.012
 
 =head1 DESCRIPTION
 

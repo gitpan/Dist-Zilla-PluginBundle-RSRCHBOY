@@ -1,0 +1,121 @@
+use strict;
+use warnings;
+use Test::More 0.88;
+# This is a relatively nice way to avoid Test::NoWarnings breaking our
+# expectations by adding extra tests, without using no_plan.  It also helps
+# avoid any other test module that feels introducing random tests, or even
+# test plans, is a nice idea.
+our $success = 0;
+END { $success && done_testing; }
+
+my $v = "\n";
+
+eval {                     # no excuses!
+    # report our Perl details
+    my $want = "any version";
+    my $pv = ($^V || $]);
+    $v .= "perl: $pv (wanted $want) on $^O from $^X\n\n";
+};
+defined($@) and diag("$@");
+
+# Now, our module version dependencies:
+sub pmver {
+    my ($module, $wanted) = @_;
+    $wanted = " (want $wanted)";
+    my $pmver;
+    eval "require $module;";
+    if ($@) {
+        if ($@ =~ m/Can't locate .* in \@INC/) {
+            $pmver = 'module not found.';
+        } else {
+            diag("${module}: $@");
+            $pmver = 'died during require.';
+        }
+    } else {
+        my $version;
+        eval { $version = $module->VERSION; };
+        if ($@) {
+            diag("${module}: $@");
+            $pmver = 'died during VERSION check.';
+        } elsif (defined $version) {
+            $pmver = "$version";
+        } else {
+            $pmver = '<undef>';
+        }
+    }
+
+    # So, we should be good, right?
+    return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
+}
+
+eval { $v .= pmver('Archive::Tar::Wrapper','any version') };
+eval { $v .= pmver('Dist::Zilla','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::ArchiveRelease','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::CheckPrereqsIndexed','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::ConfirmRelease','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::ConsistentVersionTest','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::CopyFilesFromBuild','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::EOLTests','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::ExtraTests','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::Git::NextVersion','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::GitHub::Meta','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::GitHub::Update','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::HasVersionTests','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::InstallGuide','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::InstallRelease','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::MetaConfig','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::MetaJSON','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::MetaYAML','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::MinimumPerl','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::NoSmartCommentsTests','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::NoTabsTests','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::PodCoverageTests','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::PodSyntaxTests','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::PodWeaver','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::Prepender','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::PruneFiles','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::ReadmeAnyFromPod','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::ReadmeFromPod','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::ReportVersions::Tiny','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::SurgicalPkgVersion','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::TaskWeaver','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::Test::Compile','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::Test::Portability','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::TestRelease','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::UploadToCPAN','any version') };
+eval { $v .= pmver('Dist::Zilla::PluginBundle::Git','any version') };
+eval { $v .= pmver('Dist::Zilla::Role::PluginBundle::Easy','any version') };
+eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
+eval { $v .= pmver('File::Find','any version') };
+eval { $v .= pmver('File::Temp','any version') };
+eval { $v .= pmver('Moose','any version') };
+eval { $v .= pmver('MooseX::AttributeShortcuts','any version') };
+eval { $v .= pmver('Pod::Coverage::TrustPod','any version') };
+eval { $v .= pmver('Test::More','0.88') };
+eval { $v .= pmver('Test::NoSmartComments','any version') };
+eval { $v .= pmver('Test::Pod','any version') };
+eval { $v .= pmver('Test::Pod::Content','any version') };
+eval { $v .= pmver('Test::Pod::Coverage','any version') };
+eval { $v .= pmver('namespace::autoclean','any version') };
+eval { $v .= pmver('strict','any version') };
+eval { $v .= pmver('warnings','any version') };
+
+
+
+# All done.
+$v .= <<'EOT';
+
+Thanks for using my code.  I hope it works for you.
+If not, please try and include this output in the bug report.
+That will help me reproduce the issue and solve you problem.
+
+EOT
+
+diag($v);
+ok(1, "we really didn't test anything, just reporting data");
+$success = 1;
+
+# Work around another nasty module on CPAN. :/
+no warnings 'once';
+$Template::Test::NO_FLUSH = 1;
+exit 0;

@@ -5,12 +5,11 @@ MANIFEST
 META.json
 META.yml
 Makefile.PL
-README
 dist.ini
 lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
 t/00-compile.t
 t/00-load.t
-t/000-report-versions.t
+t/000-report-versions-tiny.t
 t/release-eol.t
 t/release-has-version.t
 t/release-no-tabs.t
