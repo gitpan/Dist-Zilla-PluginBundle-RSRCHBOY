@@ -91,6 +91,7 @@ eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('MooseX::AttributeShortcuts','any version') };
 eval { $v .= pmver('Pod::Coverage::TrustPod','any version') };
+eval { $v .= pmver('Pod::Weaver::Config::Assembler','any version') };
 eval { $v .= pmver('Test::More','0.88') };
 eval { $v .= pmver('Test::NoSmartComments','any version') };
 eval { $v .= pmver('Test::Pod','any version') };

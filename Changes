@@ -1,6 +1,10 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
-0.012     2012-01-10 11:08:10 America/Los_Angeles
+0.013     2012-01-23 19:09:55 America/Los_Angeles
+	- switch prereqs indexed? release plugin to before confirm release
+	- add initial Pod::Weaver config bundle
+
+0.012
 	- change "cat_app" option to just "app"; preserve cat_app for legacy
 	- dist.ini tweaks
 

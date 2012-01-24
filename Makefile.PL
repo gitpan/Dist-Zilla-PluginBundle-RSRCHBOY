@@ -14,9 +14,7 @@ my %WriteMakefileArgs = (
   "BUILD_REQUIRES" => {
     "File::Find" => 0,
     "File::Temp" => 0,
-    "Test::More" => "0.88",
-    "strict" => 0,
-    "warnings" => 0
+    "Test::More" => "0.88"
   },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
@@ -66,13 +64,16 @@ my %WriteMakefileArgs = (
     "Moose" => 0,
     "MooseX::AttributeShortcuts" => 0,
     "Pod::Coverage::TrustPod" => 0,
+    "Pod::Weaver::Config::Assembler" => 0,
     "Test::NoSmartComments" => 0,
     "Test::Pod" => 0,
     "Test::Pod::Content" => 0,
     "Test::Pod::Coverage" => 0,
-    "namespace::autoclean" => 0
+    "namespace::autoclean" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
-  "VERSION" => "0.012",
+  "VERSION" => "0.013",
   "test" => {
     "TESTS" => "t/*.t"
   }

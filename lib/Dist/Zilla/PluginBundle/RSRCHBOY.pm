@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.012';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.013';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -67,7 +67,7 @@ use Dist::Zilla::Plugin::TestRelease;
 use Dist::Zilla::Plugin::UploadToCPAN;
 
 has is_task    => (is => 'lazy', isa => 'Bool');
-has is_app => (is => 'lazy', isa => 'Bool');
+has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 
 sub _build_is_task    { $_[0]->payload->{task}    }
@@ -136,13 +136,16 @@ sub configure {
             MetaYAML
 
             TestRelease
-            ConfirmRelease
             CheckPrereqsIndexed
+            ConfirmRelease
         },
 
         @private_or_public,
 
-        ($self->is_task ? 'TaskWeaver' : 'PodWeaver'),
+        ($self->is_task
+            ? 'TaskWeaver'
+            : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
+        ),
 
         ($self->is_app ?
             (
@@ -184,7 +187,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.012
+version 0.013
 
 =head1 DESCRIPTION
 

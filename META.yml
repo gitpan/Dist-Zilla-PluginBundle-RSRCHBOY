@@ -6,8 +6,6 @@ build_requires:
   File::Find: 0
   File::Temp: 0
   Test::More: 0.88
-  strict: 0
-  warnings: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
@@ -58,16 +56,19 @@ requires:
   Moose: 0
   MooseX::AttributeShortcuts: 0
   Pod::Coverage::TrustPod: 0
+  Pod::Weaver::Config::Assembler: 0
   Test::NoSmartComments: 0
   Test::Pod: 0
   Test::Pod::Content: 0
   Test::Pod::Coverage: 0
   namespace::autoclean: 0
+  strict: 0
+  warnings: 0
 resources:
   bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
   homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-RSRCHBOY/
   repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
-version: 0.012
+version: 0.013
 x_Dist_Zilla:
   plugins:
     -
