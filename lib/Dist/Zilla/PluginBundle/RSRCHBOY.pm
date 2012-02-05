@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.013';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.014';
 }
 
 # ABSTRACT: Zilla your Dists like RSRCHBOY!
@@ -20,6 +20,8 @@ use MooseX::AttributeShortcuts;
 
 use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
+
+use Path::Class;
 
 # additional deps
 use Archive::Tar::Wrapper   ( );
@@ -89,6 +91,13 @@ sub configure {
         )
         ;
 
+    # if we have a weaver.ini, use that; otherwise use our bundle
+    my $podweaver
+        = file('weaver.ini')->stat
+        ? 'PodWeaver'
+        : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
+        ;
+
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
@@ -142,10 +151,7 @@ sub configure {
 
         @private_or_public,
 
-        ($self->is_task
-            ? 'TaskWeaver'
-            : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
-        ),
+        ($self->is_task ? 'TaskWeaver' : $podweaver),
 
         ($self->is_app ?
             (
@@ -187,7 +193,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your Dists like RSRCHBOY!
 
 =head1 VERSION
 
-version 0.013
+version 0.014
 
 =head1 DESCRIPTION
 

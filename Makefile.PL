@@ -63,8 +63,11 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Moose" => 0,
     "MooseX::AttributeShortcuts" => 0,
+    "Path::Class" => 0,
     "Pod::Coverage::TrustPod" => 0,
     "Pod::Weaver::Config::Assembler" => 0,
+    "Pod::Weaver::Section::SeeAlso" => 0,
+    "Pod::Weaver::Section::SourceGitHub" => 0,
     "Test::NoSmartComments" => 0,
     "Test::Pod" => 0,
     "Test::Pod::Content" => 0,
@@ -73,7 +76,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.013",
+  "VERSION" => "0.014",
   "test" => {
     "TESTS" => "t/*.t"
   }
