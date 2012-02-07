@@ -12,7 +12,7 @@ my $v = "\n";
 
 eval {                     # no excuses!
     # report our Perl details
-    my $want = "any version";
+    my $want = '5.006';
     my $pv = ($^V || $]);
     $v .= "perl: $pv (wanted $want) on $^O from $^X\n\n";
 };
@@ -80,10 +80,12 @@ eval { $v .= pmver('Dist::Zilla::Plugin::ReportVersions::Tiny','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::SurgicalPkgVersion','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::TaskWeaver','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Test::Compile','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::Test::PodSpelling','2.002001') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Test::Portability','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::TestRelease','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::UploadToCPAN','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Git','any version') };
+eval { $v .= pmver('Dist::Zilla::PluginBundle::Git::CheckFor','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::PluginBundle::Easy','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };

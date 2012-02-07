@@ -2,14 +2,14 @@
 use strict;
 use warnings;
 
-
+use 5.006;
 
 use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Zilla your Dists like RSRCHBOY!",
+  "ABSTRACT" => "Zilla your distributions like RSRCHBOY!",
   "AUTHOR" => "Chris Weyl <cweyl\@alumni.drew.edu>",
   "BUILD_REQUIRES" => {
     "File::Find" => 0,
@@ -56,10 +56,12 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::SurgicalPkgVersion" => 0,
     "Dist::Zilla::Plugin::TaskWeaver" => 0,
     "Dist::Zilla::Plugin::Test::Compile" => 0,
+    "Dist::Zilla::Plugin::Test::PodSpelling" => "2.002001",
     "Dist::Zilla::Plugin::Test::Portability" => 0,
     "Dist::Zilla::Plugin::TestRelease" => 0,
     "Dist::Zilla::Plugin::UploadToCPAN" => 0,
     "Dist::Zilla::PluginBundle::Git" => 0,
+    "Dist::Zilla::PluginBundle::Git::CheckFor" => 0,
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Moose" => 0,
     "MooseX::AttributeShortcuts" => 0,
@@ -76,7 +78,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.014",
+  "VERSION" => "0.015",
   "test" => {
     "TESTS" => "t/*.t"
   }

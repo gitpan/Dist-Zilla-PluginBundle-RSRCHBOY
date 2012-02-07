@@ -1,4 +1,4 @@
-#!perl
+#!/usr/bin/env perl
 
 BEGIN {
   unless ($ENV{RELEASE_TESTING}) {
@@ -16,9 +16,16 @@ BEGIN {
 #
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
-use Test::More;
 
-eval "use Test::Pod 1.41";
-plan skip_all => "Test::Pod 1.41 required for testing POD" if $@;
+use strict;
+use warnings;
 
-all_pod_files_ok();
+use Test::More 0.88;
+
+eval "use Test::NoSmartComments";
+plan skip_all => 'Test::NoSmartComments required for checking comment IQ'
+    if $@;
+
+no_smart_comments_in_all();
+
+done_testing();

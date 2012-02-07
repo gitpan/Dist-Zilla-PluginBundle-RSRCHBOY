@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.014';
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.015';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -26,12 +26,14 @@ use Pod::Weaver::Config::Assembler;
 sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
 sub _exp2 { [ "\@RSRCHBOY/$_[0]", _exp($_[0]), {} ] }
 
+my $vformat = 'This document describes %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
+
 sub mvp_bundle_config {
     return (
         [ '@RSRCHBOY/CorePrep',  _exp('@CorePrep'),    {} ],
         _exp2('Name'),
-        _exp2('Version'),
-        [ '@RSRCHBOY/prelude',   _exp('Region'),       { region_name => 'prelude' } ],
+        [ '@RSRCHBOY/Version', _exp('Version'),      { format      => $vformat  } ],
+        [ '@RSRCHBOY/prelude', _exp('Region'),      { region_name => 'prelude' } ],
 
         [ 'SYNOPSIS',         _exp('Generic'),      {} ],
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
@@ -65,13 +67,15 @@ sub mvp_bundle_config {
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-version 0.014
+This document describes 0.015 of Pod::Weaver::PluginBundle::RSRCHBOY - released February 06, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -131,6 +135,32 @@ This plugin bundle is equivalent to the following weaver.ini file:
   [-Encoding]
 
 =for Pod::Coverage mvp_bundle_config
+
+=head1 SEE ALSO
+
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
+L<Dist::Zilla::PluginBundle::RSRCHBOY|Dist::Zilla::PluginBundle::RSRCHBOY>
+
+=back
+
+=head1 SOURCE
+
+The development version is on github at L<http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
+and may be cloned from L<git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 

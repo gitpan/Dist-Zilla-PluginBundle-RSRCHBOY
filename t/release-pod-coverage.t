@@ -16,9 +16,15 @@ BEGIN {
 #
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
+
 use Test::More;
 
-eval "use Test::Pod 1.41";
-plan skip_all => "Test::Pod 1.41 required for testing POD" if $@;
+eval "use Test::Pod::Coverage 1.08";
+plan skip_all => "Test::Pod::Coverage 1.08 required for testing POD coverage"
+  if $@;
 
-all_pod_files_ok();
+eval "use Pod::Coverage::TrustPod";
+plan skip_all => "Pod::Coverage::TrustPod required for testing POD coverage"
+  if $@;
+
+all_pod_coverage_ok({ coverage_class => 'Pod::Coverage::TrustPod' });
