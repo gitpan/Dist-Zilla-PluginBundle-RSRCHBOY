@@ -67,6 +67,7 @@ my %WriteMakefileArgs = (
     "MooseX::AttributeShortcuts" => 0,
     "Path::Class" => 0,
     "Pod::Coverage::TrustPod" => 0,
+    "Pod::Elemental::Transformer::List" => 0,
     "Pod::Weaver::Config::Assembler" => 0,
     "Pod::Weaver::Section::SeeAlso" => 0,
     "Pod::Weaver::Section::SourceGitHub" => 0,
@@ -78,7 +79,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.015",
+  "VERSION" => "0.016",
   "test" => {
     "TESTS" => "t/*.t"
   }

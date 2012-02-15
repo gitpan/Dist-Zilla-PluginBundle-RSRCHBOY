@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.015';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.016';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -135,6 +135,8 @@ sub configure {
                 RSRCHBOY
                 RSRCHBOY's
                 ini
+                metaclass
+                metaclasses
                 subclasses
             } ] },
         ],
@@ -208,7 +210,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes 0.015 of Dist::Zilla::PluginBundle::RSRCHBOY - released February 06, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes 0.016 of Dist::Zilla::PluginBundle::RSRCHBOY - released February 14, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

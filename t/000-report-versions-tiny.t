@@ -94,6 +94,7 @@ eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('MooseX::AttributeShortcuts','any version') };
 eval { $v .= pmver('Path::Class','any version') };
 eval { $v .= pmver('Pod::Coverage::TrustPod','any version') };
+eval { $v .= pmver('Pod::Elemental::Transformer::List','any version') };
 eval { $v .= pmver('Pod::Weaver::Config::Assembler','any version') };
 eval { $v .= pmver('Pod::Weaver::Section::SeeAlso','any version') };
 eval { $v .= pmver('Pod::Weaver::Section::SourceGitHub','any version') };
