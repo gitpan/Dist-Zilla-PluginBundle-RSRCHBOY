@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.016';
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.017';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -19,6 +19,7 @@ use warnings;
 
 # for prereqs
 use Pod::Elemental::Transformer::List  ( );
+use Pod::Weaver::Plugin::Encoding      ( );
 use Pod::Weaver::Section::SeeAlso      ( );
 use Pod::Weaver::Section::SourceGitHub ( );
 
@@ -76,7 +77,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes 0.016 of Pod::Weaver::PluginBundle::RSRCHBOY - released February 14, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes 0.017 of Pod::Weaver::PluginBundle::RSRCHBOY - released March 09, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

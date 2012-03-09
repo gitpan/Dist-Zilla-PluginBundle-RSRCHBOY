@@ -3,8 +3,8 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes 0.016 of Dist::Zilla::PluginBundle::RSRCHBOY -
-    released February 14, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+    This document describes 0.017 of Dist::Zilla::PluginBundle::RSRCHBOY -
+    released March 09, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
         # in your dist.ini...
