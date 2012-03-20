@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.017';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.018';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -210,7 +210,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes 0.017 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 09, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.018 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 20, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

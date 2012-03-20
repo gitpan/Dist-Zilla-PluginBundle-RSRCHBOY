@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.017';
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.018';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -28,7 +28,7 @@ use Pod::Weaver::Config::Assembler;
 sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
 sub _exp2 { [ "\@RSRCHBOY/$_[0]", _exp($_[0]), {} ] }
 
-my $vformat = 'This document describes %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
+my $vformat = 'This document describes version %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
 
 sub mvp_bundle_config {
     return (
@@ -77,7 +77,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes 0.017 of Pod::Weaver::PluginBundle::RSRCHBOY - released March 09, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.018 of Pod::Weaver::PluginBundle::RSRCHBOY - released March 20, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

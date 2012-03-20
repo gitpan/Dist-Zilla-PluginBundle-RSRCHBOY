@@ -104,6 +104,7 @@ eval { $v .= pmver('Test::NoSmartComments','any version') };
 eval { $v .= pmver('Test::Pod','any version') };
 eval { $v .= pmver('Test::Pod::Content','any version') };
 eval { $v .= pmver('Test::Pod::Coverage','any version') };
+eval { $v .= pmver('Test::Requires','any version') };
 eval { $v .= pmver('namespace::autoclean','any version') };
 eval { $v .= pmver('strict','any version') };
 eval { $v .= pmver('warnings','any version') };
