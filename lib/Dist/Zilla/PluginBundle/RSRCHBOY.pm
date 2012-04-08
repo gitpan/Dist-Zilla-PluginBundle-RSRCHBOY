@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.018';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.019';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -76,6 +76,7 @@ sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 
+
 sub configure {
     my $self = shift @_;
 
@@ -101,7 +102,7 @@ sub configure {
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
-        allow_dirty => [ qw{ dist.ini README.pod Changes } ],
+        allow_dirty => [ qw{ dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
     });
 
@@ -128,18 +129,7 @@ sub configure {
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
-        [ 'Test::PodSpelling' => {
-            stopwords => [ qw{
-                AFAICT
-                ABEND
-                RSRCHBOY
-                RSRCHBOY's
-                ini
-                metaclass
-                metaclasses
-                subclasses
-            } ] },
-        ],
+        [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
         qw{
 
             ConsistentVersionTest
@@ -194,6 +184,23 @@ sub configure {
     return;
 }
 
+
+sub stopwords {
+
+    return qw{
+        AFAICT
+        ABEND
+        RSRCHBOY
+        RSRCHBOY's
+        ini
+        metaclass
+        metaclasses
+        parameterized
+        parameterization
+        subclasses
+    };
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
@@ -210,7 +217,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.018 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 20, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.019 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 07, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -223,7 +230,29 @@ This is RSRCHBOY's current L<Dist::Zilla> dist.ini config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
 
+=head1 METHODS
+
+=head2 configure
+
+Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
+
+=head2 stopwords
+
+A list of words our POD spell checker should ignore.
+
 =for Pod::Coverage configure
+
+=head1 SEE ALSO
+
+Please see those modules/websites for more information related to this module.
+
+=over 4
+
+=item *
+
+L<Dist::Zilla::Role::PluginBundle::Easy>
+
+=back
 
 =head1 SOURCE
 

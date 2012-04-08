@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.018';
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.019';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -43,6 +43,7 @@ sub mvp_bundle_config {
 
         [ 'ATTRIBUTES',       _exp('Collect'),      { command => 'attr'   } ],
         [ 'METHODS',          _exp('Collect'),      { command => 'method' } ],
+        [ 'REQUIRED METHODS', _exp('Collect'),      { command => 'required_method' } ],
         [ 'FUNCTIONS',        _exp('Collect'),      { command => 'func'   } ],
         [ 'TYPES',            _exp('Collect'),      { command => 'type'   } ],
         [ 'TEST_FUNCTIONS',   _exp('Collect'),      { command => 'test'   } ],
@@ -77,7 +78,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.018 of Pod::Weaver::PluginBundle::RSRCHBOY - released March 20, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.019 of Pod::Weaver::PluginBundle::RSRCHBOY - released April 07, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

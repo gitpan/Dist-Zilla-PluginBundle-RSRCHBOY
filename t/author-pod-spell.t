@@ -26,6 +26,8 @@ RSRCHBOY's
 ini
 metaclass
 metaclasses
+parameterized
+parameterization
 subclasses
 Chris
 Weyl
