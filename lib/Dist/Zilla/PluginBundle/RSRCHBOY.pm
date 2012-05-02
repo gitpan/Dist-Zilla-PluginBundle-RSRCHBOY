@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.019';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.020';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -109,7 +109,7 @@ sub configure {
     $self->add_plugins([ 'Git::NextVersion' =>
         #;first_version = 0.001       ; this is the default
         #;version_regexp  = ^v(.+)$   ; this is the default
-        { version_regexp => '^(\d.\d+)$' },
+        { version_regexp => '^(\d.\d+)(-TRIAL|)$' },
     ]);
 
     $self->add_bundle('Git::CheckFor');
@@ -217,7 +217,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.019 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 07, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.020 of Dist::Zilla::PluginBundle::RSRCHBOY - released May 02, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
