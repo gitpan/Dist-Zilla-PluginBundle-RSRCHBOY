@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.020';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.021'; # TRIAL
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -77,6 +77,17 @@ sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 
 
+sub copy_from_build {
+    my ($self) = @_;
+
+    my @copy= qw{ LICENSE };
+    push @copy, 'Makefile.PL'
+        if $self->is_app;
+
+    return @copy;
+}
+
+
 sub configure {
     my $self = shift @_;
 
@@ -102,7 +113,7 @@ sub configure {
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
-        allow_dirty => [ qw{ dist.ini weaver.ini README.pod Changes } ],
+        allow_dirty => [ qw{ LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
     });
 
@@ -158,13 +169,8 @@ sub configure {
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
 
-        ($self->is_app ?
-            (
-               [ PruneFiles         => { filenames => 'Makefile.PL' } ],
-               [ CopyFilesFromBuild => { copy      => 'Makefile.PL' } ],
-            )
-            : ()
-        ),
+        [ PruneFiles => { filenames => [ $self->copy_from_build ] } ],
+        [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
 
         [ ReadmeAnyFromPod  => ReadmePodInRoot => {
             type     => 'pod',
@@ -217,7 +223,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.020 of Dist::Zilla::PluginBundle::RSRCHBOY - released May 02, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.021 of Dist::Zilla::PluginBundle::RSRCHBOY - released May 29, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -231,6 +237,10 @@ He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
 
 =head1 METHODS
+
+=head2 copy_from_build
+
+Returns a list of files that, once built, will be copied back into the root.
 
 =head2 configure
 
