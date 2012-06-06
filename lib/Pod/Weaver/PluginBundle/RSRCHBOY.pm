@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.021'; # TRIAL
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.022';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -20,6 +20,7 @@ use warnings;
 # for prereqs
 use Pod::Elemental::Transformer::List  ( );
 use Pod::Weaver::Plugin::Encoding      ( );
+use Pod::Weaver::Plugin::StopWords     ( );
 use Pod::Weaver::Section::SeeAlso      ( );
 use Pod::Weaver::Section::SourceGitHub ( );
 
@@ -32,7 +33,8 @@ my $vformat = 'This document describes version %v of %m - released %{LLLL dd, yy
 
 sub mvp_bundle_config {
     return (
-        [ '@RSRCHBOY/CorePrep',  _exp('@CorePrep'),    {} ],
+        [ '@RSRCHBOY/StopWords', _exp('-StopWords'), {} ],
+        [ '@RSRCHBOY/CorePrep',  _exp('@CorePrep'),  {} ],
         _exp2('Name'),
         [ '@RSRCHBOY/Version', _exp('Version'),      { format      => $vformat  } ],
         [ '@RSRCHBOY/prelude', _exp('Region'),      { region_name => 'prelude' } ],
@@ -72,13 +74,15 @@ sub mvp_bundle_config {
 
 =encoding utf-8
 
+=for :stopwords Chris Weyl
+
 =head1 NAME
 
 Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.021 of Pod::Weaver::PluginBundle::RSRCHBOY - released May 29, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.022 of Pod::Weaver::PluginBundle::RSRCHBOY - released June 06, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.021'; # TRIAL
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.022';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -71,10 +71,12 @@ use Pod::Coverage::TrustPod ( );
 has is_task    => (is => 'lazy', isa => 'Bool');
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
+has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
 sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
+sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
 
 sub copy_from_build {
@@ -88,20 +90,50 @@ sub copy_from_build {
 }
 
 
+sub release_plugins {
+
+    return (
+        qw{
+            UploadToCPAN
+            GitHub::Meta
+            CheckPrereqsIndexed
+        } ,
+        [ 'GitHub::Update' => { metacpan => 1 } ],
+        [ ArchiveRelease => {
+            directory => 'releases',
+        }],
+    );
+}
+
+
+sub author_tests {
+    my ($self) = @_;
+
+    return () if $self->rapid_dev;
+
+    return (
+        [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
+        qw{
+            ConsistentVersionTest
+            PodCoverageTests
+            PodSyntaxTests
+            NoTabsTests
+            EOLTests
+            HasVersionTests
+            Test::Compile
+            Test::Portability
+            ExtraTests
+            NoSmartCommentsTests
+        },
+    );
+}
+
+
 sub configure {
     my $self = shift @_;
 
     my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
     my $prepender_opts  = $self->config_slice({ prepender_skip   => 'skip' });
-
-    my @private_or_public
-        = $self->is_private
-        ? ()
-        : (
-            qw{ UploadToCPAN GitHub::Meta } ,
-            [ 'GitHub::Update' => { metacpan => 1 } ],
-        )
-        ;
 
     # if we have a weaver.ini, use that; otherwise use our bundle
     my $podweaver
@@ -113,7 +145,7 @@ sub configure {
     $self->add_plugins(qw{ NextRelease });
 
     $self->add_bundle(Git => {
-        allow_dirty => [ qw{ LICENSE dist.ini weaver.ini README.pod Changes } ],
+        allow_dirty => [ qw{ .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
     });
 
@@ -140,32 +172,22 @@ sub configure {
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
-        [ 'Test::PodSpelling' => { stopwords => [ $self->stopwords ] } ],
-        qw{
 
-            ConsistentVersionTest
-            PodCoverageTests
-            PodSyntaxTests
-            NoTabsTests
-            EOLTests
-            HasVersionTests
-            Test::Compile
-            Test::Portability
-            ExtraTests
+        $self->author_tests,
+
+        qw{
             MinimumPerl
             ReportVersions::Tiny
-            NoSmartCommentsTests
 
             MetaConfig
             MetaJSON
             MetaYAML
 
             TestRelease
-            CheckPrereqsIndexed
             ConfirmRelease
         },
 
-        @private_or_public,
+        $self->release_plugins,
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
 
@@ -176,10 +198,6 @@ sub configure {
             type     => 'pod',
             filename => 'README.pod',
             location => 'root',
-        }],
-
-        [ ArchiveRelease => {
-            directory => 'releases',
         }],
 
         [ InstallRelease => {
@@ -217,13 +235,15 @@ __PACKAGE__->meta->make_immutable;
 
 =encoding utf-8
 
+=for :stopwords Chris Weyl
+
 =head1 NAME
 
 Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.021 of Dist::Zilla::PluginBundle::RSRCHBOY - released May 29, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.022 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 06, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -241,6 +261,12 @@ this being too terribly consistent/sane until the version gets to 1.
 =head2 copy_from_build
 
 Returns a list of files that, once built, will be copied back into the root.
+
+=head2 release_plugins
+
+Plugin configuration for public release.
+
+=head2 author_tests
 
 =head2 configure
 

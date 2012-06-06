@@ -3,8 +3,8 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes version 0.021 of
-    Dist::Zilla::PluginBundle::RSRCHBOY - released May 29, 2012 as part of
+    This document describes version 0.022 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released June 06, 2012 as part of
     Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
@@ -21,6 +21,10 @@ METHODS
     Returns a list of files that, once built, will be copied back into the
     root.
 
+  release_plugins
+    Plugin configuration for public release.
+
+  author_tests
   configure
     Preps plugin lists / config; see Dist::Zilla::Role::PluginBundle::Easy.
 
