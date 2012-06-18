@@ -41,6 +41,8 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::InstallRelease" => 0,
     "Dist::Zilla::Plugin::MetaConfig" => 0,
     "Dist::Zilla::Plugin::MetaJSON" => 0,
+    "Dist::Zilla::Plugin::MetaNoIndex" => 0,
+    "Dist::Zilla::Plugin::MetaProvides::Package" => 0,
     "Dist::Zilla::Plugin::MetaYAML" => 0,
     "Dist::Zilla::Plugin::MinimumPerl" => 0,
     "Dist::Zilla::Plugin::NoSmartCommentsTests" => 0,
@@ -71,6 +73,7 @@ my %WriteMakefileArgs = (
     "Pod::Weaver::Config::Assembler" => 0,
     "Pod::Weaver::Plugin::Encoding" => 0,
     "Pod::Weaver::Plugin::StopWords" => 0,
+    "Pod::Weaver::Section::Consumes" => 0,
     "Pod::Weaver::Section::SeeAlso" => 0,
     "Pod::Weaver::Section::SourceGitHub" => 0,
     "Test::NoSmartComments" => 0,
@@ -81,7 +84,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.022",
+  "VERSION" => "0.023",
   "test" => {
     "TESTS" => "t/*.t"
   }

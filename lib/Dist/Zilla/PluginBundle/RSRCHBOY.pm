@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.022';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.023'; # TRIAL
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -41,6 +41,8 @@ use Dist::Zilla::Plugin::InstallRelease             ( );
 use Dist::Zilla::Plugin::MetaConfig                 ( );
 use Dist::Zilla::Plugin::MetaJSON                   ( );
 use Dist::Zilla::Plugin::MetaYAML                   ( );
+use Dist::Zilla::Plugin::MetaNoIndex                ( );
+use Dist::Zilla::Plugin::MetaProvides::Package      ( );
 use Dist::Zilla::Plugin::MinimumPerl                ( );
 use Dist::Zilla::Plugin::NoSmartCommentsTests       ( );
 use Dist::Zilla::Plugin::NoTabsTests                ( );
@@ -94,10 +96,11 @@ sub release_plugins {
 
     return (
         qw{
+            TestRelease
+            ConfirmRelease
             UploadToCPAN
-            GitHub::Meta
             CheckPrereqsIndexed
-        } ,
+        },
         [ 'GitHub::Update' => { metacpan => 1 } ],
         [ ArchiveRelease => {
             directory => 'releases',
@@ -125,6 +128,17 @@ sub author_tests {
             ExtraTests
             NoSmartCommentsTests
         },
+    );
+}
+
+
+sub meta_provider_plugins {
+    my ($self) = @_;
+
+    return (
+        qw{ GitHub::Meta MetaConfig MetaJSON MetaYAML },
+        [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
+        'MetaProvides::Package',
     );
 }
 
@@ -178,15 +192,9 @@ sub configure {
         qw{
             MinimumPerl
             ReportVersions::Tiny
-
-            MetaConfig
-            MetaJSON
-            MetaYAML
-
-            TestRelease
-            ConfirmRelease
         },
 
+        $self->meta_provider_plugins,
         $self->release_plugins,
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
@@ -243,7 +251,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.022 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 06, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.023 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 18, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -256,6 +264,16 @@ This is RSRCHBOY's current L<Dist::Zilla> dist.ini config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
 
+=head1 CONSUMES
+
+=over 4
+
+=item * L<Dist::Zilla::Role::PluginBundle::Easy>
+
+=item * L<Dist::Zilla::Role::PluginBundle>
+
+=back
+
 =head1 METHODS
 
 =head2 copy_from_build
@@ -267,6 +285,10 @@ Returns a list of files that, once built, will be copied back into the root.
 Plugin configuration for public release.
 
 =head2 author_tests
+
+=head2 meta_provider_plugins
+
+Plugins that mess about with what goes into META.*.
 
 =head2 configure
 

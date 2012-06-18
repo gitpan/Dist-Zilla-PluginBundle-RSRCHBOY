@@ -3,8 +3,8 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes version 0.022 of
-    Dist::Zilla::PluginBundle::RSRCHBOY - released June 06, 2012 as part of
+    This document describes version 0.023 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released June 18, 2012 as part of
     Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
@@ -16,6 +16,11 @@ DESCRIPTION
     He's still figuring this all out, so it's probably wise to not depend on
     this being too terribly consistent/sane until the version gets to 1.
 
+CONSUMES
+    *   Dist::Zilla::Role::PluginBundle::Easy
+
+    *   Dist::Zilla::Role::PluginBundle
+
 METHODS
   copy_from_build
     Returns a list of files that, once built, will be copied back into the
@@ -25,6 +30,9 @@ METHODS
     Plugin configuration for public release.
 
   author_tests
+  meta_provider_plugins
+    Plugins that mess about with what goes into META.*.
+
   configure
     Preps plugin lists / config; see Dist::Zilla::Role::PluginBundle::Easy.
 
