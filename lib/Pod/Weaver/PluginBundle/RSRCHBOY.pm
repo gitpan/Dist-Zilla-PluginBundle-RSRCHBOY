@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.023'; # TRIAL
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.024';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -21,7 +21,6 @@ use warnings;
 use Pod::Elemental::Transformer::List  ( );
 use Pod::Weaver::Plugin::Encoding      ( );
 use Pod::Weaver::Plugin::StopWords     ( );
-use Pod::Weaver::Section::Consumes     ( );
 use Pod::Weaver::Section::SeeAlso      ( );
 use Pod::Weaver::Section::SourceGitHub ( );
 
@@ -44,7 +43,6 @@ sub mvp_bundle_config {
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
         [ 'OVERVIEW',         _exp('Generic'),      {} ],
 
-        _exp2('Consumes'),
         [ 'ATTRIBUTES',       _exp('Collect'),      { command => 'attr'   } ],
         [ 'METHODS',          _exp('Collect'),      { command => 'method' } ],
         [ 'REQUIRED METHODS', _exp('Collect'),      { command => 'required_method' } ],
@@ -84,7 +82,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.023 of Pod::Weaver::PluginBundle::RSRCHBOY - released June 18, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.024 of Pod::Weaver::PluginBundle::RSRCHBOY - released June 20, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

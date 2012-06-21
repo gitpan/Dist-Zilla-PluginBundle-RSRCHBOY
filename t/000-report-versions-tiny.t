@@ -100,7 +100,6 @@ eval { $v .= pmver('Pod::Elemental::Transformer::List','any version') };
 eval { $v .= pmver('Pod::Weaver::Config::Assembler','any version') };
 eval { $v .= pmver('Pod::Weaver::Plugin::Encoding','any version') };
 eval { $v .= pmver('Pod::Weaver::Plugin::StopWords','any version') };
-eval { $v .= pmver('Pod::Weaver::Section::Consumes','any version') };
 eval { $v .= pmver('Pod::Weaver::Section::SeeAlso','any version') };
 eval { $v .= pmver('Pod::Weaver::Section::SourceGitHub','any version') };
 eval { $v .= pmver('Test::More','0.88') };

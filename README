@@ -3,8 +3,8 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes version 0.023 of
-    Dist::Zilla::PluginBundle::RSRCHBOY - released June 18, 2012 as part of
+    This document describes version 0.024 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released June 20, 2012 as part of
     Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
@@ -15,11 +15,6 @@ DESCRIPTION
     This is RSRCHBOY's current Dist::Zilla dist.ini config for his packages.
     He's still figuring this all out, so it's probably wise to not depend on
     this being too terribly consistent/sane until the version gets to 1.
-
-CONSUMES
-    *   Dist::Zilla::Role::PluginBundle::Easy
-
-    *   Dist::Zilla::Role::PluginBundle
 
 METHODS
   copy_from_build

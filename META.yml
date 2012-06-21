@@ -22,10 +22,10 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::RSRCHBOY:
     file: lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
-    version: 0.023
+    version: 0.024
   Pod::Weaver::PluginBundle::RSRCHBOY:
     file: lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
-    version: 0.023
+    version: 0.024
 requires:
   Archive::Tar::Wrapper: 0
   Dist::Zilla: 0
@@ -76,7 +76,6 @@ requires:
   Pod::Weaver::Config::Assembler: 0
   Pod::Weaver::Plugin::Encoding: 0
   Pod::Weaver::Plugin::StopWords: 0
-  Pod::Weaver::Section::Consumes: 0
   Pod::Weaver::Section::SeeAlso: 0
   Pod::Weaver::Section::SourceGitHub: 0
   Test::NoSmartComments: 0
@@ -91,7 +90,7 @@ resources:
   bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
   homepage: http://metacpan.org/release/Dist-Zilla-PluginBundle-RSRCHBOY/
   repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
-version: 0.023
+version: 0.024
 x_Dist_Zilla:
   plugins:
     -
@@ -321,5 +320,5 @@ x_Dist_Zilla:
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: 1
+      is_trial: 0
     version: 4.300018
