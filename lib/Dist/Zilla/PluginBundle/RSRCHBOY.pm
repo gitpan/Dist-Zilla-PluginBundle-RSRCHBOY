@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.024';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.025';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -23,7 +23,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 use Path::Class;
 
-use Dist::Zilla::PluginBundle::Git                  ( );
+use Dist::Zilla::PluginBundle::Git 1.121770         ( );
 use Dist::Zilla::PluginBundle::Git::CheckFor        ( );
 use Dist::Zilla::Plugin::ArchiveRelease             ( );
 use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
@@ -54,6 +54,7 @@ use Dist::Zilla::Plugin::PruneFiles                 ( );
 use Dist::Zilla::Plugin::ReadmeFromPod              ( );
 use Dist::Zilla::Plugin::ReadmeAnyFromPod           ( );
 use Dist::Zilla::Plugin::ReportVersions::Tiny       ( );
+use Dist::Zilla::Plugin::Signature                  ( );
 use Dist::Zilla::Plugin::SurgicalPkgVersion         ( );
 use Dist::Zilla::Plugin::TaskWeaver                 ( );
 use Dist::Zilla::Plugin::Test::Compile              ( );
@@ -101,10 +102,10 @@ sub release_plugins {
             UploadToCPAN
             CheckPrereqsIndexed
         },
-        [ 'GitHub::Update' => { metacpan => 1 } ],
-        [ ArchiveRelease => {
-            directory => 'releases',
-        }],
+
+        [ 'GitHub::Update' => { metacpan  => 1          } ],
+        [ Signature        => { sign      => 'always'   } ],
+        [ ArchiveRelease   => { directory => 'releases' } ],
     );
 }
 
@@ -161,6 +162,7 @@ sub configure {
     $self->add_bundle(Git => {
         allow_dirty => [ qw{ .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
+        signed      => 1,
     });
 
     $self->add_plugins([ 'Git::NextVersion' =>
@@ -251,7 +253,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.024 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 20, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.025 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 30, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

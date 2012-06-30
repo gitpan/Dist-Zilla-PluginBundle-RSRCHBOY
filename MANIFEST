@@ -5,6 +5,7 @@ META.json
 META.yml
 Makefile.PL
 README
+SIGNATURE
 dist.ini
 lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
 lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm

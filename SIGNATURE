@@ -1,0 +1,49 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.68.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 719fe9702ee34e30a69eef1a85567d2d2816479c Changes
+SHA1 52aa9d0c94f09d9806b24b66e833897f67ba260d INSTALL
+SHA1 14e8a21316433dd60ffdfb0ef3afa607669e287e MANIFEST
+SHA1 67bf18a7c5f98f83bbecacb92a7c663eef93f365 META.json
+SHA1 b140d0d720de4158158fe6ab749665fc774b9944 META.yml
+SHA1 97d08162086dc73ba09c816f2c65a4516d5e9f53 Makefile.PL
+SHA1 5c2e7f171e6b7fcc9f0f49ab573df11723c4f897 README
+SHA1 616fa0b255564101917127fce0f37006c7ff1d11 dist.ini
+SHA1 b827f566203def094b751e08e46bbcf632033afe lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
+SHA1 45b343ec025e37222cdefbfb0e6f0738b15878d7 lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
+SHA1 1fbb3a30bcfdb851cccd3c0b5cf64a4d4dd0b4d4 t/00-compile.t
+SHA1 ea3f32bbd55e9bbe2e38c85a00880ed54d63c1fe t/00-load.t
+SHA1 857755e62f54802d638ecac0214df3250e170276 t/000-report-versions-tiny.t
+SHA1 05c24fbee24cc2bb301d2b8d17c98db545c0f87e t/author-pod-spell.t
+SHA1 9c3627ff37f4fd5bddc34bf46cf3359eaf76a060 t/release-consistent-version.t
+SHA1 a032c41ef6887fab1b900669c2d304fab46680e2 t/release-eol.t
+SHA1 2c84a6cfef047da345f820f8c153edba2f3695dc t/release-has-version.t
+SHA1 f8fe2e0e0cc54f8c56e4356642895e7c3c9fc8ad t/release-no-smart-comments.t
+SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
+SHA1 a7dd5dd74b25111cccb3a9d3c5f11741598910a2 t/release-pod-coverage.t
+SHA1 3f66cf67094d93c705a01b6b768fbd5cc74a040a t/release-pod-syntax.t
+SHA1 5ac9d63a855238b0ab7ef3217c5b002d1bec7118 t/release-portability.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQEcBAEBAgAGBQJP70ARAAoJEOd5N1CvIgQkHcIH/0oF9Ny/zsxTk9RAr42uENMb
+Nkf8qwir1IanQB2Iw+tlFztwBACaWl7b7PzrYqyADQSGauwsVTnI1D+RCq44U2UG
+VFXuj4OuWKxsiAXQWVcpxkx/S4fNuHc/VT471nyWU6Ps9Jr70Rmr9v7rjLWL6pR6
+TY5eWo4sc6z7GxcIDekH4+TZ6KrxP3etqxOoZpHfpgVh2o8nnJgb58dPfGa/XD/S
+neLq7w6gSq4IQ4Ij8LlW1kOzFuSklau9pre73sAs/6VY+sK0hoo3/G7hx5LCoTqm
+2d3hBcA46WjeG43KTAtIpwbie7F5GlAfGkH/wArmSGruRDGjA2fN7iRosEx1WRI=
+=0N7K
+-----END PGP SIGNATURE-----
