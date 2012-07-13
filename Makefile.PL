@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.006;
+use 5.010000;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -25,8 +25,10 @@ my %WriteMakefileArgs = (
   "NAME" => "Dist::Zilla::PluginBundle::RSRCHBOY",
   "PREREQ_PM" => {
     "Archive::Tar::Wrapper" => 0,
+    "Config::MVP::Slicer" => "0.302",
     "Dist::Zilla" => 0,
     "Dist::Zilla::Plugin::ArchiveRelease" => 0,
+    "Dist::Zilla::Plugin::CheckChangesHasContent" => 0,
     "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
     "Dist::Zilla::Plugin::ConfirmRelease" => 0,
     "Dist::Zilla::Plugin::ConsistentVersionTest" => 0,
@@ -62,11 +64,14 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::Test::PodSpelling" => "2.002001",
     "Dist::Zilla::Plugin::Test::Portability" => 0,
     "Dist::Zilla::Plugin::TestRelease" => 0,
+    "Dist::Zilla::Plugin::Twitter" => 0,
     "Dist::Zilla::Plugin::UploadToCPAN" => 0,
     "Dist::Zilla::PluginBundle::Git" => "1.121770",
     "Dist::Zilla::PluginBundle::Git::CheckFor" => 0,
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
+    "Dist::Zilla::Stash::PAUSE::Encrypted" => "0.003",
     "Moose" => 0,
+    "Moose::Util::TypeConstraints" => 0,
     "MooseX::AttributeShortcuts" => 0,
     "Path::Class" => 0,
     "Pod::Coverage::TrustPod" => 0,
@@ -84,7 +89,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.025",
+  "VERSION" => "0.026",
   "test" => {
     "TESTS" => "t/*.t"
   }

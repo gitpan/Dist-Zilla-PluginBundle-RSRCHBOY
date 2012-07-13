@@ -9,23 +9,28 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.025';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.026'; # TRIAL
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
+use v5.10;
+
 use Moose;
 use namespace::autoclean;
 use MooseX::AttributeShortcuts;
+use Moose::Util::TypeConstraints;
 
 use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+use Config::MVP::Slicer 0.302;
 use Path::Class;
 
 use Dist::Zilla::PluginBundle::Git 1.121770         ( );
 use Dist::Zilla::PluginBundle::Git::CheckFor        ( );
 use Dist::Zilla::Plugin::ArchiveRelease             ( );
+use Dist::Zilla::Plugin::CheckChangesHasContent     ( );
 use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
 use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
 use Dist::Zilla::Plugin::ConfirmRelease             ( );
@@ -61,7 +66,11 @@ use Dist::Zilla::Plugin::Test::Compile              ( );
 use Dist::Zilla::Plugin::Test::PodSpelling 2.002001 ( );
 use Dist::Zilla::Plugin::Test::Portability          ( );
 use Dist::Zilla::Plugin::TestRelease                ( );
+use Dist::Zilla::Plugin::Twitter                    ( );
 use Dist::Zilla::Plugin::UploadToCPAN               ( );
+
+# non-plugin / dist.ini deps
+use Dist::Zilla::Stash::PAUSE::Encrypted 0.003 ( );
 
 # additional deps
 use Archive::Tar::Wrapper   ( );
@@ -70,6 +79,9 @@ use Test::Pod::Coverage     ( );
 use Test::Pod               ( );
 use Test::Pod::Content      ( );
 use Pod::Coverage::TrustPod ( );
+
+# debugging...
+#use Smart::Comments '###';
 
 has is_task    => (is => 'lazy', isa => 'Bool');
 has is_app     => (is => 'lazy', isa => 'Bool');
@@ -80,6 +92,42 @@ sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
+
+has $_ => (is => 'lazy', isa => 'Bool')
+    for qw{ sign tweet };
+
+sub _build_sign  { shift->payload->{sign}  // 1 }
+sub _build_tweet { shift->payload->{tweet} // 0 }
+
+has _slicer => (
+    is      => 'lazy',
+    isa     => class_type('Config::MVP::Slicer'),
+    handles => {
+        _merge_cfg => 'merge',
+    },
+);
+
+sub _build__slicer { Config::MVP::Slicer->new({ config => shift->payload }) }
+
+#around add_plugins => sub {
+my $_merger = sub {
+    my ($orig, $self) = (shift, shift);
+
+    my $_n = sub { 'Dist::Zilla::Plugin::' . shift };
+
+    ### @_
+    my @plugins =
+        map { $self->_merge_cfg($_) }
+        map { @$_ == 2 ? [ $_->[0], $_n->($_->[0]), $_->[1] ] : $_ }
+        map { (!ref $_ && !blessed $_) ? [ $_, $_n->($_), {} ] : $_ }
+        @_;
+
+    ### @plugins
+    return $self->$orig(@plugins);
+};
+
+around add_plugins => $_merger;
+#around add_bundle  => $_merger;
 
 
 sub copy_from_build {
@@ -94,19 +142,28 @@ sub copy_from_build {
 
 
 sub release_plugins {
+    my $self = shift @_;
 
-    return (
+    my @plugins = (
         qw{
             TestRelease
             ConfirmRelease
+            CheckChangesHasContent
             UploadToCPAN
             CheckPrereqsIndexed
         },
-
         [ 'GitHub::Update' => { metacpan  => 1          } ],
-        [ Signature        => { sign      => 'always'   } ],
+        ( $self->sign
+            ? ([ Signature => { sign => 'always' } ])
+            : (                                     )
+        ),
         [ ArchiveRelease   => { directory => 'releases' } ],
     );
+
+    push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
+        if $self->tweet;
+
+    return @plugins;
 }
 
 
@@ -162,7 +219,7 @@ sub configure {
     $self->add_bundle(Git => {
         allow_dirty => [ qw{ .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
-        signed      => 1,
+        signed      => $self->sign, # 1,
     });
 
     $self->add_plugins([ 'Git::NextVersion' =>
@@ -226,6 +283,7 @@ sub stopwords {
         ABEND
         RSRCHBOY
         RSRCHBOY's
+        gpg
         ini
         metaclass
         metaclasses
@@ -253,7 +311,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.025 of Dist::Zilla::PluginBundle::RSRCHBOY - released June 30, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.026 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 13, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -292,6 +350,31 @@ A list of words our POD spell checker should ignore.
 
 =for Pod::Coverage configure
 
+=head1 OPTIONS
+
+=head2 sign (boolean; default: true)
+
+On release, use your gpg key to sign the version tag created (if you're using
+git) and also generate a SIGNATURE file.
+
+See also L<Dist::Zilla::Plugin::Signature>.
+
+=head2 tweet (boolean; default: false)
+
+If set to a true value, we'll use L<Dist::Zilla::Plugin::Twitter> to tweet
+when a release occurs.
+
+=head1 BUNDLED PLUGIN OPTIONS
+
+It's possible to pass options to our bundled plugins directly:
+
+    ; format is Plugin::Name.option
+    [@RSRCHBOY]
+    GatherDir.exclude_filename = cpanfile
+
+For information on specific plugins and their options, you should refer to the
+plugin's documentation.
+
 =head1 SEE ALSO
 
 Please see those modules/websites for more information related to this module.
@@ -301,6 +384,10 @@ Please see those modules/websites for more information related to this module.
 =item *
 
 L<Dist::Zilla::Role::PluginBundle::Easy>
+
+=item *
+
+L<Config::MVP::Slicer>
 
 =back
 

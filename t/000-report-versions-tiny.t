@@ -12,7 +12,7 @@ my $v = "\n";
 
 eval {                     # no excuses!
     # report our Perl details
-    my $want = '5.006';
+    my $want = 'v5.10.0';
     my $pv = ($^V || $]);
     $v .= "perl: $pv (wanted $want) on $^O from $^X\n\n";
 };
@@ -49,8 +49,10 @@ sub pmver {
 }
 
 eval { $v .= pmver('Archive::Tar::Wrapper','any version') };
+eval { $v .= pmver('Config::MVP::Slicer','0.302') };
 eval { $v .= pmver('Dist::Zilla','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::ArchiveRelease','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::CheckChangesHasContent','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::CheckPrereqsIndexed','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::ConfirmRelease','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::ConsistentVersionTest','any version') };
@@ -86,14 +88,17 @@ eval { $v .= pmver('Dist::Zilla::Plugin::Test::Compile','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Test::PodSpelling','2.002001') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Test::Portability','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::TestRelease','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::Twitter','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::UploadToCPAN','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Git','1.121770') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Git::CheckFor','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::PluginBundle::Easy','any version') };
+eval { $v .= pmver('Dist::Zilla::Stash::PAUSE::Encrypted','0.003') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Moose','any version') };
+eval { $v .= pmver('Moose::Util::TypeConstraints','any version') };
 eval { $v .= pmver('MooseX::AttributeShortcuts','any version') };
 eval { $v .= pmver('Path::Class','any version') };
 eval { $v .= pmver('Pod::Coverage::TrustPod','any version') };

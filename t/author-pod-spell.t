@@ -21,6 +21,7 @@ AFAICT
 ABEND
 RSRCHBOY
 RSRCHBOY's
+gpg
 ini
 metaclass
 metaclasses
