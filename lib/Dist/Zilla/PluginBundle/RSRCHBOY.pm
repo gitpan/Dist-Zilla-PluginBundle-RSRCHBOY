@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.026'; # TRIAL
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.027';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -83,21 +83,28 @@ use Pod::Coverage::TrustPod ( );
 # debugging...
 #use Smart::Comments '###';
 
-has is_task    => (is => 'lazy', isa => 'Bool');
+#has is_task    => (is => 'lazy', isa => 'Bool');
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
-sub _build_is_task    { $_[0]->payload->{task}                             }
+#sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
-has $_ => (is => 'lazy', isa => 'Bool')
-    for qw{ sign tweet };
+my $_d = sub { my $key = shift; sub { shift->payload->{$key} } };
 
-sub _build_sign  { shift->payload->{sign}  // 1 }
-sub _build_tweet { shift->payload->{tweet} // 0 }
+has $_ => (is => 'lazy', isa => 'Bool')
+    for qw{ sign tweet github install_on_release };
+has "is_$_" => (is => 'lazy', isa => 'Bool', default => $_d->($_))
+    for qw{ task };
+
+#sub _build_is_task    { shift->payload->{task}                             }
+sub _build_sign               { shift->payload->{sign}               // 1 }
+sub _build_tweet              { shift->payload->{tweet}              // 0 }
+sub _build_github             { shift->payload->{github}             // 1 }
+sub _build_install_on_release { shift->payload->{install_on_release} // 1 }
 
 has _slicer => (
     is      => 'lazy',
@@ -108,6 +115,8 @@ has _slicer => (
 );
 
 sub _build__slicer { Config::MVP::Slicer->new({ config => shift->payload }) }
+
+# TODO handle options for bundles!
 
 #around add_plugins => sub {
 my $_merger = sub {
@@ -133,7 +142,7 @@ around add_plugins => $_merger;
 sub copy_from_build {
     my ($self) = @_;
 
-    my @copy= qw{ LICENSE };
+    my @copy = (qw{ LICENSE });
     push @copy, 'Makefile.PL'
         if $self->is_app;
 
@@ -147,21 +156,25 @@ sub release_plugins {
     my @plugins = (
         qw{
             TestRelease
-            ConfirmRelease
             CheckChangesHasContent
-            UploadToCPAN
             CheckPrereqsIndexed
+            ConfirmRelease
         },
-        [ 'GitHub::Update' => { metacpan  => 1          } ],
-        ( $self->sign
-            ? ([ Signature => { sign => 'always' } ])
-            : (                                     )
-        ),
-        [ ArchiveRelease   => { directory => 'releases' } ],
     );
 
+    push @plugins, [ 'GitHub::Update' => { metacpan  => 1 } ]
+        if $self->github;
+    push @plugins, 'UploadToCPAN'
+        unless $self->is_private;
+    push @plugins, [ Signature => { sign => 'always' } ]
+        if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
         if $self->tweet;
+    push @plugins, [ InstallRelease => { install_command => 'cpanm .' } ]
+        if $self->install_on_release;
+
+    push @plugins,
+        [ ArchiveRelease   => { directory => 'releases' } ];
 
     return @plugins;
 }
@@ -193,11 +206,16 @@ sub author_tests {
 sub meta_provider_plugins {
     my ($self) = @_;
 
-    return (
-        qw{ GitHub::Meta MetaConfig MetaJSON MetaYAML },
+    my @plugins = (
+        qw{ MetaConfig MetaJSON MetaYAML },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
     );
+
+    push @plugins, 'GitHub::Meta'
+        if $self->github;
+
+    return @plugins;
 }
 
 
@@ -231,10 +249,9 @@ sub configure {
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
+        [ GatherDir => { exclude_filename => [ 'LICENSE' ] } ],
         qw{
-            GatherDir
             PruneCruft
-            License
             ExecDir
             ShareDir
             MakeMaker
@@ -242,23 +259,17 @@ sub configure {
             Manifest
             SurgicalPkgVersion
             ReadmeFromPod
+            MinimumPerl
+            ReportVersions::Tiny
         },
         [ AutoPrereqs => $autoprereq_opts ],
         [ Prepender   => $prepender_opts  ],
 
         $self->author_tests,
-
-        qw{
-            MinimumPerl
-            ReportVersions::Tiny
-        },
-
         $self->meta_provider_plugins,
         $self->release_plugins,
 
-        ($self->is_task ? 'TaskWeaver' : $podweaver),
-
-        [ PruneFiles => { filenames => [ $self->copy_from_build ] } ],
+        'License',
         [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
 
         [ ReadmeAnyFromPod  => ReadmePodInRoot => {
@@ -267,9 +278,7 @@ sub configure {
             location => 'root',
         }],
 
-        [ InstallRelease => {
-            install_command => 'cpanm .',
-        }],
+        ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
 
     return;
@@ -290,6 +299,7 @@ sub stopwords {
         parameterized
         parameterization
         subclasses
+        coderef
     };
 }
 
@@ -311,7 +321,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.026 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 13, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.027 of Dist::Zilla::PluginBundle::RSRCHBOY - released August 26, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -363,6 +373,20 @@ See also L<Dist::Zilla::Plugin::Signature>.
 
 If set to a true value, we'll use L<Dist::Zilla::Plugin::Twitter> to tweet
 when a release occurs.
+
+=head2 github (boolean; default: true)
+
+This enables various GitHub related plugins to update dist and GitHub metadata
+automatically.
+
+=head2 install_on_release (boolean; default: true)
+
+After a release, install the distribution locally. Our default install command
+is (from inside the built release directory):
+
+    cpanm .
+
+You can change this by setting the C<InstallRelease.install_command> option.
 
 =head1 BUNDLED PLUGIN OPTIONS
 

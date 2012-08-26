@@ -3,9 +3,9 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes version 0.026 of
-    Dist::Zilla::PluginBundle::RSRCHBOY - released July 13, 2012 as part of
-    Dist-Zilla-PluginBundle-RSRCHBOY.
+    This document describes version 0.027 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released August 26, 2012 as part
+    of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
         # in your dist.ini...
@@ -44,6 +44,19 @@ OPTIONS
   tweet (boolean; default: false)
     If set to a true value, we'll use Dist::Zilla::Plugin::Twitter to tweet
     when a release occurs.
+
+  github (boolean; default: true)
+    This enables various GitHub related plugins to update dist and GitHub
+    metadata automatically.
+
+  install_on_release (boolean; default: true)
+    After a release, install the distribution locally. Our default install
+    command is (from inside the built release directory):
+
+        cpanm .
+
+    You can change this by setting the "InstallRelease.install_command"
+    option.
 
 BUNDLED PLUGIN OPTIONS
     It's possible to pass options to our bundled plugins directly:
