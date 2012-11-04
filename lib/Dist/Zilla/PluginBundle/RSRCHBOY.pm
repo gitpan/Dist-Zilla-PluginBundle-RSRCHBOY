@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.028';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.029';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -22,7 +22,10 @@ use MooseX::AttributeShortcuts;
 use Moose::Util::TypeConstraints;
 
 use Dist::Zilla;
-with 'Dist::Zilla::Role::PluginBundle::Easy';
+with
+    'Dist::Zilla::Role::PluginBundle::Easy',
+    'Dist::Zilla::Role::PluginBundle::Config::Slicer',
+    ;
 
 use Config::MVP::Slicer 0.302;
 use Path::Class;
@@ -106,38 +109,6 @@ sub _build_tweet              { shift->payload->{tweet}              // 0 }
 sub _build_github             { shift->payload->{github}             // 1 }
 sub _build_install_on_release { shift->payload->{install_on_release} // 1 }
 
-has _slicer => (
-    is      => 'lazy',
-    isa     => class_type('Config::MVP::Slicer'),
-    handles => {
-        _merge_cfg => 'merge',
-    },
-);
-
-sub _build__slicer { Config::MVP::Slicer->new({ config => shift->payload }) }
-
-# TODO handle options for bundles!
-
-#around add_plugins => sub {
-my $_merger = sub {
-    my ($orig, $self) = (shift, shift);
-
-    my $_n = sub { 'Dist::Zilla::Plugin::' . shift };
-
-    ### @_
-    my @plugins =
-        map { $self->_merge_cfg($_) }
-        map { @$_ == 2 ? [ $_->[0], $_n->($_->[0]), $_->[1] ] : $_ }
-        map { (!ref $_ && !blessed $_) ? [ $_, $_n->($_), {} ] : $_ }
-        @_;
-
-    ### @plugins
-    return $self->$orig(@plugins);
-};
-
-around add_plugins => $_merger;
-#around add_bundle  => $_merger;
-
 
 sub copy_from_build {
     my ($self) = @_;
@@ -195,7 +166,6 @@ sub author_tests {
             EOLTests
             HasVersionTests
             Test::Compile
-            Test::Portability
             ExtraTests
             NoSmartCommentsTests
         },
@@ -321,7 +291,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.028 of Dist::Zilla::PluginBundle::RSRCHBOY - released November 03, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.029 of Dist::Zilla::PluginBundle::RSRCHBOY - released November 03, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

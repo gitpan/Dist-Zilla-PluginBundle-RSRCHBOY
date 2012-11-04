@@ -68,6 +68,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::UploadToCPAN" => 0,
     "Dist::Zilla::PluginBundle::Git" => "1.121770",
     "Dist::Zilla::PluginBundle::Git::CheckFor" => 0,
+    "Dist::Zilla::Role::PluginBundle::Config::Slicer" => 0,
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Dist::Zilla::Stash::PAUSE::Encrypted" => "0.003",
     "Moose" => 0,
@@ -92,7 +93,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.028",
+  "VERSION" => "0.029",
   "test" => {
     "TESTS" => "t/*.t"
   }

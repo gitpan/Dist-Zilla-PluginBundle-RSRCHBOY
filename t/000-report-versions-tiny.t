@@ -92,6 +92,7 @@ eval { $v .= pmver('Dist::Zilla::Plugin::Twitter','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::UploadToCPAN','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Git','1.121770') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Git::CheckFor','any version') };
+eval { $v .= pmver('Dist::Zilla::Role::PluginBundle::Config::Slicer','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::PluginBundle::Easy','any version') };
 eval { $v .= pmver('Dist::Zilla::Stash::PAUSE::Encrypted','0.003') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
