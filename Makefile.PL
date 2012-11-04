@@ -73,23 +73,26 @@ my %WriteMakefileArgs = (
     "Moose" => 0,
     "Moose::Util::TypeConstraints" => 0,
     "MooseX::AttributeShortcuts" => 0,
+    "MooseX::NewDefaults" => 0,
     "Path::Class" => 0,
     "Pod::Coverage::TrustPod" => 0,
     "Pod::Elemental::Transformer::List" => 0,
     "Pod::Weaver::Config::Assembler" => 0,
     "Pod::Weaver::Plugin::Encoding" => 0,
     "Pod::Weaver::Plugin::StopWords" => 0,
+    "Pod::Weaver::Section::CollectWithIntro" => 0,
     "Pod::Weaver::Section::SeeAlso" => 0,
     "Pod::Weaver::Section::SourceGitHub" => 0,
     "Test::NoSmartComments" => 0,
     "Test::Pod" => 0,
     "Test::Pod::Content" => 0,
     "Test::Pod::Coverage" => 0,
+    "autobox::Core" => 0,
     "namespace::autoclean" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.027",
+  "VERSION" => "0.028",
   "test" => {
     "TESTS" => "t/*.t"
   }

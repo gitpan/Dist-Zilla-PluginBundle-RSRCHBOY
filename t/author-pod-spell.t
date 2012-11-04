@@ -32,8 +32,14 @@ coderef
 Chris
 Weyl
 lib
+Pod
+Weaver
+Section
+RoleParameters
 Dist
 Zilla
 PluginBundle
-Pod
-Weaver
+SectionBase
+CollectWithIntro
+RequiredAttributes
+LazyAttributes

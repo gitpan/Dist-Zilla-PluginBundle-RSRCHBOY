@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.027';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.028';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -307,7 +307,7 @@ __PACKAGE__->meta->make_immutable;
 
 1;
 
-
+__END__
 
 =pod
 
@@ -321,7 +321,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.027 of Dist::Zilla::PluginBundle::RSRCHBOY - released August 26, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.028 of Dist::Zilla::PluginBundle::RSRCHBOY - released November 03, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -442,7 +442,3 @@ This is free software, licensed under:
   The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
-
-
-__END__
-

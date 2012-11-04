@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.027';
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.028';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -18,11 +18,14 @@ use strict;
 use warnings;
 
 # for prereqs
-use Pod::Elemental::Transformer::List  ( );
-use Pod::Weaver::Plugin::Encoding      ( );
-use Pod::Weaver::Plugin::StopWords     ( );
-use Pod::Weaver::Section::SeeAlso      ( );
-use Pod::Weaver::Section::SourceGitHub ( );
+use Pod::Elemental::Transformer::List                  ( );
+use Pod::Weaver::Plugin::Encoding                      ( );
+use Pod::Weaver::Plugin::StopWords                     ( );
+use Pod::Weaver::Section::SeeAlso                      ( );
+use Pod::Weaver::Section::SourceGitHub                 ( );
+use Pod::Weaver::Section::CollectWithIntro             ( );
+use Pod::Weaver::Section::RSRCHBOY::LazyAttributes     ( );
+use Pod::Weaver::Section::RSRCHBOY::RequiredAttributes ( );
 
 use Pod::Weaver::Config::Assembler;
 
@@ -30,6 +33,8 @@ sub _exp { Pod::Weaver::Config::Assembler->expand_package($_[0]) }
 sub _exp2 { [ "\@RSRCHBOY/$_[0]", _exp($_[0]), {} ] }
 
 my $vformat = 'This document describes version %v of %m - released %{LLLL dd, yyyy}d as part of %r.';
+
+# this.... needs some work.
 
 sub mvp_bundle_config {
     return (
@@ -43,12 +48,17 @@ sub mvp_bundle_config {
         [ 'DESCRIPTION',      _exp('Generic'),      {} ],
         [ 'OVERVIEW',         _exp('Generic'),      {} ],
 
-        [ 'ATTRIBUTES',       _exp('Collect'),      { command => 'attr'   } ],
-        [ 'METHODS',          _exp('Collect'),      { command => 'method' } ],
-        [ 'REQUIRED METHODS', _exp('Collect'),      { command => 'required_method' } ],
-        [ 'FUNCTIONS',        _exp('Collect'),      { command => 'func'   } ],
-        [ 'TYPES',            _exp('Collect'),      { command => 'type'   } ],
-        [ 'TEST_FUNCTIONS',   _exp('Collect'),      { command => 'test'   } ],
+        [ 'ROLE PARAMETERS', _exp('RSRCHBOY::RoleParameters'), {} ],
+
+        [ 'REQUIRED ATTRIBUTES', _exp('RSRCHBOY::RequiredAttributes'), { } ],
+        [ 'LAZY ATTRIBUTES',     _exp('RSRCHBOY::LazyAttributes'),     { } ],
+
+        [ 'ATTRIBUTES',       _exp('Collect'), { command => 'attr'            } ],
+        [ 'METHODS',          _exp('Collect'), { command => 'method'          } ],
+        [ 'REQUIRED METHODS', _exp('Collect'), { command => 'required_method' } ],
+        [ 'FUNCTIONS',        _exp('Collect'), { command => 'func'            } ],
+        [ 'TYPES',            _exp('Collect'), { command => 'type'            } ],
+        [ 'TEST_FUNCTIONS',   _exp('Collect'), { command => 'test'            } ],
 
         _exp2('Leftovers'),
 
@@ -68,7 +78,7 @@ sub mvp_bundle_config {
 
 !!42;
 
-
+__END__
 
 =pod
 
@@ -82,7 +92,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.027 of Pod::Weaver::PluginBundle::RSRCHBOY - released August 26, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.028 of Pod::Weaver::PluginBundle::RSRCHBOY - released November 03, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -182,7 +192,3 @@ This is free software, licensed under:
   The GNU Lesser General Public License, Version 2.1, February 1999
 
 =cut
-
-
-__END__
-
