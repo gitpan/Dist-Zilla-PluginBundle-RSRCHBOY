@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::SectionBase::CollectWithIntro;
 {
-  $Pod::Weaver::SectionBase::CollectWithIntro::VERSION = '0.029';
+  $Pod::Weaver::SectionBase::CollectWithIntro::VERSION = '0.030';
 }
 
 # ABSTRACT: Extends CollectWithIntro to provide a better default plugin name
@@ -41,7 +41,7 @@ Pod::Weaver::SectionBase::CollectWithIntro - Extends CollectWithIntro to provide
 
 =head1 VERSION
 
-This document describes version 0.029 of Pod::Weaver::SectionBase::CollectWithIntro - released November 03, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.030 of Pod::Weaver::SectionBase::CollectWithIntro - released November 14, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

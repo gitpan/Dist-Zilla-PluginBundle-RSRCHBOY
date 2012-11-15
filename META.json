@@ -93,6 +93,7 @@
             "Pod::Weaver::Plugin::Encoding" : "0",
             "Pod::Weaver::Plugin::StopWords" : "0",
             "Pod::Weaver::Section::CollectWithIntro" : "0",
+            "Pod::Weaver::Section::Contributors" : "0",
             "Pod::Weaver::Section::SeeAlso" : "0",
             "Pod::Weaver::Section::SourceGitHub" : "0",
             "Test::NoSmartComments" : "0",
@@ -117,27 +118,27 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.029"
+         "version" : "0.030"
       },
       "Pod::Weaver::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.029"
+         "version" : "0.030"
       },
       "Pod::Weaver::Section::RSRCHBOY::LazyAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm",
-         "version" : "0.029"
+         "version" : "0.030"
       },
       "Pod::Weaver::Section::RSRCHBOY::RequiredAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm",
-         "version" : "0.029"
+         "version" : "0.030"
       },
       "Pod::Weaver::Section::RSRCHBOY::RoleParameters" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm",
-         "version" : "0.029"
+         "version" : "0.030"
       },
       "Pod::Weaver::SectionBase::CollectWithIntro" : {
          "file" : "lib/Pod/Weaver/SectionBase/CollectWithIntro.pm",
-         "version" : "0.029"
+         "version" : "0.030"
       }
    },
    "release_status" : "stable",
@@ -152,7 +153,7 @@
          "web" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY"
       }
    },
-   "version" : "0.029",
+   "version" : "0.030",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.016001"
