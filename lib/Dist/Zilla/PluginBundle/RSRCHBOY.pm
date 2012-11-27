@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.030';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.031';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -38,6 +38,7 @@ use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
 use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
 use Dist::Zilla::Plugin::ConfirmRelease             ( );
 use Dist::Zilla::Plugin::ConsistentVersionTest      ( );
+use Dist::Zilla::Plugin::ContributorsFromGit        ( );
 use Dist::Zilla::Plugin::EOLTests                   ( );
 use Dist::Zilla::Plugin::ExtraTests                 ( );
 use Dist::Zilla::Plugin::Git::NextVersion           ( );
@@ -216,6 +217,8 @@ sub configure {
         { version_regexp => '^(\d.\d+)(-TRIAL|)$' },
     ]);
 
+    $self->add_plugins('ContributorsFromGit');
+
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
@@ -291,7 +294,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.030 of Dist::Zilla::PluginBundle::RSRCHBOY - released November 14, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.031 of Dist::Zilla::PluginBundle::RSRCHBOY - released November 26, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -384,20 +387,6 @@ L<Dist::Zilla::Role::PluginBundle::Easy>
 L<Config::MVP::Slicer>
 
 =back
-
-=head1 SOURCE
-
-The development version is on github at L<http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
-and may be cloned from L<git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
-
-=head1 BUGS
-
-Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
-
-When submitting a bug or request, please include a test-file or a
-patch to an existing test-file that illustrates the bug or desired
-feature.
 
 =head1 AUTHOR
 

@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.030';
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.031';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -94,7 +94,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.030 of Pod::Weaver::PluginBundle::RSRCHBOY - released November 14, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.031 of Pod::Weaver::PluginBundle::RSRCHBOY - released November 26, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -166,20 +166,6 @@ Please see those modules/websites for more information related to this module.
 L<Dist::Zilla::PluginBundle::RSRCHBOY|Dist::Zilla::PluginBundle::RSRCHBOY>
 
 =back
-
-=head1 SOURCE
-
-The development version is on github at L<http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
-and may be cloned from L<git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
-
-=head1 BUGS
-
-Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
-
-When submitting a bug or request, please include a test-file or a
-patch to an existing test-file that illustrates the bug or desired
-feature.
 
 =head1 AUTHOR
 
