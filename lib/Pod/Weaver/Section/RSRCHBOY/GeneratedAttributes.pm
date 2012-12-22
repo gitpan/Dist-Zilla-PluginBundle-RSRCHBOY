@@ -7,26 +7,27 @@
 #
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
-package Pod::Weaver::Section::RSRCHBOY::RoleParameters;
+package Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes;
 {
-  $Pod::Weaver::Section::RSRCHBOY::RoleParameters::VERSION = '0.032';
+  $Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.032';
 }
 
-# ABSTRACT: Prefaced role parameters section
+# ABSTRACT: Prefaced generated-only attributes
 
 use Moose;
 use namespace::autoclean;
-use autobox::Core;
 use MooseX::NewDefaults;
 
 extends 'Pod::Weaver::SectionBase::CollectWithIntro';
 
-default_for command => 'roleparam';
+default_for command => 'genatt';
 
-default_for content => [
-    'Parameterized roles accept parameters that influence their',
-    'construction.  This role accepts the following parameters.',
-]->join(q{ });
+default_for content => join(q{ },
+    'These attributes have their values built or supplied internally by the',
+    'class; generally through a default, a builder, a BUILD method, a',
+    "private writer, or some other mechanisim that you shouldn't be",
+    'touching, anyways.',
+);
 
 __PACKAGE__->meta->make_immutable;
 !!42;
@@ -41,11 +42,11 @@ __END__
 
 =head1 NAME
 
-Pod::Weaver::Section::RSRCHBOY::RoleParameters - Prefaced role parameters section
+Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - Prefaced generated-only attributes
 
 =head1 VERSION
 
-This document describes version 0.032 of Pod::Weaver::Section::RSRCHBOY::RoleParameters - released December 21, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.032 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released December 21, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

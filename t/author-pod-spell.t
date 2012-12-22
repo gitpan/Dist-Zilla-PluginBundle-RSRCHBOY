@@ -39,6 +39,7 @@ RoleParameters
 Dist
 Zilla
 PluginBundle
+GeneratedAttributes
 SectionBase
 CollectWithIntro
 RequiredAttributes

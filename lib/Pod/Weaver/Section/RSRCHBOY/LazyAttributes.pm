@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::Section::RSRCHBOY::LazyAttributes;
 {
-  $Pod::Weaver::Section::RSRCHBOY::LazyAttributes::VERSION = '0.031';
+  $Pod::Weaver::Section::RSRCHBOY::LazyAttributes::VERSION = '0.032';
 }
 
 # ABSTRACT: Prefaced lazy attributes section
@@ -25,9 +25,9 @@ default_for command => 'lazyatt';
 
 default_for content => [
     'These attributes are lazily constructed from another source (e.g.',
-    'required attributes, external source, some combo of the two).',
-    'You can, but are generally recommended to not, set these values at',
-    'construction time.',
+    'required attributes, external source, a BUILD() method, or some combo',
+    'thereof). You can set these values at construction time, though this is',
+    'generally neither required nor recommended.',
 ]->join(q{ });
 
 __PACKAGE__->meta->make_immutable;
@@ -47,7 +47,7 @@ Pod::Weaver::Section::RSRCHBOY::LazyAttributes - Prefaced lazy attributes sectio
 
 =head1 VERSION
 
-This document describes version 0.031 of Pod::Weaver::Section::RSRCHBOY::LazyAttributes - released November 26, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.032 of Pod::Weaver::Section::RSRCHBOY::LazyAttributes - released December 21, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

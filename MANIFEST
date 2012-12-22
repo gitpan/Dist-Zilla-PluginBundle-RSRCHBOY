@@ -7,9 +7,11 @@ META.yml
 Makefile.PL
 README
 SIGNATURE
+cpanfile
 dist.ini
 lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
 lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
+lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
 lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
 lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
 lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
@@ -24,4 +26,5 @@ t/release-has-version.t
 t/release-no-smart-comments.t
 t/release-no-tabs.t
 t/release-pod-coverage.t
+t/release-pod-linkcheck.t
 t/release-pod-syntax.t

@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::Section::RSRCHBOY::RequiredAttributes;
 {
-  $Pod::Weaver::Section::RSRCHBOY::RequiredAttributes::VERSION = '0.031';
+  $Pod::Weaver::Section::RSRCHBOY::RequiredAttributes::VERSION = '0.032';
 }
 
 # ABSTRACT: Prefaced required attributes section
@@ -45,7 +45,7 @@ Pod::Weaver::Section::RSRCHBOY::RequiredAttributes - Prefaced required attribute
 
 =head1 VERSION
 
-This document describes version 0.031 of Pod::Weaver::Section::RSRCHBOY::RequiredAttributes - released November 26, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.032 of Pod::Weaver::Section::RSRCHBOY::RequiredAttributes - released December 21, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

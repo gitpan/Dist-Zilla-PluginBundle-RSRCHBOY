@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.031';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.032';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -39,6 +39,7 @@ use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
 use Dist::Zilla::Plugin::ConfirmRelease             ( );
 use Dist::Zilla::Plugin::ConsistentVersionTest      ( );
 use Dist::Zilla::Plugin::ContributorsFromGit        ( );
+use Dist::Zilla::Plugin::CPANFile                   ( );
 use Dist::Zilla::Plugin::EOLTests                   ( );
 use Dist::Zilla::Plugin::ExtraTests                 ( );
 use Dist::Zilla::Plugin::Git::NextVersion           ( );
@@ -67,8 +68,8 @@ use Dist::Zilla::Plugin::Signature                  ( );
 use Dist::Zilla::Plugin::SurgicalPkgVersion         ( );
 use Dist::Zilla::Plugin::TaskWeaver                 ( );
 use Dist::Zilla::Plugin::Test::Compile              ( );
+use Dist::Zilla::Plugin::Test::Pod::LinkCheck       ( );
 use Dist::Zilla::Plugin::Test::PodSpelling 2.002001 ( );
-use Dist::Zilla::Plugin::Test::Portability          ( );
 use Dist::Zilla::Plugin::TestRelease                ( );
 use Dist::Zilla::Plugin::Twitter                    ( );
 use Dist::Zilla::Plugin::UploadToCPAN               ( );
@@ -82,6 +83,7 @@ use Test::NoSmartComments   ( );
 use Test::Pod::Coverage     ( );
 use Test::Pod               ( );
 use Test::Pod::Content      ( );
+use Test::Pod::LinkCheck    ( );
 use Pod::Coverage::TrustPod ( );
 
 # debugging...
@@ -169,6 +171,7 @@ sub author_tests {
             Test::Compile
             ExtraTests
             NoSmartCommentsTests
+            Test::Pod::LinkCheck
         },
     );
 }
@@ -251,6 +254,8 @@ sub configure {
             location => 'root',
         }],
 
+        'CPANFile',
+
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
 
@@ -294,7 +299,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.031 of Dist::Zilla::PluginBundle::RSRCHBOY - released November 26, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.032 of Dist::Zilla::PluginBundle::RSRCHBOY - released December 21, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
