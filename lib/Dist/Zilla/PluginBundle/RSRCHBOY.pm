@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.032';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.033';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -206,10 +206,12 @@ sub configure {
         : [ PodWeaver => { config_plugin => '@RSRCHBOY' } ]
         ;
 
-    $self->add_plugins(qw{ NextRelease });
+    $self->add_plugins([ NextRelease => {
+        format => '%-8V  %{yyyy-MM-dd HH:mm:ss ZZZZ}d',
+    }]);
 
     $self->add_bundle(Git => {
-        allow_dirty => [ qw{ .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
+        allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
         tag_format  => '%v',
         signed      => $self->sign, # 1,
     });
@@ -291,7 +293,7 @@ __END__
 
 =encoding utf-8
 
-=for :stopwords Chris Weyl
+=for :stopwords Chris Weyl GitHub Plugins
 
 =head1 NAME
 
@@ -299,7 +301,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.032 of Dist::Zilla::PluginBundle::RSRCHBOY - released December 21, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.033 of Dist::Zilla::PluginBundle::RSRCHBOY - released January 09, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

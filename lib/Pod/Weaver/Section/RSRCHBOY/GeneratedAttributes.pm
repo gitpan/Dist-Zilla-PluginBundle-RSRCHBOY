@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes;
 {
-  $Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.032';
+  $Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.033';
 }
 
 # ABSTRACT: Prefaced generated-only attributes
@@ -46,7 +46,7 @@ Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - Prefaced generated-only at
 
 =head1 VERSION
 
-This document describes version 0.032 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released December 21, 2012 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.033 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released January 09, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 
