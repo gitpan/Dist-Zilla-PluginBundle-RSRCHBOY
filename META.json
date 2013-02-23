@@ -122,38 +122,38 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.034"
+         "version" : "0.035"
       },
       "Pod::Weaver::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.034"
+         "version" : "0.035"
       },
       "Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm",
-         "version" : "0.034"
+         "version" : "0.035"
       },
       "Pod::Weaver::Section::RSRCHBOY::LazyAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm",
-         "version" : "0.034"
+         "version" : "0.035"
       },
       "Pod::Weaver::Section::RSRCHBOY::RequiredAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm",
-         "version" : "0.034"
+         "version" : "0.035"
       },
       "Pod::Weaver::Section::RSRCHBOY::RoleParameters" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm",
-         "version" : "0.034"
+         "version" : "0.035"
       },
       "Pod::Weaver::SectionBase::CollectWithIntro" : {
          "file" : "lib/Pod/Weaver/SectionBase/CollectWithIntro.pm",
-         "version" : "0.034"
+         "version" : "0.035"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "repository" : {}
    },
-   "version" : "0.034",
+   "version" : "0.035",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.016002"
@@ -163,26 +163,6 @@
             "class" : "Dist::Zilla::Plugin::NextRelease",
             "name" : "@RSRCHBOY/NextRelease",
             "version" : "4.300030"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Git::Check",
-            "name" : "@RSRCHBOY/@Git/Check",
-            "version" : "2.009"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Git::Commit",
-            "name" : "@RSRCHBOY/@Git/Commit",
-            "version" : "2.009"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Git::Tag",
-            "name" : "@RSRCHBOY/@Git/Tag",
-            "version" : "2.009"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Git::Push",
-            "name" : "@RSRCHBOY/@Git/Push",
-            "version" : "2.009"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
@@ -375,9 +355,29 @@
             "version" : "0.008"
          },
          {
+            "class" : "Dist::Zilla::Plugin::Git::Check",
+            "name" : "@RSRCHBOY/Git::Check",
+            "version" : "2.009"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
             "name" : "@RSRCHBOY/ConfirmRelease",
             "version" : "4.300030"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Git::Commit",
+            "name" : "@RSRCHBOY/Git::Commit",
+            "version" : "2.009"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Git::Tag",
+            "name" : "@RSRCHBOY/Git::Tag",
+            "version" : "2.009"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Git::CommitBuild",
+            "name" : "@RSRCHBOY/Git::CommitBuild",
+            "version" : "2.009"
          },
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
@@ -385,8 +385,8 @@
             "version" : "4.300030"
          },
          {
-            "class" : "Dist::Zilla::Plugin::Git::CommitBuild",
-            "name" : "@RSRCHBOY/Git::CommitBuild",
+            "class" : "Dist::Zilla::Plugin::Git::Push",
+            "name" : "@RSRCHBOY/Git::Push",
             "version" : "2.009"
          },
          {
