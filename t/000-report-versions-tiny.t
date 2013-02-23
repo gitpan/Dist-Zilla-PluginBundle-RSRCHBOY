@@ -61,6 +61,7 @@ eval { $v .= pmver('Dist::Zilla::Plugin::ContributorsFromGit','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::CopyFilesFromBuild','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::EOLTests','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::ExtraTests','any version') };
+eval { $v .= pmver('Dist::Zilla::Plugin::Git::CommitBuild','2.009') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Git::NextVersion','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::GitHub::Meta','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::GitHub::Update','any version') };

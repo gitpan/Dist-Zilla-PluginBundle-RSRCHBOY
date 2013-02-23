@@ -11,6 +11,7 @@ requires "Dist::Zilla::Plugin::ContributorsFromGit" => "0";
 requires "Dist::Zilla::Plugin::CopyFilesFromBuild" => "0";
 requires "Dist::Zilla::Plugin::EOLTests" => "0";
 requires "Dist::Zilla::Plugin::ExtraTests" => "0";
+requires "Dist::Zilla::Plugin::Git::CommitBuild" => "2.009";
 requires "Dist::Zilla::Plugin::Git::NextVersion" => "0";
 requires "Dist::Zilla::Plugin::GitHub::Meta" => "0";
 requires "Dist::Zilla::Plugin::GitHub::Update" => "0";
