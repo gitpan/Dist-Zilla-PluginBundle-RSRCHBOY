@@ -22,25 +22,25 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::RSRCHBOY:
     file: lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
-    version: 0.035
+    version: 0.036
   Pod::Weaver::PluginBundle::RSRCHBOY:
     file: lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
-    version: 0.035
+    version: 0.036
   Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
-    version: 0.035
+    version: 0.036
   Pod::Weaver::Section::RSRCHBOY::LazyAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
-    version: 0.035
+    version: 0.036
   Pod::Weaver::Section::RSRCHBOY::RequiredAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
-    version: 0.035
+    version: 0.036
   Pod::Weaver::Section::RSRCHBOY::RoleParameters:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
-    version: 0.035
+    version: 0.036
   Pod::Weaver::SectionBase::CollectWithIntro:
     file: lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
-    version: 0.035
+    version: 0.036
 requires:
   Archive::Tar::Wrapper: 0
   Config::MVP::Slicer: 0.302
@@ -85,6 +85,7 @@ requires:
   Dist::Zilla::Plugin::Test::Pod::LinkCheck: 0
   Dist::Zilla::Plugin::Test::PodSpelling: 2.002001
   Dist::Zilla::Plugin::TestRelease: 0
+  Dist::Zilla::Plugin::TravisYML: 0
   Dist::Zilla::Plugin::Twitter: 0
   Dist::Zilla::Plugin::UploadToCPAN: 0
   Dist::Zilla::PluginBundle::Git: 1.121770
@@ -116,8 +117,11 @@ requires:
   perl: v5.10.0
   strict: 0
   warnings: 0
-resources: {}
-version: 0.035
+resources:
+  bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+  homepage: http://metacpan.org/release/Dist-Zilla-PluginBundle-RSRCHBOY/
+  repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
+version: 0.036
 x_Dist_Zilla:
   perl:
     version: 5.016002
@@ -133,7 +137,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ContributorsFromGit
       name: '@RSRCHBOY/ContributorsFromGit'
-      version: 0.003
+      version: 0.005
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch
       name: '@RSRCHBOY/@Git::CheckFor/Git::CheckFor::CorrectBranch'
@@ -201,7 +205,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::PodSpelling
       name: '@RSRCHBOY/Test::PodSpelling'
-      version: 2.004001
+      version: 2.004003
     -
       class: Dist::Zilla::Plugin::ConsistentVersionTest
       name: '@RSRCHBOY/ConsistentVersionTest'
@@ -265,7 +269,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GitHub::Meta
       name: '@RSRCHBOY/GitHub::Meta'
-      version: 0.30
+      version: 0.31
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@RSRCHBOY/TestRelease'
@@ -295,6 +299,10 @@ x_Dist_Zilla:
       name: '@RSRCHBOY/Git::Tag'
       version: 2.009
     -
+      class: Dist::Zilla::Plugin::TravisYML
+      name: '@RSRCHBOY/TravisYML'
+      version: 0.95
+    -
       class: Dist::Zilla::Plugin::Git::CommitBuild
       name: '@RSRCHBOY/Git::CommitBuild'
       version: 2.009
@@ -317,7 +325,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GitHub::Update
       name: '@RSRCHBOY/GitHub::Update'
-      version: 0.30
+      version: 0.31
     -
       class: Dist::Zilla::Plugin::ArchiveRelease
       name: '@RSRCHBOY/ArchiveRelease'

@@ -41,6 +41,7 @@ requires "Dist::Zilla::Plugin::Test::Compile" => "0";
 requires "Dist::Zilla::Plugin::Test::Pod::LinkCheck" => "0";
 requires "Dist::Zilla::Plugin::Test::PodSpelling" => "2.002001";
 requires "Dist::Zilla::Plugin::TestRelease" => "0";
+requires "Dist::Zilla::Plugin::TravisYML" => "0";
 requires "Dist::Zilla::Plugin::Twitter" => "0";
 requires "Dist::Zilla::Plugin::UploadToCPAN" => "0";
 requires "Dist::Zilla::PluginBundle::Git" => "1.121770";

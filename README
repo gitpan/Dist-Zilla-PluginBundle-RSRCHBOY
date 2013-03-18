@@ -3,9 +3,9 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes version 0.035 of
-    Dist::Zilla::PluginBundle::RSRCHBOY - released February 23, 2013 as part
-    of Dist-Zilla-PluginBundle-RSRCHBOY.
+    This document describes version 0.036 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released March 17, 2013 as part of
+    Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
         # in your dist.ini...
@@ -75,6 +75,19 @@ SEE ALSO
     *   Dist::Zilla::Role::PluginBundle::Easy
 
     *   Config::MVP::Slicer
+
+SOURCE
+    The development version is on github at
+    <http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY> and may be
+    cloned from
+    <git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
 
 AUTHOR
     Chris Weyl <cweyl@alumni.drew.edu>

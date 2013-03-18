@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.035';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.036';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -72,6 +72,7 @@ use Dist::Zilla::Plugin::Test::Compile              ( );
 use Dist::Zilla::Plugin::Test::Pod::LinkCheck       ( );
 use Dist::Zilla::Plugin::Test::PodSpelling 2.002001 ( );
 use Dist::Zilla::Plugin::TestRelease                ( );
+use Dist::Zilla::Plugin::TravisYML                  ( );
 use Dist::Zilla::Plugin::Twitter                    ( );
 use Dist::Zilla::Plugin::UploadToCPAN               ( );
 
@@ -136,7 +137,7 @@ sub release_plugins {
         },
         [
             'Git::Check' => {
-                allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
+                allow_dirty => [ qw{ .travis.yml cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
             },
         ],
         'ConfirmRelease',
@@ -149,6 +150,9 @@ sub release_plugins {
         tag_format  => '%v',
         signed      => $self->sign, # 1,
     }];
+    push @plugins, [ TravisYML => {
+        release_branch => '/^(build|release)\/.*/',
+    }];
     push @plugins, [ 'Git::CommitBuild' => {
         release_branch       => 'release/cpan',
         release_message      => 'Full build of CPAN release %v%t',
@@ -157,7 +161,11 @@ sub release_plugins {
     push @plugins, 'UploadToCPAN'
         unless $self->is_private;
     push @plugins, [ 'Git::Push' => {
-        push_to => [ 'origin', 'origin refs/heads/release/cpan:refs/heads/release/cpan' ],
+        push_to => [
+            'origin',
+            'origin refs/heads/release/cpan:refs/heads/release/cpan',
+            #'origin refs/heads/build/*:refs/heads/build/*',
+        ],
     }];
     push @plugins, [ Signature => { sign => 'always' } ]
         if $self->sign;
@@ -316,7 +324,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.035 of Dist::Zilla::PluginBundle::RSRCHBOY - released February 23, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.036 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 17, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -409,6 +417,20 @@ L<Dist::Zilla::Role::PluginBundle::Easy>
 L<Config::MVP::Slicer>
 
 =back
+
+=head1 SOURCE
+
+The development version is on github at L<http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
+and may be cloned from L<git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 
