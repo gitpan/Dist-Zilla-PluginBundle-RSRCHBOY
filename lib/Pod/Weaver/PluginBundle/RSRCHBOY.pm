@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::PluginBundle::RSRCHBOY;
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.036';
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.037';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -94,7 +94,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.036 of Pod::Weaver::PluginBundle::RSRCHBOY - released March 17, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.037 of Pod::Weaver::PluginBundle::RSRCHBOY - released March 28, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

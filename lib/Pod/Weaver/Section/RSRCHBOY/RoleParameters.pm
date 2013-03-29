@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::Section::RSRCHBOY::RoleParameters;
 {
-  $Pod::Weaver::Section::RSRCHBOY::RoleParameters::VERSION = '0.036';
+  $Pod::Weaver::Section::RSRCHBOY::RoleParameters::VERSION = '0.037';
 }
 
 # ABSTRACT: Prefaced role parameters section
@@ -45,7 +45,7 @@ Pod::Weaver::Section::RSRCHBOY::RoleParameters - Prefaced role parameters sectio
 
 =head1 VERSION
 
-This document describes version 0.036 of Pod::Weaver::Section::RSRCHBOY::RoleParameters - released March 17, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.037 of Pod::Weaver::Section::RSRCHBOY::RoleParameters - released March 28, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

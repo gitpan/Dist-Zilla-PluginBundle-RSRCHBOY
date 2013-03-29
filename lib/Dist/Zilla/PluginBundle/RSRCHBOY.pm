@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.036';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.037';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -72,7 +72,6 @@ use Dist::Zilla::Plugin::Test::Compile              ( );
 use Dist::Zilla::Plugin::Test::Pod::LinkCheck       ( );
 use Dist::Zilla::Plugin::Test::PodSpelling 2.002001 ( );
 use Dist::Zilla::Plugin::TestRelease                ( );
-use Dist::Zilla::Plugin::TravisYML                  ( );
 use Dist::Zilla::Plugin::Twitter                    ( );
 use Dist::Zilla::Plugin::UploadToCPAN               ( );
 
@@ -137,7 +136,7 @@ sub release_plugins {
         },
         [
             'Git::Check' => {
-                allow_dirty => [ qw{ .travis.yml cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
+                allow_dirty => [ qw{ .travis.yml cpanfile .gitignore LICENSE dist.ini weaver.ini README.mkdn Changes } ],
             },
         ],
         'ConfirmRelease',
@@ -149,9 +148,6 @@ sub release_plugins {
     push @plugins, [ 'Git::Tag' => {
         tag_format  => '%v',
         signed      => $self->sign, # 1,
-    }];
-    push @plugins, [ TravisYML => {
-        release_branch => '/^(build|release)\/.*/',
     }];
     push @plugins, [ 'Git::CommitBuild' => {
         release_branch       => 'release/cpan',
@@ -167,7 +163,7 @@ sub release_plugins {
             #'origin refs/heads/build/*:refs/heads/build/*',
         ],
     }];
-    push @plugins, [ Signature => { sign => 'always' } ]
+    push @plugins, 'Signature', # [ Signature => { sign => 'always' } ]
         if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
         if $self->tweet;
@@ -273,9 +269,9 @@ sub configure {
         'License',
         [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
 
-        [ ReadmeAnyFromPod  => ReadmePodInRoot => {
-            type     => 'pod',
-            filename => 'README.pod',
+        [ ReadmeAnyFromPod  => ReadmeMarkdownInRoot => {
+            type     => 'markdown',
+            filename => 'README.mkdn',
             location => 'root',
         }],
 
@@ -324,7 +320,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.036 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 17, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.037 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 28, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

@@ -91,7 +91,6 @@ eval { $v .= pmver('Dist::Zilla::Plugin::Test::Compile','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Test::Pod::LinkCheck','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Test::PodSpelling','2.002001') };
 eval { $v .= pmver('Dist::Zilla::Plugin::TestRelease','any version') };
-eval { $v .= pmver('Dist::Zilla::Plugin::TravisYML','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Twitter','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::UploadToCPAN','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Git','1.121770') };
