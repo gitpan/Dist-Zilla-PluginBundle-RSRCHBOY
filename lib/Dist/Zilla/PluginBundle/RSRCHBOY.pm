@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.037';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.038';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -238,7 +238,7 @@ sub configure {
     $self->add_plugins([ 'Git::NextVersion' =>
         #;first_version = 0.001       ; this is the default
         #;version_regexp  = ^v(.+)$   ; this is the default
-        { version_regexp => '^(\d.\d+)(-TRIAL|)$' },
+        { version_regexp => '^(\d.\d+(_\d\d)?)(-TRIAL|)$' },
     ]);
 
     $self->add_plugins('ContributorsFromGit');
@@ -320,7 +320,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.037 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 28, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.038 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 29, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
