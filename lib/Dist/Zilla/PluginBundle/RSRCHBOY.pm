@@ -9,7 +9,7 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.038';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.039';
 }
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -128,23 +128,21 @@ sub copy_from_build {
 sub release_plugins {
     my $self = shift @_;
 
+    my @allow_dirty = qw{
+        .travis.yml cpanfile .gitignore LICENSE dist.ini
+        weaver.ini README.mkdn Changes
+    };
+
     my @plugins = (
         qw{
             TestRelease
             CheckChangesHasContent
             CheckPrereqsIndexed
         },
-        [
-            'Git::Check' => {
-                allow_dirty => [ qw{ .travis.yml cpanfile .gitignore LICENSE dist.ini weaver.ini README.mkdn Changes } ],
-            },
-        ],
+        [ 'Git::Check'  => { allow_dirty => [ @allow_dirty ] } ],
         'ConfirmRelease',
+        [ 'Git::Commit' => { allow_dirty => [ @allow_dirty ] } ],
     );
-
-    push @plugins, [ 'Git::Commit' => {
-        allow_dirty => [ qw{ cpanfile .gitignore LICENSE dist.ini weaver.ini README.pod Changes } ],
-    }];
     push @plugins, [ 'Git::Tag' => {
         tag_format  => '%v',
         signed      => $self->sign, # 1,
@@ -173,7 +171,7 @@ sub release_plugins {
         if $self->github;
 
     push @plugins,
-        [ ArchiveRelease   => { directory => 'releases' } ];
+        [ ArchiveRelease => { directory => 'releases' } ];
 
     return @plugins;
 }
@@ -320,7 +318,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.038 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 29, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.039 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 22, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
