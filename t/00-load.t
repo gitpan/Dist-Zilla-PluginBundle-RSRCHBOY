@@ -2,7 +2,7 @@
 #
 # This file is part of Dist-Zilla-PluginBundle-RSRCHBOY
 #
-# This software is Copyright (c) 2011 by Chris Weyl.
+# This software is Copyright (c) 2013 by Chris Weyl.
 #
 # This is free software, licensed under:
 #

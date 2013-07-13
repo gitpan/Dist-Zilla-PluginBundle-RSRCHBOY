@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.010000;
+use 5.006;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -24,6 +24,7 @@ my %WriteMakefileArgs = (
     "Config::MVP::Slicer" => "0.302",
     "Dist::Zilla" => 0,
     "Dist::Zilla::Plugin::ArchiveRelease" => 0,
+    "Dist::Zilla::Plugin::Authority" => 0,
     "Dist::Zilla::Plugin::CPANFile" => 0,
     "Dist::Zilla::Plugin::CheckChangesHasContent" => 0,
     "Dist::Zilla::Plugin::CheckPrereqsIndexed" => 0,
@@ -34,6 +35,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::EOLTests" => 0,
     "Dist::Zilla::Plugin::ExtraTests" => 0,
     "Dist::Zilla::Plugin::Git::CommitBuild" => "2.009",
+    "Dist::Zilla::Plugin::Git::Describe" => 0,
     "Dist::Zilla::Plugin::Git::NextVersion" => 0,
     "Dist::Zilla::Plugin::GitHub::Meta" => 0,
     "Dist::Zilla::Plugin::GitHub::Update" => 0,
@@ -60,6 +62,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::SurgicalPkgVersion" => 0,
     "Dist::Zilla::Plugin::TaskWeaver" => 0,
     "Dist::Zilla::Plugin::Test::Compile" => 0,
+    "Dist::Zilla::Plugin::Test::MinimumVersion" => "2.000005",
     "Dist::Zilla::Plugin::Test::Pod::LinkCheck" => 0,
     "Dist::Zilla::Plugin::Test::PodSpelling" => "2.002001",
     "Dist::Zilla::Plugin::TestRelease" => 0,
@@ -84,6 +87,7 @@ my %WriteMakefileArgs = (
     "Pod::Weaver::Section::Contributors" => 0,
     "Pod::Weaver::Section::SeeAlso" => 0,
     "Pod::Weaver::Section::SourceGitHub" => 0,
+    "Test::MinimumVersion" => 0,
     "Test::NoSmartComments" => 0,
     "Test::Pod" => 0,
     "Test::Pod::Content" => 0,
@@ -99,7 +103,7 @@ my %WriteMakefileArgs = (
     "File::Temp" => 0,
     "Test::More" => "0.88"
   },
-  "VERSION" => "0.039",
+  "VERSION" => "0.040",
   "test" => {
     "TESTS" => "t/*.t"
   }

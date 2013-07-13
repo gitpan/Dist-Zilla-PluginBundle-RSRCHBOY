@@ -19,7 +19,7 @@ BEGIN {
 
 use Test::More;
 
-eval "use Test::HasVersion";
-plan skip_all => "Test::HasVersion required for testing version numbers"
+eval "use Test::MinimumVersion";
+plan skip_all => "Test::MinimumVersion required for testing minimum versions"
   if $@;
-all_pm_version_ok();
+all_minimum_version_ok( qq{5.008008} );

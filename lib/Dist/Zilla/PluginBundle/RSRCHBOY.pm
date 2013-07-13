@@ -1,20 +1,23 @@
 #
 # This file is part of Dist-Zilla-PluginBundle-RSRCHBOY
 #
-# This software is Copyright (c) 2011 by Chris Weyl.
+# This software is Copyright (c) 2013 by Chris Weyl.
 #
 # This is free software, licensed under:
 #
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
-{
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.039';
+BEGIN {
+  $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
+{
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.040';
+}
+# git description: 0.039-4-g35ea22e
+
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
-
-use v5.10;
 
 use Moose;
 use namespace::autoclean;
@@ -30,56 +33,60 @@ with
 use Config::MVP::Slicer 0.302;
 use Path::Class;
 
-use Dist::Zilla::PluginBundle::Git 1.121770         ( );
-use Dist::Zilla::PluginBundle::Git::CheckFor        ( );
-use Dist::Zilla::Plugin::ArchiveRelease             ( );
-use Dist::Zilla::Plugin::CheckChangesHasContent     ( );
-use Dist::Zilla::Plugin::CheckPrereqsIndexed        ( );
-use Dist::Zilla::Plugin::CopyFilesFromBuild         ( );
-use Dist::Zilla::Plugin::ConfirmRelease             ( );
-use Dist::Zilla::Plugin::ConsistentVersionTest      ( );
-use Dist::Zilla::Plugin::ContributorsFromGit        ( );
-use Dist::Zilla::Plugin::CPANFile                   ( );
-use Dist::Zilla::Plugin::EOLTests                   ( );
-use Dist::Zilla::Plugin::ExtraTests                 ( );
-use Dist::Zilla::Plugin::Git::CommitBuild 2.009     ( );
-use Dist::Zilla::Plugin::Git::NextVersion           ( );
-use Dist::Zilla::Plugin::GitHub::Meta               ( );
-use Dist::Zilla::Plugin::GitHub::Update             ( );
-use Dist::Zilla::Plugin::HasVersionTests            ( );
-use Dist::Zilla::Plugin::InstallGuide               ( );
-use Dist::Zilla::Plugin::InstallRelease             ( );
-use Dist::Zilla::Plugin::MetaConfig                 ( );
-use Dist::Zilla::Plugin::MetaJSON                   ( );
-use Dist::Zilla::Plugin::MetaYAML                   ( );
-use Dist::Zilla::Plugin::MetaNoIndex                ( );
-use Dist::Zilla::Plugin::MetaProvides::Package      ( );
-use Dist::Zilla::Plugin::MinimumPerl                ( );
-use Dist::Zilla::Plugin::NoSmartCommentsTests       ( );
-use Dist::Zilla::Plugin::NoTabsTests                ( );
-use Dist::Zilla::Plugin::PodWeaver                  ( );
-use Dist::Zilla::Plugin::PodCoverageTests           ( );
-use Dist::Zilla::Plugin::PodSyntaxTests             ( );
-use Dist::Zilla::Plugin::Prepender                  ( );
-use Dist::Zilla::Plugin::PruneFiles                 ( );
-use Dist::Zilla::Plugin::ReadmeFromPod              ( );
-use Dist::Zilla::Plugin::ReadmeAnyFromPod           ( );
-use Dist::Zilla::Plugin::ReportVersions::Tiny       ( );
-use Dist::Zilla::Plugin::Signature                  ( );
-use Dist::Zilla::Plugin::SurgicalPkgVersion         ( );
-use Dist::Zilla::Plugin::TaskWeaver                 ( );
-use Dist::Zilla::Plugin::Test::Compile              ( );
-use Dist::Zilla::Plugin::Test::Pod::LinkCheck       ( );
-use Dist::Zilla::Plugin::Test::PodSpelling 2.002001 ( );
-use Dist::Zilla::Plugin::TestRelease                ( );
-use Dist::Zilla::Plugin::Twitter                    ( );
-use Dist::Zilla::Plugin::UploadToCPAN               ( );
+use Dist::Zilla::PluginBundle::Git 1.121770            ( );
+use Dist::Zilla::PluginBundle::Git::CheckFor           ( );
+use Dist::Zilla::Plugin::ArchiveRelease                ( );
+use Dist::Zilla::Plugin::Authority                     ( );
+use Dist::Zilla::Plugin::CheckChangesHasContent        ( );
+use Dist::Zilla::Plugin::CheckPrereqsIndexed           ( );
+use Dist::Zilla::Plugin::CopyFilesFromBuild            ( );
+use Dist::Zilla::Plugin::ConfirmRelease                ( );
+use Dist::Zilla::Plugin::ConsistentVersionTest         ( );
+use Dist::Zilla::Plugin::ContributorsFromGit           ( );
+use Dist::Zilla::Plugin::CPANFile                      ( );
+use Dist::Zilla::Plugin::EOLTests                      ( );
+use Dist::Zilla::Plugin::ExtraTests                    ( );
+use Dist::Zilla::Plugin::Git::CommitBuild 2.009        ( );
+use Dist::Zilla::Plugin::Git::Describe                 ( );
+use Dist::Zilla::Plugin::Git::NextVersion              ( );
+use Dist::Zilla::Plugin::GitHub::Meta                  ( );
+use Dist::Zilla::Plugin::GitHub::Update                ( );
+use Dist::Zilla::Plugin::HasVersionTests               ( );
+use Dist::Zilla::Plugin::InstallGuide                  ( );
+use Dist::Zilla::Plugin::InstallRelease                ( );
+use Dist::Zilla::Plugin::MetaConfig                    ( );
+use Dist::Zilla::Plugin::MetaJSON                      ( );
+use Dist::Zilla::Plugin::MetaYAML                      ( );
+use Dist::Zilla::Plugin::MetaNoIndex                   ( );
+use Dist::Zilla::Plugin::MetaProvides::Package         ( );
+use Dist::Zilla::Plugin::MinimumPerl                   ( );
+use Dist::Zilla::Plugin::NoSmartCommentsTests          ( );
+use Dist::Zilla::Plugin::NoTabsTests                   ( );
+use Dist::Zilla::Plugin::PodWeaver                     ( );
+use Dist::Zilla::Plugin::PodCoverageTests              ( );
+use Dist::Zilla::Plugin::PodSyntaxTests                ( );
+use Dist::Zilla::Plugin::Prepender                     ( );
+use Dist::Zilla::Plugin::PruneFiles                    ( );
+use Dist::Zilla::Plugin::ReadmeFromPod                 ( );
+use Dist::Zilla::Plugin::ReadmeAnyFromPod              ( );
+use Dist::Zilla::Plugin::ReportVersions::Tiny          ( );
+use Dist::Zilla::Plugin::Signature                     ( );
+use Dist::Zilla::Plugin::SurgicalPkgVersion            ( );
+use Dist::Zilla::Plugin::TaskWeaver                    ( );
+use Dist::Zilla::Plugin::Test::Compile                 ( );
+use Dist::Zilla::Plugin::Test::MinimumVersion 2.000005 ( );
+use Dist::Zilla::Plugin::Test::Pod::LinkCheck          ( );
+use Dist::Zilla::Plugin::Test::PodSpelling 2.002001    ( );
+use Dist::Zilla::Plugin::TestRelease                   ( );
+use Dist::Zilla::Plugin::Twitter                       ( );
+use Dist::Zilla::Plugin::UploadToCPAN                  ( );
 
 # non-plugin / dist.ini deps
 use Dist::Zilla::Stash::PAUSE::Encrypted 0.003 ( );
 
 # additional deps
 use Archive::Tar::Wrapper   ( );
+use Test::MinimumVersion    ( );
 use Test::NoSmartComments   ( );
 use Test::Pod::Coverage     ( );
 use Test::Pod               ( );
@@ -108,10 +115,10 @@ has "is_$_" => (is => 'lazy', isa => 'Bool', default => $_d->($_))
     for qw{ task };
 
 #sub _build_is_task    { shift->payload->{task}                             }
-sub _build_sign               { shift->payload->{sign}               // 1 }
-sub _build_tweet              { shift->payload->{tweet}              // 0 }
-sub _build_github             { shift->payload->{github}             // 1 }
-sub _build_install_on_release { shift->payload->{install_on_release} // 1 }
+sub _build_sign               { shift->payload->{sign}               || 1 }
+sub _build_tweet              { shift->payload->{tweet}              || 0 }
+sub _build_github             { shift->payload->{github}             || 1 }
+sub _build_install_on_release { shift->payload->{install_on_release} || 1 }
 
 
 sub copy_from_build {
@@ -196,6 +203,7 @@ sub author_tests {
             NoSmartCommentsTests
             Test::Pod::LinkCheck
         },
+        [ 'Test::MinimumVersion' => { max_target_perl => '5.008008' } ],
     );
 }
 
@@ -204,7 +212,7 @@ sub meta_provider_plugins {
     my ($self) = @_;
 
     my @plugins = (
-        qw{ MetaConfig MetaJSON MetaYAML },
+        qw{ Authority MetaConfig MetaJSON MetaYAML },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
     );
@@ -246,6 +254,7 @@ sub configure {
     $self->add_plugins(
         [ GatherDir => { exclude_filename => [ 'LICENSE' ] } ],
         qw{
+            Git::Describe
             PruneCruft
             ExecDir
             ShareDir
@@ -255,6 +264,7 @@ sub configure {
             SurgicalPkgVersion
             ReadmeFromPod
             MinimumPerl
+
             ReportVersions::Tiny
         },
         [ AutoPrereqs => $autoprereq_opts ],
@@ -318,7 +328,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.039 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 22, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.040 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 12, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -432,7 +442,7 @@ Chris Weyl <cweyl@alumni.drew.edu>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2011 by Chris Weyl.
+This software is Copyright (c) 2013 by Chris Weyl.
 
 This is free software, licensed under:
 
