@@ -12,9 +12,9 @@ BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.040';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.041';
 }
-# git description: 0.039-4-g35ea22e
+# git description: 0.040-3-gbdeae24
 
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -136,8 +136,14 @@ sub release_plugins {
     my $self = shift @_;
 
     my @allow_dirty = qw{
-        .travis.yml cpanfile .gitignore LICENSE dist.ini
-        weaver.ini README.mkdn Changes
+        .gitignore
+        .travis.yml
+        Changes
+        LICENSE
+        README.mkdn
+        cpanfile
+        dist.ini
+        weaver.ini
     };
 
     my @plugins = (
@@ -212,7 +218,8 @@ sub meta_provider_plugins {
     my ($self) = @_;
 
     my @plugins = (
-        qw{ Authority MetaConfig MetaJSON MetaYAML },
+        [ Authority => { authority => 'cpan:RSRCHBOY' } ],
+        qw{ MetaConfig MetaJSON MetaYAML },
         [ MetaNoIndex => { directory => [ qw{ corpus t } ] } ],
         'MetaProvides::Package',
     );
@@ -328,7 +335,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.040 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 12, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.041 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 20, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

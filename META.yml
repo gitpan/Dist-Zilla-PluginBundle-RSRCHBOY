@@ -22,25 +22,25 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::RSRCHBOY:
     file: lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
-    version: 0.040
+    version: 0.041
   Pod::Weaver::PluginBundle::RSRCHBOY:
     file: lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
-    version: 0.040
+    version: 0.041
   Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
-    version: 0.040
+    version: 0.041
   Pod::Weaver::Section::RSRCHBOY::LazyAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
-    version: 0.040
+    version: 0.041
   Pod::Weaver::Section::RSRCHBOY::RequiredAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
-    version: 0.040
+    version: 0.041
   Pod::Weaver::Section::RSRCHBOY::RoleParameters:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
-    version: 0.040
+    version: 0.041
   Pod::Weaver::SectionBase::CollectWithIntro:
     file: lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
-    version: 0.040
+    version: 0.041
 requires:
   Archive::Tar::Wrapper: 0
   Config::MVP::Slicer: 0.302
@@ -124,7 +124,7 @@ resources:
   bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
   homepage: http://metacpan.org/release/Dist-Zilla-PluginBundle-RSRCHBOY/
   repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
-version: 0.040
+version: 0.041
 x_Dist_Zilla:
   perl:
     version: 5.016002
@@ -136,7 +136,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
       name: '@RSRCHBOY/Git::NextVersion'
-      version: 2.014
+      version: 2.013
     -
       class: Dist::Zilla::Plugin::ContributorsFromGit
       name: '@RSRCHBOY/ContributorsFromGit'
@@ -160,7 +160,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Describe
       name: '@RSRCHBOY/Git::Describe'
-      version: 0.003
+      version: 0.002
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@RSRCHBOY/PruneCruft'
@@ -300,7 +300,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@RSRCHBOY/Git::Check'
-      version: 2.014
+      version: 2.013
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@RSRCHBOY/ConfirmRelease'
@@ -308,15 +308,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Commit
       name: '@RSRCHBOY/Git::Commit'
-      version: 2.014
+      version: 2.013
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@RSRCHBOY/Git::Tag'
-      version: 2.014
+      version: 2.013
     -
       class: Dist::Zilla::Plugin::Git::CommitBuild
       name: '@RSRCHBOY/Git::CommitBuild'
-      version: 2.014
+      version: 2.013
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@RSRCHBOY/UploadToCPAN'
@@ -324,7 +324,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Push
       name: '@RSRCHBOY/Git::Push'
-      version: 2.014
+      version: 2.013
     -
       class: Dist::Zilla::Plugin::Signature
       name: '@RSRCHBOY/Signature'
