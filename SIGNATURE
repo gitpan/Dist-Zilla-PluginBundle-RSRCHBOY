@@ -14,27 +14,28 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 50ef39d0b432b422772ea206b3ffcb479867c89f Changes
+SHA1 6586658cb7a0a91c7208c1ae60a5006f0fe10ff5 Changes
 SHA1 52aa9d0c94f09d9806b24b66e833897f67ba260d INSTALL
 SHA1 425b43f09d540543817bef8dbecb4c1a2da36085 LICENSE
-SHA1 2e0cdffa864eed1166cb630da37120d57bdc62bf MANIFEST
-SHA1 32dfe5f7bb35ca242dbd3d1c2a92c6aaa5c00160 META.json
-SHA1 a099fd5ba7e0556b9cf8ff44e6a851738be0e6cd META.yml
-SHA1 2a29e1639691698f3e4b5f6c4a353dd7b72f86a6 Makefile.PL
-SHA1 1a135a5d3978b15101d7488f1791fa062b4c84d6 README
-SHA1 b821d23f50fd3afd71c15639b79e5ad44b6e8938 cpanfile
-SHA1 19201a0d1aeacd6dec11bf55a66624cb61d84794 dist.ini
-SHA1 d4c5dde39632ba80004c5b0d64f6564f923bb0b6 lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
-SHA1 cebaed0323c5a4b377412c678be75e90addd8146 lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
-SHA1 863ac781a2b747e49c2d376cd4297f99594b5f0d lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
-SHA1 da391a40f652b01a4554ba0553108724fb9ba8f8 lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
-SHA1 f27541fe36370acc0b86d55601e090be303e6970 lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
-SHA1 5a294b1cbbcc9611126fccb537ec68dad466cf90 lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
-SHA1 50d767229bde822dfc15dd780f9bd00ead89fd03 lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
-SHA1 7e48a458e87a5c83f2557dc7876b1c397b1422c0 t/00-compile.t
+SHA1 f219395dd3125de586ac3bbbd96a962a64d22a43 MANIFEST
+SHA1 10c727f4a8bf3f87049713ab13e5f04d9bb3557e META.json
+SHA1 35f3b3d90f38845ee85dd6918017d2603eee3bef META.yml
+SHA1 76a5ce6c3a75576d0ba2a5929f3361ec02e44b17 Makefile.PL
+SHA1 bdc6dec7d0d03e3aa1bfa150e40bf0f24902f416 README
+SHA1 885590b47e46e1b8c285ae5455e4c71f3048c446 cpanfile
+SHA1 1262372803a8ea57fb156dde6d21dd4d575b1135 dist.ini
+SHA1 34ac3699dd606695b365ede7c4e347cef440d870 lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
+SHA1 86acdff29e94da3b97ccff8fc0512be1082f0f73 lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
+SHA1 1e692893998402c3745c2f1de8af581a00f4331a lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
+SHA1 095f8a0cebb53c4247c31c54d285f5bfefc3354c lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
+SHA1 715e358ddd6401131c4b5dd515468aa44c91cf43 lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
+SHA1 850d8d250b179e1b8011c47168c3278e31e877b5 lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
+SHA1 f92c31b8393baa1f256af8d8f4a58952a7efc3ff lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
+SHA1 4a8aed1e7b40ba08b0f7db3b7d961b95e62de3db t/00-check-deps.t
+SHA1 e450e2834eb21c0b1c2f2af11385abaf6e0dc9ce t/00-compile.t
 SHA1 db10de36bd5672e5bd1088540f8a75db31af4bc3 t/00-load.t
-SHA1 836aab23f404cd3b118d4294905de5d78ac86719 t/000-report-versions-tiny.t
-SHA1 3e2454c75b33b2fc7afc0420da78437f1d35cbbc t/author-pod-spell.t
+SHA1 0a7e3b8a29b3e4db73698b01f36e8bfd77e3d690 t/000-report-versions-tiny.t
+SHA1 4cd978accfde8a00086ad04fcd9c381a371c1f50 t/author-pod-spell.t
 SHA1 9c3627ff37f4fd5bddc34bf46cf3359eaf76a060 t/release-consistent-version.t
 SHA1 a032c41ef6887fab1b900669c2d304fab46680e2 t/release-eol.t
 SHA1 eaf93d205003b75d23ab9bc870d5f9e69e4cd2a0 t/release-has-version.t
@@ -47,11 +48,11 @@ SHA1 8d8cf920c794e02f4f8a80d7ab0466a19a9b45da t/release-pod-syntax.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iQEcBAEBAgAGBQJR6vHWAAoJEOd5N1CvIgQkbp0H/0gfxvOGm806ksaEgrZtaiqY
-urMwIMF4z+fIKf/qfHeFEp+WhyfEFpmGQIRPt5QTmSwK6ui3wbOoIayJNs+4eeW+
-URbESkkAzj+IYTzuV0VadBkKjOFMYhqPcPAVetzLUJmViyrh76B3klxbxuTRfVP3
-MWaxV4AsM2kCodlvcgSrfyNA82fYCqx/Lpl6R/uRNLg0HvsFfk8df0T8MtO2BJPk
-d0S1aJWK9HG/e++PeMHXvO1ojhD5Xfj6q+Omtif11jjCNVxmsdJ3YJz/vOz61IHT
-Xj9IrCc9V4N/X/AjFLAqbezCXnBhqBSmpFAjsQJa5obqoFDmafT2xR7cGdARNgk=
-=Wda4
+iQEcBAEBAgAGBQJR/tMnAAoJEOd5N1CvIgQkvWMH/iK8lf3QUuLZsQaiAcNF/OVQ
++J+QZgeqwXPvKmqdyQB97+y37dTQvK0ure2XXgMC0eobS5GEVt9wV/JuXxuo7K1p
+1P3/c8THbxsXXEG5I2ugvFdsPSnArkEKx9Lc9ZeLG5wOlfmbstRwNC8SXaiCobTC
+wxC/Ebya6xHX+W9k891MMaKKTpvZG7RLu8MjIaiD1clqn+maa/E+O60sQS3k4NsJ
+wZhuYhXU7bac2vRyq2qbbps7yJ6E7WfNIwqiiapywjbfnEYUrrjUlsAx3w/PQ3tf
+nUpiWA6YwBaaw3mglH8P6a83FEopGuuHSW06dIgk0nCp5V1BVj4whpSTrhoDvX8=
+=+qGl
 -----END PGP SIGNATURE-----

@@ -12,7 +12,7 @@ BEGIN {
   $Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::AUTHORITY = 'cpan:RSRCHBOY';
 }
 {
-  $Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.041';
+  $Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.042';
 }
 
 # ABSTRACT: Prefaced generated-only attributes
@@ -49,7 +49,7 @@ Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - Prefaced generated-only at
 
 =head1 VERSION
 
-This document describes version 0.041 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released July 20, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.042 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released August 04, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

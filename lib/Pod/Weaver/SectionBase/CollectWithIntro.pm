@@ -12,7 +12,7 @@ BEGIN {
   $Pod::Weaver::SectionBase::CollectWithIntro::AUTHORITY = 'cpan:RSRCHBOY';
 }
 {
-  $Pod::Weaver::SectionBase::CollectWithIntro::VERSION = '0.041';
+  $Pod::Weaver::SectionBase::CollectWithIntro::VERSION = '0.042';
 }
 
 # ABSTRACT: Extends CollectWithIntro to provide a better default plugin name
@@ -44,7 +44,7 @@ Pod::Weaver::SectionBase::CollectWithIntro - Extends CollectWithIntro to provide
 
 =head1 VERSION
 
-This document describes version 0.041 of Pod::Weaver::SectionBase::CollectWithIntro - released July 20, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.042 of Pod::Weaver::SectionBase::CollectWithIntro - released August 04, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

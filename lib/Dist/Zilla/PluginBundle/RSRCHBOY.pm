@@ -12,9 +12,9 @@ BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.041';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.042';
 }
-# git description: 0.040-3-gbdeae24
+# git description: 0.041-15-g2012ca3
 
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
@@ -24,9 +24,13 @@ use namespace::autoclean;
 use MooseX::AttributeShortcuts;
 use Moose::Util::TypeConstraints;
 
+use autodie 0.20;
+use autobox::Core;
+
 use Dist::Zilla;
 with
     'Dist::Zilla::Role::PluginBundle::Easy',
+    'Dist::Zilla::Role::PluginBundle::PluginRemover' => { -version => '0.102' },
     'Dist::Zilla::Role::PluginBundle::Config::Slicer',
     ;
 
@@ -94,42 +98,40 @@ use Test::Pod::Content      ( );
 use Test::Pod::LinkCheck    ( );
 use Pod::Coverage::TrustPod ( );
 
-# debugging...
-#use Smart::Comments '###';
+# FIXME this next section is kinda... ugly
 
-#has is_task    => (is => 'lazy', isa => 'Bool');
 has is_app     => (is => 'lazy', isa => 'Bool');
 has is_private => (is => 'lazy', isa => 'Bool');
 has rapid_dev  => (is => 'lazy', isa => 'Bool');
 
-#sub _build_is_task    { $_[0]->payload->{task}                             }
 sub _build_is_app     { $_[0]->payload->{cat_app} || $_[0]->payload->{app} }
 sub _build_is_private { $_[0]->payload->{private}                          }
 sub _build_rapid_dev  { $_[0]->payload->{rapid_dev}                        }
 
 my $_d = sub { my $key = shift; sub { shift->payload->{$key} } };
-
 has $_ => (is => 'lazy', isa => 'Bool')
     for qw{ sign tweet github install_on_release };
-has "is_$_" => (is => 'lazy', isa => 'Bool', default => $_d->($_))
+has "is_$_" => (is => 'lazy', isa => 'Bool', builder => $_d->($_))
     for qw{ task };
 
-#sub _build_is_task    { shift->payload->{task}                             }
 sub _build_sign               { shift->payload->{sign}               || 1 }
 sub _build_tweet              { shift->payload->{tweet}              || 0 }
 sub _build_github             { shift->payload->{github}             || 1 }
 sub _build_install_on_release { shift->payload->{install_on_release} || 1 }
 
+has _copy_from_build => (
+    is      => 'lazy',
+    isa     => 'ArrayRef[Str]',
+    builder => sub {
+        my ($self) = @_;
 
-sub copy_from_build {
-    my ($self) = @_;
+        my @copy = (qw{ LICENSE cpanfile });
+        push @copy, 'Makefile.PL'
+            if $self->is_app;
 
-    my @copy = (qw{ LICENSE });
-    push @copy, 'Makefile.PL'
-        if $self->is_app;
-
-    return @copy;
-}
+        return [ @copy ];
+    },
+);
 
 
 sub release_plugins {
@@ -139,12 +141,12 @@ sub release_plugins {
         .gitignore
         .travis.yml
         Changes
-        LICENSE
         README.mkdn
-        cpanfile
         dist.ini
         weaver.ini
     };
+    push @allow_dirty, $self->_copy_from_build->flatten;
+
 
     my @plugins = (
         qw{
@@ -152,13 +154,26 @@ sub release_plugins {
             CheckChangesHasContent
             CheckPrereqsIndexed
         },
-        [ 'Git::Check'  => { allow_dirty => [ @allow_dirty ] } ],
-        'ConfirmRelease',
-        [ 'Git::Commit' => { allow_dirty => [ @allow_dirty ] } ],
+        [ 'Git::Remote::Check' => GitCheckReleaseBranchSync  => {
+            remote_name   => 'origin',
+            do_update     => 1,
+            branch        => 'release/cpan',
+            remote_branch => 'release/cpan',
+        } ],
+        [ 'Git::Remote::Check' => GitCheckMasterBranchSync => {
+            remote_name   => 'origin',
+            do_update     => 1,
+            branch        => 'master',
+            remote_branch => 'master',
+        } ],
+        [ 'Git::Check'      => { allow_dirty => [ @allow_dirty ] } ],
+        [ 'Git::Commit'     => { allow_dirty => [ @allow_dirty ] } ],
+        [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
     );
+
     push @plugins, [ 'Git::Tag' => {
         tag_format  => '%v',
-        signed      => $self->sign, # 1,
+        signed      => $self->sign,
     }];
     push @plugins, [ 'Git::CommitBuild' => {
         release_branch       => 'release/cpan',
@@ -171,10 +186,9 @@ sub release_plugins {
         push_to => [
             'origin',
             'origin refs/heads/release/cpan:refs/heads/release/cpan',
-            #'origin refs/heads/build/*:refs/heads/build/*',
         ],
     }];
-    push @plugins, 'Signature', # [ Signature => { sign => 'always' } ]
+    push @plugins, 'Signature',
         if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
         if $self->tweet;
@@ -184,7 +198,9 @@ sub release_plugins {
         if $self->github;
 
     push @plugins,
-        [ ArchiveRelease => { directory => 'releases' } ];
+        [ ArchiveRelease => { directory => 'releases' } ],
+        'ConfirmRelease',
+        ;
 
     return @plugins;
 }
@@ -234,6 +250,8 @@ sub meta_provider_plugins {
 sub configure {
     my $self = shift @_;
 
+    $self->ensure_current;
+
     my $autoprereq_opts = $self->config_slice({ autoprereqs_skip => 'skip' });
     my $prepender_opts  = $self->config_slice({ prepender_skip   => 'skip' });
 
@@ -259,7 +277,7 @@ sub configure {
     $self->add_bundle('Git::CheckFor');
 
     $self->add_plugins(
-        [ GatherDir => { exclude_filename => [ 'LICENSE' ] } ],
+        [ GatherDir => { exclude_filename => $self->_copy_from_build } ],
         qw{
             Git::Describe
             PruneCruft
@@ -282,7 +300,9 @@ sub configure {
         $self->release_plugins,
 
         'License',
-        [ CopyFilesFromBuild => { copy => [ $self->copy_from_build ] } ],
+        'CPANFile',
+
+        [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
 
         [ ReadmeAnyFromPod  => ReadmeMarkdownInRoot => {
             type     => 'markdown',
@@ -290,13 +310,26 @@ sub configure {
             location => 'root',
         }],
 
-        'CPANFile',
-
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
 
     return;
 }
+
+
+sub ensure_current {
+    my $self = shift @_;
+
+    ### ensure all our CopyFromBuild files are known to git...
+    for my $file ($self->_copy_from_build->flatten) {
+
+        system "touch $file && git add $file && git commit -m 'autoadd' $file"
+            unless -f "$file";
+    }
+
+    return;
+}
+
 
 
 sub stopwords {
@@ -318,8 +351,7 @@ sub stopwords {
 }
 
 __PACKAGE__->meta->make_immutable;
-
-1;
+!!42;
 
 __END__
 
@@ -335,7 +367,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.041 of Dist::Zilla::PluginBundle::RSRCHBOY - released July 20, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.042 of Dist::Zilla::PluginBundle::RSRCHBOY - released August 04, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -350,10 +382,6 @@ this being too terribly consistent/sane until the version gets to 1.
 
 =head1 METHODS
 
-=head2 copy_from_build
-
-Returns a list of files that, once built, will be copied back into the root.
-
 =head2 release_plugins
 
 Plugin configuration for public release.
@@ -367,6 +395,11 @@ Plugins that mess about with what goes into META.*.
 =head2 configure
 
 Preps plugin lists / config; see L<Dist::Zilla::Role::PluginBundle::Easy>.
+
+=head2 ensure_current
+
+Sometimes things change.  (I know, I know, the horror!)  This seeks to
+minimize that pain by automatically making what changes it can.
 
 =head2 stopwords
 
@@ -411,7 +444,7 @@ It's possible to pass options to our bundled plugins directly:
     GatherDir.exclude_filename = cpanfile
 
 For information on specific plugins and their options, you should refer to the
-plugin's documentation.
+documentation of L<Dist::Zilla::Role::PluginBundle::Config::Slicer>.
 
 =head1 SEE ALSO
 
@@ -421,11 +454,19 @@ Please see those modules/websites for more information related to this module.
 
 =item *
 
-L<Dist::Zilla::Role::PluginBundle::Easy>
+L<Dist::Zilla::Role::PluginBundle::Easy|Dist::Zilla::Role::PluginBundle::Easy>
 
 =item *
 
-L<Config::MVP::Slicer>
+L<Dist::Zilla::Role::PluginBundle::PluginRemover|Dist::Zilla::Role::PluginBundle::PluginRemover>
+
+=item *
+
+L<Dist::Zilla::Role::PluginBundle::Config::Slicer|Dist::Zilla::Role::PluginBundle::Config::Slicer>
+
+=item *
+
+L<Config::MVP::Slicer|Config::MVP::Slicer>
 
 =back
 

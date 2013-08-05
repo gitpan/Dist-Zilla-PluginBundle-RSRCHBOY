@@ -3,9 +3,10 @@ abstract: 'Zilla your distributions like RSRCHBOY!'
 author:
   - 'Chris Weyl <cweyl@alumni.drew.edu>'
 build_requires:
-  File::Find: 0
-  File::Temp: 0
-  Test::More: 0.88
+  Capture::Tiny: 0
+  Test::CheckDeps: 0.006
+  Test::More: 0.94
+  blib: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
@@ -22,25 +23,25 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::RSRCHBOY:
     file: lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
-    version: 0.041
+    version: 0.042
   Pod::Weaver::PluginBundle::RSRCHBOY:
     file: lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
-    version: 0.041
+    version: 0.042
   Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
-    version: 0.041
+    version: 0.042
   Pod::Weaver::Section::RSRCHBOY::LazyAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
-    version: 0.041
+    version: 0.042
   Pod::Weaver::Section::RSRCHBOY::RequiredAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
-    version: 0.041
+    version: 0.042
   Pod::Weaver::Section::RSRCHBOY::RoleParameters:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
-    version: 0.041
+    version: 0.042
   Pod::Weaver::SectionBase::CollectWithIntro:
     file: lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
-    version: 0.041
+    version: 0.042
 requires:
   Archive::Tar::Wrapper: 0
   Config::MVP::Slicer: 0.302
@@ -59,6 +60,7 @@ requires:
   Dist::Zilla::Plugin::Git::CommitBuild: 2.009
   Dist::Zilla::Plugin::Git::Describe: 0
   Dist::Zilla::Plugin::Git::NextVersion: 0
+  Dist::Zilla::Plugin::Git::Remote::Check: 0
   Dist::Zilla::Plugin::GitHub::Meta: 0
   Dist::Zilla::Plugin::GitHub::Update: 0
   Dist::Zilla::Plugin::HasVersionTests: 0
@@ -83,6 +85,7 @@ requires:
   Dist::Zilla::Plugin::Signature: 0
   Dist::Zilla::Plugin::SurgicalPkgVersion: 0
   Dist::Zilla::Plugin::TaskWeaver: 0
+  Dist::Zilla::Plugin::Test::CheckDeps: 0
   Dist::Zilla::Plugin::Test::Compile: 0
   Dist::Zilla::Plugin::Test::MinimumVersion: 2.000005
   Dist::Zilla::Plugin::Test::Pod::LinkCheck: 0
@@ -94,6 +97,7 @@ requires:
   Dist::Zilla::PluginBundle::Git::CheckFor: 0
   Dist::Zilla::Role::PluginBundle::Config::Slicer: 0
   Dist::Zilla::Role::PluginBundle::Easy: 0
+  Dist::Zilla::Role::PluginBundle::PluginRemover: 0.102
   Dist::Zilla::Stash::PAUSE::Encrypted: 0.003
   Moose: 0
   Moose::Util::TypeConstraints: 0
@@ -116,6 +120,7 @@ requires:
   Test::Pod::Coverage: 0
   Test::Pod::LinkCheck: 0
   autobox::Core: 0
+  autodie: 0.20
   namespace::autoclean: 0
   perl: 5.006
   strict: 0
@@ -124,10 +129,10 @@ resources:
   bugtracker: https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
   homepage: http://metacpan.org/release/Dist-Zilla-PluginBundle-RSRCHBOY/
   repository: git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git
-version: 0.041
+version: 0.042
 x_Dist_Zilla:
   perl:
-    version: 5.016002
+    version: 5.018000
   plugins:
     -
       class: Dist::Zilla::Plugin::NextRelease
@@ -136,7 +141,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
       name: '@RSRCHBOY/Git::NextVersion'
-      version: 2.013
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::ContributorsFromGit
       name: '@RSRCHBOY/ContributorsFromGit'
@@ -160,7 +165,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Describe
       name: '@RSRCHBOY/Git::Describe'
-      version: 0.002
+      version: 0.003
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@RSRCHBOY/PruneCruft'
@@ -200,7 +205,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@RSRCHBOY/ReportVersions::Tiny'
-      version: 1.08
+      version: 1.09
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@RSRCHBOY/AutoPrereqs'
@@ -239,8 +244,14 @@ x_Dist_Zilla:
       version: 1.101420
     -
       class: Dist::Zilla::Plugin::Test::Compile
+      config:
+        Dist::Zilla::Plugin::Test::Compile:
+          module_finder:
+            - ':InstallModules'
+          script_finder:
+            - ':ExecFiles'
       name: '@RSRCHBOY/Test::Compile'
-      version: 2.002
+      version: 2.013
     -
       class: Dist::Zilla::Plugin::ExtraTests
       name: '@RSRCHBOY/ExtraTests'
@@ -280,11 +291,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       name: '@RSRCHBOY/MetaProvides::Package'
-      version: 1.14000002
+      version: 1.14000003
     -
       class: Dist::Zilla::Plugin::GitHub::Meta
       name: '@RSRCHBOY/GitHub::Meta'
-      version: 0.34
+      version: 0.35
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@RSRCHBOY/TestRelease'
@@ -298,25 +309,33 @@ x_Dist_Zilla:
       name: '@RSRCHBOY/CheckPrereqsIndexed'
       version: 0.009
     -
+      class: Dist::Zilla::Plugin::Git::Remote::Check
+      name: '@RSRCHBOY/GitCheckReleaseBranchSync'
+      version: 0.1.2
+    -
+      class: Dist::Zilla::Plugin::Git::Remote::Check
+      name: '@RSRCHBOY/GitCheckMasterBranchSync'
+      version: 0.1.2
+    -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@RSRCHBOY/Git::Check'
-      version: 2.013
-    -
-      class: Dist::Zilla::Plugin::ConfirmRelease
-      name: '@RSRCHBOY/ConfirmRelease'
-      version: 4.300035
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::Git::Commit
       name: '@RSRCHBOY/Git::Commit'
-      version: 2.013
+      version: 2.014
+    -
+      class: Dist::Zilla::Plugin::Test::CheckDeps
+      name: '@RSRCHBOY/Test::CheckDeps'
+      version: 0.007
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@RSRCHBOY/Git::Tag'
-      version: 2.013
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::Git::CommitBuild
       name: '@RSRCHBOY/Git::CommitBuild'
-      version: 2.013
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@RSRCHBOY/UploadToCPAN'
@@ -324,7 +343,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Push
       name: '@RSRCHBOY/Git::Push'
-      version: 2.013
+      version: 2.014
     -
       class: Dist::Zilla::Plugin::Signature
       name: '@RSRCHBOY/Signature'
@@ -336,14 +355,22 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GitHub::Update
       name: '@RSRCHBOY/GitHub::Update'
-      version: 0.34
+      version: 0.35
     -
       class: Dist::Zilla::Plugin::ArchiveRelease
       name: '@RSRCHBOY/ArchiveRelease'
       version: 4.00
     -
+      class: Dist::Zilla::Plugin::ConfirmRelease
+      name: '@RSRCHBOY/ConfirmRelease'
+      version: 4.300035
+    -
       class: Dist::Zilla::Plugin::License
       name: '@RSRCHBOY/License'
+      version: 4.300035
+    -
+      class: Dist::Zilla::Plugin::CPANFile
+      name: '@RSRCHBOY/CPANFile'
       version: 4.300035
     -
       class: Dist::Zilla::Plugin::CopyFilesFromBuild
@@ -354,13 +381,17 @@ x_Dist_Zilla:
       name: '@RSRCHBOY/ReadmeMarkdownInRoot'
       version: 0.131500
     -
-      class: Dist::Zilla::Plugin::CPANFile
-      name: '@RSRCHBOY/CPANFile'
-      version: 4.300035
-    -
       class: Dist::Zilla::Plugin::PodWeaver
       name: '@RSRCHBOY/PodWeaver'
-      version: 3.101641
+      version: 3.101642
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: runtime
+          type: requires
+      name: RuntimeRequires
+      version: 4.300035
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'

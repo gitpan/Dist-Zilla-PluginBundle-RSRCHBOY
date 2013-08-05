@@ -36,12 +36,12 @@ lib
 Pod
 Weaver
 Section
-RoleParameters
+LazyAttributes
 Dist
 Zilla
 PluginBundle
 GeneratedAttributes
+RoleParameters
 SectionBase
 CollectWithIntro
 RequiredAttributes
-LazyAttributes
