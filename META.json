@@ -4,7 +4,7 @@
       "Chris Weyl <cweyl@alumni.drew.edu>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140",
    "license" : [
       "lgpl_2_1"
    ],
@@ -70,6 +70,7 @@
             "Dist::Zilla::Plugin::PodSyntaxTests" : "0",
             "Dist::Zilla::Plugin::PodWeaver" : "0",
             "Dist::Zilla::Plugin::Prepender" : "0",
+            "Dist::Zilla::Plugin::PromptIfStale" : "0",
             "Dist::Zilla::Plugin::PruneFiles" : "0",
             "Dist::Zilla::Plugin::ReadmeAnyFromPod" : "0",
             "Dist::Zilla::Plugin::ReadmeFromPod" : "0",
@@ -83,6 +84,7 @@
             "Dist::Zilla::Plugin::Test::Pod::LinkCheck" : "0",
             "Dist::Zilla::Plugin::Test::PodSpelling" : "2.002001",
             "Dist::Zilla::Plugin::TestRelease" : "0",
+            "Dist::Zilla::Plugin::Travis::ConfigForReleaseBranch" : "0",
             "Dist::Zilla::Plugin::Twitter" : "0",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
             "Dist::Zilla::PluginBundle::Git" : "1.121770",
@@ -131,31 +133,31 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.042"
+         "version" : "0.043"
       },
       "Pod::Weaver::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.042"
+         "version" : "0.043"
       },
       "Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm",
-         "version" : "0.042"
+         "version" : "0.043"
       },
       "Pod::Weaver::Section::RSRCHBOY::LazyAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm",
-         "version" : "0.042"
+         "version" : "0.043"
       },
       "Pod::Weaver::Section::RSRCHBOY::RequiredAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm",
-         "version" : "0.042"
+         "version" : "0.043"
       },
       "Pod::Weaver::Section::RSRCHBOY::RoleParameters" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm",
-         "version" : "0.042"
+         "version" : "0.043"
       },
       "Pod::Weaver::SectionBase::CollectWithIntro" : {
          "file" : "lib/Pod/Weaver/SectionBase/CollectWithIntro.pm",
-         "version" : "0.042"
+         "version" : "0.043"
       }
    },
    "release_status" : "stable",
@@ -170,7 +172,7 @@
          "web" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY"
       }
    },
-   "version" : "0.042",
+   "version" : "0.043",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018000"
@@ -212,14 +214,19 @@
             "version" : "4.300035"
          },
          {
-            "class" : "Dist::Zilla::Plugin::Git::Describe",
-            "name" : "@RSRCHBOY/Git::Describe",
-            "version" : "0.003"
+            "class" : "Dist::Zilla::Plugin::PromptIfStale",
+            "name" : "@RSRCHBOY/PromptIfStale",
+            "version" : "0.002"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
             "name" : "@RSRCHBOY/PruneCruft",
             "version" : "4.300035"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Git::Describe",
+            "name" : "@RSRCHBOY/Git::Describe",
+            "version" : "0.003"
          },
          {
             "class" : "Dist::Zilla::Plugin::ExecDir",
@@ -324,7 +331,7 @@
                }
             },
             "name" : "@RSRCHBOY/Test::Compile",
-            "version" : "2.013"
+            "version" : "2.018"
          },
          {
             "class" : "Dist::Zilla::Plugin::ExtraTests",
@@ -397,6 +404,11 @@
             "version" : "0.009"
          },
          {
+            "class" : "Dist::Zilla::Plugin::Git::Remote::Update",
+            "name" : "@RSRCHBOY/GitFetchOrigin",
+            "version" : "0.1.2"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::Git::Remote::Check",
             "name" : "@RSRCHBOY/GitCheckReleaseBranchSync",
             "version" : "0.1.2"
@@ -420,6 +432,11 @@
             "class" : "Dist::Zilla::Plugin::Test::CheckDeps",
             "name" : "@RSRCHBOY/Test::CheckDeps",
             "version" : "0.007"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Travis::ConfigForReleaseBranch",
+            "name" : "@RSRCHBOY/Travis::ConfigForReleaseBranch",
+            "version" : "0.001"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
@@ -500,6 +517,17 @@
                }
             },
             "name" : "RuntimeRequires",
+            "version" : "4.300035"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "runtime",
+                  "type" : "requires"
+               }
+            },
+            "name" : "PrereqsWithoutTickets",
             "version" : "4.300035"
          },
          {

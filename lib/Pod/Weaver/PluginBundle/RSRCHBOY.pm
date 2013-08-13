@@ -12,7 +12,7 @@ BEGIN {
   $Pod::Weaver::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
 {
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.042';
+  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.043';
 }
 
 # ABSTRACT: Document your modules like RSRCHBOY does
@@ -97,7 +97,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.042 of Pod::Weaver::PluginBundle::RSRCHBOY - released August 04, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.043 of Pod::Weaver::PluginBundle::RSRCHBOY - released August 13, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
