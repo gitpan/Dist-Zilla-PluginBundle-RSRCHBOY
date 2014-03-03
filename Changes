@@ -1,5 +1,16 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
+0.044     2014-03-03 11:59:20 PST-0800
+	* [dzil] make POD spelling test happy ('dist' makes them sad!)
+	* [dzil] Fix 0.012 release date (github #1; thanks @neilbowers!)
+	* [dzil] update travis config
+	* [dzil] misc cleanups
+	* [dzil] add SchwartzRatio
+	* [dzil] move the unincorporated prereqs over into dist.ini
+	* [dzil] drop ExtraTests, add RunExtraTests and CheckExtraTests
+	* [dzil] auto-remove README.pod, if present (was replaced with the
+	  markdown version a while back)
+
 0.043     2013-08-13 01:23:32 PDT-0700
 	* [dzil] move "missing prereqs" into dist.ini
 	* [dzil] only fetch/update the origin remote once
@@ -137,7 +148,7 @@ Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 	* add initial Pod::Weaver config bundle
 	* allow a local weaver.ini to override our config
 
-0.012
+0.012     2012-01-10 America/Los_Angeles
 	* change "cat_app" option to just "app"; preserve cat_app for legacy
 	* dist.ini tweaks
 

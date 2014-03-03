@@ -3,18 +3,19 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes version 0.043 of
-    Dist::Zilla::PluginBundle::RSRCHBOY - released August 13, 2013 as part
-    of Dist-Zilla-PluginBundle-RSRCHBOY.
+    This document describes version 0.044 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released March 03, 2014 as part of
+    Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
         # in your dist.ini...
         [@RSRCHBOY]
 
 DESCRIPTION
-    This is RSRCHBOY's current Dist::Zilla dist.ini config for his packages.
-    He's still figuring this all out, so it's probably wise to not depend on
-    this being too terribly consistent/sane until the version gets to 1.
+    This is RSRCHBOY's current Dist::Zilla "dist.ini" config for his
+    packages. He's still figuring this all out, so it's probably wise to not
+    depend on this being too terribly consistent/sane until the version gets
+    to 1.
 
 METHODS
   release_plugins
@@ -46,8 +47,8 @@ OPTIONS
     when a release occurs.
 
   github (boolean; default: true)
-    This enables various GitHub related plugins to update dist and GitHub
-    metadata automatically.
+    This enables various GitHub related plugins to update distribution and
+    GitHub metadata automatically.
 
   install_on_release (boolean; default: true)
     After a release, install the distribution locally. Our default install
@@ -95,6 +96,9 @@ BUGS
 
 AUTHOR
     Chris Weyl <cweyl@alumni.drew.edu>
+
+CONTRIBUTOR
+    Neil Bowers <neil@bowers.com>
 
 COPYRIGHT AND LICENSE
     This software is Copyright (c) 2013 by Chris Weyl.

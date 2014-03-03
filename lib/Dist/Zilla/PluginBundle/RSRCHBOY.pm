@@ -11,11 +11,8 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
-{
-  $Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.043';
-}
-# git description: 0.042-4-gf45e18e
-
+# git description: 0.043-13-g5cb683c
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.044';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -37,55 +34,55 @@ with
 use Config::MVP::Slicer 0.302;
 use Path::Class;
 
-use Dist::Zilla::PluginBundle::Git 1.121770             ( );
-use Dist::Zilla::PluginBundle::Git::CheckFor            ( );
-use Dist::Zilla::Plugin::ArchiveRelease                 ( );
-use Dist::Zilla::Plugin::Authority                      ( );
-use Dist::Zilla::Plugin::CheckChangesHasContent         ( );
-use Dist::Zilla::Plugin::CheckPrereqsIndexed            ( );
-use Dist::Zilla::Plugin::CopyFilesFromBuild             ( );
-use Dist::Zilla::Plugin::ConfirmRelease                 ( );
-use Dist::Zilla::Plugin::ConsistentVersionTest          ( );
-use Dist::Zilla::Plugin::ContributorsFromGit            ( );
-use Dist::Zilla::Plugin::CPANFile                       ( );
-use Dist::Zilla::Plugin::EOLTests                       ( );
-use Dist::Zilla::Plugin::ExtraTests                     ( );
-use Dist::Zilla::Plugin::Git::CommitBuild 2.009         ( );
-use Dist::Zilla::Plugin::Git::Describe                  ( );
-use Dist::Zilla::Plugin::Git::NextVersion               ( );
-use Dist::Zilla::Plugin::GitHub::Meta                   ( );
-use Dist::Zilla::Plugin::GitHub::Update                 ( );
-use Dist::Zilla::Plugin::HasVersionTests                ( );
-use Dist::Zilla::Plugin::InstallGuide                   ( );
-use Dist::Zilla::Plugin::InstallRelease                 ( );
-use Dist::Zilla::Plugin::MetaConfig                     ( );
-use Dist::Zilla::Plugin::MetaJSON                       ( );
-use Dist::Zilla::Plugin::MetaYAML                       ( );
-use Dist::Zilla::Plugin::MetaNoIndex                    ( );
-use Dist::Zilla::Plugin::MetaProvides::Package          ( );
-use Dist::Zilla::Plugin::MinimumPerl                    ( );
-use Dist::Zilla::Plugin::NoSmartCommentsTests           ( );
-use Dist::Zilla::Plugin::NoTabsTests                    ( );
-use Dist::Zilla::Plugin::PodWeaver                      ( );
-use Dist::Zilla::Plugin::PodCoverageTests               ( );
-use Dist::Zilla::Plugin::PodSyntaxTests                 ( );
-use Dist::Zilla::Plugin::Prepender                      ( );
-use Dist::Zilla::Plugin::PromptIfStale                  ( );
-use Dist::Zilla::Plugin::PruneFiles                     ( );
-use Dist::Zilla::Plugin::ReadmeFromPod                  ( );
-use Dist::Zilla::Plugin::ReadmeAnyFromPod               ( );
-use Dist::Zilla::Plugin::ReportVersions::Tiny           ( );
-use Dist::Zilla::Plugin::Signature                      ( );
-use Dist::Zilla::Plugin::SurgicalPkgVersion             ( );
-use Dist::Zilla::Plugin::TaskWeaver                     ( );
-use Dist::Zilla::Plugin::Test::Compile                  ( );
-use Dist::Zilla::Plugin::Test::MinimumVersion 2.000005  ( );
-use Dist::Zilla::Plugin::Test::Pod::LinkCheck           ( );
-use Dist::Zilla::Plugin::Test::PodSpelling 2.002001     ( );
-use Dist::Zilla::Plugin::TestRelease                    ( );
-use Dist::Zilla::Plugin::Travis::ConfigForReleaseBranch ( );
-use Dist::Zilla::Plugin::Twitter                        ( );
-use Dist::Zilla::Plugin::UploadToCPAN                   ( );
+use Dist::Zilla::PluginBundle::Git 1.121770            ( );
+use Dist::Zilla::PluginBundle::Git::CheckFor           ( );
+use Dist::Zilla::Plugin::ArchiveRelease                ( );
+use Dist::Zilla::Plugin::Authority                     ( );
+use Dist::Zilla::Plugin::CheckChangesHasContent        ( );
+use Dist::Zilla::Plugin::CheckPrereqsIndexed           ( );
+use Dist::Zilla::Plugin::CopyFilesFromBuild            ( );
+use Dist::Zilla::Plugin::ConfirmRelease                ( );
+use Dist::Zilla::Plugin::ConsistentVersionTest         ( );
+use Dist::Zilla::Plugin::ContributorsFromGit           ( );
+use Dist::Zilla::Plugin::CPANFile                      ( );
+use Dist::Zilla::Plugin::EOLTests                      ( );
+use Dist::Zilla::Plugin::CheckExtraTests               ( );
+use Dist::Zilla::Plugin::RunExtraTests                 ( );
+use Dist::Zilla::Plugin::Git::CommitBuild 2.009        ( );
+use Dist::Zilla::Plugin::Git::Describe                 ( );
+use Dist::Zilla::Plugin::Git::NextVersion              ( );
+use Dist::Zilla::Plugin::GitHub::Meta                  ( );
+use Dist::Zilla::Plugin::GitHub::Update                ( );
+use Dist::Zilla::Plugin::HasVersionTests               ( );
+use Dist::Zilla::Plugin::InstallGuide                  ( );
+use Dist::Zilla::Plugin::InstallRelease                ( );
+use Dist::Zilla::Plugin::MetaConfig                    ( );
+use Dist::Zilla::Plugin::MetaJSON                      ( );
+use Dist::Zilla::Plugin::MetaYAML                      ( );
+use Dist::Zilla::Plugin::MetaNoIndex                   ( );
+use Dist::Zilla::Plugin::MetaProvides::Package         ( );
+use Dist::Zilla::Plugin::MinimumPerl                   ( );
+use Dist::Zilla::Plugin::NoSmartCommentsTests          ( );
+use Dist::Zilla::Plugin::NoTabsTests                   ( );
+use Dist::Zilla::Plugin::PodWeaver                     ( );
+use Dist::Zilla::Plugin::PodCoverageTests              ( );
+use Dist::Zilla::Plugin::PodSyntaxTests                ( );
+use Dist::Zilla::Plugin::Prepender                     ( );
+use Dist::Zilla::Plugin::PruneFiles                    ( );
+use Dist::Zilla::Plugin::ReadmeFromPod                 ( );
+use Dist::Zilla::Plugin::ReadmeAnyFromPod              ( );
+use Dist::Zilla::Plugin::ReportVersions::Tiny          ( );
+use Dist::Zilla::Plugin::SchwartzRatio                 ( );
+use Dist::Zilla::Plugin::Signature                     ( );
+use Dist::Zilla::Plugin::SurgicalPkgVersion            ( );
+use Dist::Zilla::Plugin::TaskWeaver                    ( );
+use Dist::Zilla::Plugin::Test::Compile                 ( );
+use Dist::Zilla::Plugin::Test::MinimumVersion 2.000005 ( );
+use Dist::Zilla::Plugin::Test::Pod::LinkCheck          ( );
+use Dist::Zilla::Plugin::Test::PodSpelling 2.002001    ( );
+use Dist::Zilla::Plugin::TestRelease                   ( );
+use Dist::Zilla::Plugin::Twitter                       ( );
+use Dist::Zilla::Plugin::UploadToCPAN                  ( );
 
 # non-plugin / dist.ini deps
 use Dist::Zilla::Stash::PAUSE::Encrypted 0.003 ( );
@@ -164,27 +161,32 @@ sub release_plugins {
         } ],
         [ 'Git::Check'      => { allow_dirty => [ @allow_dirty ] } ],
         [ 'Git::Commit'     => { allow_dirty => [ @allow_dirty ] } ],
+
         [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
         'Travis::ConfigForReleaseBranch',
+        'SchwartzRatio',
+
+        [ 'Git::Tag' => { tag_format  => '%v', signed => $self->sign } ],
+
+        [ 'Git::CommitBuild' => 'Git::CommitBuild::Build' => { } ],
+
+        [ 'Git::CommitBuild' => 'Git::CommitBuild::Release' => {
+            release_branch       => 'release/cpan',
+            release_message      => 'Full build of CPAN release %v%t',
+            multiple_inheritance => 1,
+        }],
+
+        [ 'Git::Push' => {
+            push_to => [
+                'origin',
+                'origin refs/heads/release/cpan:refs/heads/release/cpan',
+            ],
+        }],
     );
 
-    push @plugins, [ 'Git::Tag' => {
-        tag_format  => '%v',
-        signed      => $self->sign,
-    }];
-    push @plugins, [ 'Git::CommitBuild' => {
-        release_branch       => 'release/cpan',
-        release_message      => 'Full build of CPAN release %v%t',
-        multiple_inheritance => 1,
-    }];
     push @plugins, 'UploadToCPAN'
         unless $self->is_private;
-    push @plugins, [ 'Git::Push' => {
-        push_to => [
-            'origin',
-            'origin refs/heads/release/cpan:refs/heads/release/cpan',
-        ],
-    }];
+
     push @plugins, 'Signature',
         if $self->sign;
     push @plugins, [ Twitter => { hash_tags => '#perl #cpan' } ]
@@ -218,9 +220,10 @@ sub author_tests {
             EOLTests
             HasVersionTests
             Test::Compile
-            ExtraTests
             NoSmartCommentsTests
             Test::Pod::LinkCheck
+            RunExtraTests
+            CheckExtraTests
         },
         [ 'Test::MinimumVersion' => { max_target_perl => '5.008008' } ],
     );
@@ -332,9 +335,12 @@ sub ensure_current {
     ### ensure all our CopyFromBuild files are known to git...
     for my $file ($self->_copy_from_build->flatten) {
 
-        system "touch $file && git add $file && git commit -m 'autoadd' $file"
+        system "touch $file && git add $file && git commit -m 'dzil: autoadd $file' $file"
             unless -f "$file";
     }
+
+    system "git rm -f $_ && git commit -m 'dzil: autorm $_' $_"
+        for grep { -f $_ } qw{ README.pod };
 
     return;
 }
@@ -366,9 +372,9 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
-=for :stopwords Chris Weyl GitHub Plugins
+=for :stopwords Chris Weyl Neil Bowers <neil@bowers.com> GitHub Plugins
 
 =head1 NAME
 
@@ -376,7 +382,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.043 of Dist::Zilla::PluginBundle::RSRCHBOY - released August 13, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.044 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 03, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -385,7 +391,7 @@ This document describes version 0.043 of Dist::Zilla::PluginBundle::RSRCHBOY - r
 
 =head1 DESCRIPTION
 
-This is RSRCHBOY's current L<Dist::Zilla> dist.ini config for his packages.
+This is RSRCHBOY's current L<Dist::Zilla> C<dist.ini> config for his packages.
 He's still figuring this all out, so it's probably wise to not depend on
 this being too terribly consistent/sane until the version gets to 1.
 
@@ -432,8 +438,8 @@ when a release occurs.
 
 =head2 github (boolean; default: true)
 
-This enables various GitHub related plugins to update dist and GitHub metadata
-automatically.
+This enables various GitHub related plugins to update distribution and GitHub
+metadata automatically.
 
 =head2 install_on_release (boolean; default: true)
 
@@ -496,6 +502,10 @@ feature.
 =head1 AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
+
+=head1 CONTRIBUTOR
+
+Neil Bowers <neil@bowers.com>
 
 =head1 COPYRIGHT AND LICENSE
 

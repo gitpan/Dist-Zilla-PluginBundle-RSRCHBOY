@@ -11,10 +11,7 @@ package Pod::Weaver::PluginBundle::RSRCHBOY;
 BEGIN {
   $Pod::Weaver::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
-{
-  $Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.043';
-}
-
+$Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.044';
 # ABSTRACT: Document your modules like RSRCHBOY does
 
 use strict;
@@ -87,9 +84,9 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
-=for :stopwords Chris Weyl
+=for :stopwords Chris Weyl Neil Bowers <neil@bowers.com>
 
 =head1 NAME
 
@@ -97,7 +94,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.043 of Pod::Weaver::PluginBundle::RSRCHBOY - released August 13, 2013 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.044 of Pod::Weaver::PluginBundle::RSRCHBOY - released March 03, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -105,7 +102,7 @@ In weaver.ini:
 
   [@RSRCHBOY]
 
-or in dist.ini:
+or in C<dist.ini>:
 
   [PodWeaver]
   config_plugin = @RSRCHBOY
