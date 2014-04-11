@@ -11,7 +11,7 @@ package Pod::Weaver::Section::RSRCHBOY::LazyAttributes;
 BEGIN {
   $Pod::Weaver::Section::RSRCHBOY::LazyAttributes::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Pod::Weaver::Section::RSRCHBOY::LazyAttributes::VERSION = '0.044';
+$Pod::Weaver::Section::RSRCHBOY::LazyAttributes::VERSION = '0.045';
 # ABSTRACT: Prefaced lazy attributes section
 
 use Moose;
@@ -47,7 +47,7 @@ Pod::Weaver::Section::RSRCHBOY::LazyAttributes - Prefaced lazy attributes sectio
 
 =head1 VERSION
 
-This document describes version 0.044 of Pod::Weaver::Section::RSRCHBOY::LazyAttributes - released March 03, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.045 of Pod::Weaver::Section::RSRCHBOY::LazyAttributes - released April 10, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

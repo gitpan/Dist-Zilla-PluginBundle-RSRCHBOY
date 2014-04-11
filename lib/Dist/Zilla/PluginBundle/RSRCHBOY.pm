@@ -11,8 +11,8 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
-# git description: 0.043-13-g5cb683c
-$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.044';
+# git description: 0.044-5-gd6f1c41
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.045';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -43,7 +43,6 @@ use Dist::Zilla::Plugin::CheckPrereqsIndexed           ( );
 use Dist::Zilla::Plugin::CopyFilesFromBuild            ( );
 use Dist::Zilla::Plugin::ConfirmRelease                ( );
 use Dist::Zilla::Plugin::ConsistentVersionTest         ( );
-use Dist::Zilla::Plugin::ContributorsFromGit           ( );
 use Dist::Zilla::Plugin::CPANFile                      ( );
 use Dist::Zilla::Plugin::EOLTests                      ( );
 use Dist::Zilla::Plugin::CheckExtraTests               ( );
@@ -83,9 +82,6 @@ use Dist::Zilla::Plugin::Test::PodSpelling 2.002001    ( );
 use Dist::Zilla::Plugin::TestRelease                   ( );
 use Dist::Zilla::Plugin::Twitter                       ( );
 use Dist::Zilla::Plugin::UploadToCPAN                  ( );
-
-# non-plugin / dist.ini deps
-use Dist::Zilla::Stash::PAUSE::Encrypted 0.003 ( );
 
 # FIXME this next section is kinda... ugly
 
@@ -163,6 +159,7 @@ sub release_plugins {
         [ 'Git::Commit'     => { allow_dirty => [ @allow_dirty ] } ],
 
         [ 'Test::CheckDeps' => { ':version' => '0.007', fatal => 1, level => 'suggests' } ],
+        'CheckSelfDependency',
         'Travis::ConfigForReleaseBranch',
         'SchwartzRatio',
 
@@ -382,7 +379,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.044 of Dist::Zilla::PluginBundle::RSRCHBOY - released March 03, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.045 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 10, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

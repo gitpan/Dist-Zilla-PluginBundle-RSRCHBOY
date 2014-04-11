@@ -11,7 +11,7 @@ package Pod::Weaver::Section::RSRCHBOY::RequiredAttributes;
 BEGIN {
   $Pod::Weaver::Section::RSRCHBOY::RequiredAttributes::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Pod::Weaver::Section::RSRCHBOY::RequiredAttributes::VERSION = '0.044';
+$Pod::Weaver::Section::RSRCHBOY::RequiredAttributes::VERSION = '0.045';
 # ABSTRACT: Prefaced required attributes section
 
 use Moose;
@@ -45,7 +45,7 @@ Pod::Weaver::Section::RSRCHBOY::RequiredAttributes - Prefaced required attribute
 
 =head1 VERSION
 
-This document describes version 0.044 of Pod::Weaver::Section::RSRCHBOY::RequiredAttributes - released March 03, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.045 of Pod::Weaver::Section::RSRCHBOY::RequiredAttributes - released April 10, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 
