@@ -7,30 +7,29 @@
 #
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
-package Pod::Weaver::Section::RSRCHBOY::LazyAttributes;
+package Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git;
 BEGIN {
-  $Pod::Weaver::Section::RSRCHBOY::LazyAttributes::AUTHORITY = 'cpan:RSRCHBOY';
+  $Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Pod::Weaver::Section::RSRCHBOY::LazyAttributes::VERSION = '0.046';
-# ABSTRACT: Prefaced lazy attributes section
+$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.046';
+# ABSTRACT: A helper role for Git::Raw operations
 
-use Moose;
+use Moose::Role;
 use namespace::autoclean;
-use autobox::Core;
-use MooseX::NewDefaults;
+use MooseX::AttributeShortcuts 0.023;
 
-extends 'Pod::Weaver::SectionBase::CollectWithIntro';
+use Git::Raw 0.32;
 
-default_for command => 'lazyatt';
 
-default_for content => [
-    'These attributes are lazily constructed from another source (e.g.',
-    'required attributes, external source, a BUILD() method, or some combo',
-    'thereof). You can set these values at construction time, though this is',
-    'generally neither required nor recommended.',
-]->join(q{ });
+has repo => (
+    is              => 'lazy',
+    isa_instance_of => 'Git::Raw::Repository',
+    builder         => sub { Git::Raw::Repository->open('.') },
+);
 
-__PACKAGE__->meta->make_immutable;
+
+sub has_file_in_head { shift->repo->head->target->tree->entry_bypath(q{} . shift) ? 1 : 0 }
+
 !!42;
 
 __END__
@@ -43,11 +42,28 @@ __END__
 
 =head1 NAME
 
-Pod::Weaver::Section::RSRCHBOY::LazyAttributes - Prefaced lazy attributes section
+Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - A helper role for Git::Raw operations
 
 =head1 VERSION
 
-This document describes version 0.046 of Pod::Weaver::Section::RSRCHBOY::LazyAttributes - released April 11, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.046 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released April 11, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+
+=head1 ATTRIBUTES
+
+=head2 repo
+
+A L<Git::Raw::Repository> object referring to the current, working repository.
+
+=head1 METHODS
+
+=head2 has_file_in_head($filename)
+
+Given a file / path name, check to see if it exists in the current HEAD. Note
+that we only test existence, not if the file is dirty, or differs in the
+index, etc.
+
+C<$filename> may be a string or anything capable of being stringified (e.g. a
+L<Path::Class> or L<Path::Tiny> object).
 
 =head1 SEE ALSO
 

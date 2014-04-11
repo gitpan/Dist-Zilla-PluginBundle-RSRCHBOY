@@ -11,7 +11,7 @@ package Pod::Weaver::Section::RSRCHBOY::RoleParameters;
 BEGIN {
   $Pod::Weaver::Section::RSRCHBOY::RoleParameters::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Pod::Weaver::Section::RSRCHBOY::RoleParameters::VERSION = '0.045';
+$Pod::Weaver::Section::RSRCHBOY::RoleParameters::VERSION = '0.046';
 # ABSTRACT: Prefaced role parameters section
 
 use Moose;
@@ -45,7 +45,7 @@ Pod::Weaver::Section::RSRCHBOY::RoleParameters - Prefaced role parameters sectio
 
 =head1 VERSION
 
-This document describes version 0.045 of Pod::Weaver::Section::RSRCHBOY::RoleParameters - released April 10, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.046 of Pod::Weaver::Section::RSRCHBOY::RoleParameters - released April 11, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 
@@ -61,13 +61,13 @@ L<Dist::Zilla::PluginBundle::RSRCHBOY|Dist::Zilla::PluginBundle::RSRCHBOY>
 
 =head1 SOURCE
 
-The development version is on github at L<http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
-and may be cloned from L<git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
+The development version is on github at L<http://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy>
+and may be cloned from L<git://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git>
 
 =head1 BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired

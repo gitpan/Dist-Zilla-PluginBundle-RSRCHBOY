@@ -11,8 +11,8 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
-# git description: 0.044-5-gd6f1c41
-$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.045';
+# git description: 0.045-4-g7a3e2e1
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.046';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -29,59 +29,14 @@ with
     'Dist::Zilla::Role::PluginBundle::Easy',
     'Dist::Zilla::Role::PluginBundle::PluginRemover' => { -version => '0.102' },
     'Dist::Zilla::Role::PluginBundle::Config::Slicer',
+    'Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git',
     ;
 
 use Config::MVP::Slicer 0.302;
 use Path::Class;
 
-use Dist::Zilla::PluginBundle::Git 1.121770            ( );
-use Dist::Zilla::PluginBundle::Git::CheckFor           ( );
-use Dist::Zilla::Plugin::ArchiveRelease                ( );
-use Dist::Zilla::Plugin::Authority                     ( );
-use Dist::Zilla::Plugin::CheckChangesHasContent        ( );
-use Dist::Zilla::Plugin::CheckPrereqsIndexed           ( );
-use Dist::Zilla::Plugin::CopyFilesFromBuild            ( );
-use Dist::Zilla::Plugin::ConfirmRelease                ( );
-use Dist::Zilla::Plugin::ConsistentVersionTest         ( );
-use Dist::Zilla::Plugin::CPANFile                      ( );
-use Dist::Zilla::Plugin::EOLTests                      ( );
-use Dist::Zilla::Plugin::CheckExtraTests               ( );
-use Dist::Zilla::Plugin::RunExtraTests                 ( );
-use Dist::Zilla::Plugin::Git::CommitBuild 2.009        ( );
-use Dist::Zilla::Plugin::Git::Describe                 ( );
-use Dist::Zilla::Plugin::Git::NextVersion              ( );
-use Dist::Zilla::Plugin::GitHub::Meta                  ( );
-use Dist::Zilla::Plugin::GitHub::Update                ( );
-use Dist::Zilla::Plugin::HasVersionTests               ( );
-use Dist::Zilla::Plugin::InstallGuide                  ( );
-use Dist::Zilla::Plugin::InstallRelease                ( );
-use Dist::Zilla::Plugin::MetaConfig                    ( );
-use Dist::Zilla::Plugin::MetaJSON                      ( );
-use Dist::Zilla::Plugin::MetaYAML                      ( );
-use Dist::Zilla::Plugin::MetaNoIndex                   ( );
-use Dist::Zilla::Plugin::MetaProvides::Package         ( );
-use Dist::Zilla::Plugin::MinimumPerl                   ( );
-use Dist::Zilla::Plugin::NoSmartCommentsTests          ( );
-use Dist::Zilla::Plugin::NoTabsTests                   ( );
-use Dist::Zilla::Plugin::PodWeaver                     ( );
-use Dist::Zilla::Plugin::PodCoverageTests              ( );
-use Dist::Zilla::Plugin::PodSyntaxTests                ( );
-use Dist::Zilla::Plugin::Prepender                     ( );
-use Dist::Zilla::Plugin::PruneFiles                    ( );
-use Dist::Zilla::Plugin::ReadmeFromPod                 ( );
-use Dist::Zilla::Plugin::ReadmeAnyFromPod              ( );
-use Dist::Zilla::Plugin::ReportVersions::Tiny          ( );
-use Dist::Zilla::Plugin::SchwartzRatio                 ( );
-use Dist::Zilla::Plugin::Signature                     ( );
-use Dist::Zilla::Plugin::SurgicalPkgVersion            ( );
-use Dist::Zilla::Plugin::TaskWeaver                    ( );
-use Dist::Zilla::Plugin::Test::Compile                 ( );
-use Dist::Zilla::Plugin::Test::MinimumVersion 2.000005 ( );
-use Dist::Zilla::Plugin::Test::Pod::LinkCheck          ( );
-use Dist::Zilla::Plugin::Test::PodSpelling 2.002001    ( );
-use Dist::Zilla::Plugin::TestRelease                   ( );
-use Dist::Zilla::Plugin::Twitter                       ( );
-use Dist::Zilla::Plugin::UploadToCPAN                  ( );
+has github_user => (is => 'lazy', isa => 'Str', builder => sub { 'RsrchBoy' });
+has set_github_user => (is => 'lazy', isa => 'Str', builder => sub { 1 });
 
 # FIXME this next section is kinda... ugly
 
@@ -237,8 +192,15 @@ sub meta_provider_plugins {
         'MetaProvides::Package',
     );
 
-    push @plugins, 'GitHub::Meta'
-        if $self->github;
+    if ($self->github) {
+
+        my $opts = { issues => 1 };
+
+        $opts->{user} = $self->github_user
+            if $self->set_github_user;
+
+        push @plugins, [ GithubMeta => $opts ]
+    }
 
     return @plugins;
 }
@@ -333,7 +295,7 @@ sub ensure_current {
     for my $file ($self->_copy_from_build->flatten) {
 
         system "touch $file && git add $file && git commit -m 'dzil: autoadd $file' $file"
-            unless -f "$file";
+            unless $self->has_file_in_head($file);
     }
 
     system "git rm -f $_ && git commit -m 'dzil: autorm $_' $_"
@@ -379,7 +341,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.045 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 10, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.046 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 11, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -484,13 +446,13 @@ L<Config::MVP::Slicer|Config::MVP::Slicer>
 
 =head1 SOURCE
 
-The development version is on github at L<http://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
-and may be cloned from L<git://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
+The development version is on github at L<http://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy>
+and may be cloned from L<git://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git>
 
 =head1 BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
+https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired

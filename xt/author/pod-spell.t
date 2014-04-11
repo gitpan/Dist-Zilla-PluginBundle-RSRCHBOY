@@ -32,12 +32,14 @@ lib
 Dist
 Zilla
 PluginBundle
+Role
+Git
 Pod
 Weaver
 Section
+LazyAttributes
 RequiredAttributes
 GeneratedAttributes
 RoleParameters
 SectionBase
 CollectWithIntro
-LazyAttributes
