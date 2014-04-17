@@ -11,7 +11,7 @@ package Pod::Weaver::PluginBundle::RSRCHBOY;
 BEGIN {
   $Pod::Weaver::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.046';
+$Pod::Weaver::PluginBundle::RSRCHBOY::VERSION = '0.047';
 # ABSTRACT: Document your modules like RSRCHBOY does
 
 use strict;
@@ -63,7 +63,7 @@ sub mvp_bundle_config {
         _exp2('Legal'),
 
         [ '@RSRCHBOY/List',      _exp('-Transformer'), { transformer => 'List' } ],
-        [ '@RSRCHBOY/Encoding',  _exp('-Encoding'),    {} ],
+        [ '@RSRCHBOY/SingleEncoding', _exp('-SingleEncoding'), {} ],
     );
 }
 
@@ -75,7 +75,7 @@ __END__
 
 =encoding UTF-8
 
-=for :stopwords Chris Weyl Neil Bowers <neil@bowers.com>
+=for :stopwords Chris Weyl Bowers Neil Romanov Sergey
 
 =head1 NAME
 
@@ -83,7 +83,7 @@ Pod::Weaver::PluginBundle::RSRCHBOY - Document your modules like RSRCHBOY does
 
 =head1 VERSION
 
-This document describes version 0.046 of Pod::Weaver::PluginBundle::RSRCHBOY - released April 11, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.047 of Pod::Weaver::PluginBundle::RSRCHBOY - released April 17, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -140,7 +140,7 @@ This plugin bundle is equivalent to the following weaver.ini file:
   [-Transformer]
   transformer = List
 
-  [-Encoding]
+  [-SingleEncoding]
 
 =for Pod::Coverage mvp_bundle_config
 

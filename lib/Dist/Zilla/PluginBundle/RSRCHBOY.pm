@@ -11,8 +11,8 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
-# git description: 0.045-4-g7a3e2e1
-$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.046';
+# git description: 0.046-5-g17113ed
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.047';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -168,7 +168,7 @@ sub author_tests {
             ConsistentVersionTest
             PodCoverageTests
             PodSyntaxTests
-            NoTabsTests
+            Test::NoTabs
             EOLTests
             HasVersionTests
             Test::Compile
@@ -333,7 +333,7 @@ __END__
 
 =encoding UTF-8
 
-=for :stopwords Chris Weyl Neil Bowers <neil@bowers.com> GitHub Plugins
+=for :stopwords Chris Weyl Neil Bowers Sergey Romanov GitHub Plugins
 
 =head1 NAME
 
@@ -341,7 +341,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.046 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 11, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.047 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 17, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -462,9 +462,19 @@ feature.
 
 Chris Weyl <cweyl@alumni.drew.edu>
 
-=head1 CONTRIBUTOR
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item *
 
 Neil Bowers <neil@bowers.com>
+
+=item *
+
+Sergey Romanov <complefor@rambler.ru>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

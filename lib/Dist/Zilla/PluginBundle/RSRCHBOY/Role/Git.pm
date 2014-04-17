@@ -11,20 +11,29 @@ package Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.046';
+$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.047';
 # ABSTRACT: A helper role for Git::Raw operations
 
 use Moose::Role;
 use namespace::autoclean;
 use MooseX::AttributeShortcuts 0.023;
 
+use autobox::Core;
 use Git::Raw 0.32;
+use File::Slurp 'slurp';
+
+with 'MooseX::RelatedClasses' => {
+    namespace        => 'Git::Raw',
+    all_in_namespace => 1,
+    private          => 1,
+};
 
 
 has repo => (
     is              => 'lazy',
     isa_instance_of => 'Git::Raw::Repository',
     builder         => sub { Git::Raw::Repository->open('.') },
+    handles         => [ qw{ head index } ],
 );
 
 
@@ -38,7 +47,7 @@ __END__
 
 =encoding UTF-8
 
-=for :stopwords Chris Weyl Neil Bowers <neil@bowers.com>
+=for :stopwords Chris Weyl Bowers Neil Romanov Sergey
 
 =head1 NAME
 
@@ -46,7 +55,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - A helper role for Git::Raw oper
 
 =head1 VERSION
 
-This document describes version 0.046 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released April 11, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.047 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released April 17, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 ATTRIBUTES
 

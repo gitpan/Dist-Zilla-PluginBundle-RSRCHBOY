@@ -15,46 +15,46 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 55ac697642a18dd7d974736a3d06fd531aa82382 .travis.yml
-SHA1 efd50fec12b0f462ba7e91212367b66c734dcf8e Changes
+SHA1 f682fc0e1836517e0f99a9ea402b37bb4d5c741f Changes
 SHA1 52aa9d0c94f09d9806b24b66e833897f67ba260d INSTALL
 SHA1 2ae407c2b0ef32edaf34a75d367122b8a2e63e33 LICENSE
 SHA1 dc64c747c139da832581f452aacdd5deb810ff66 MANIFEST
-SHA1 d5f3f0c1200d1ebcd05cdab2fbe71035b41cbd9d META.json
-SHA1 1fa6cb0d75c8fe23a01292c6cae5003f78c7ee39 META.yml
-SHA1 1c8a6964b9cc588b668bba043e9d412f23400656 Makefile.PL
-SHA1 f374c2c741eb4369e5cb1ff4571f533b708d8d10 README
-SHA1 4559b5650085db1a8982a4c0f89a90b5dcb9f774 cpanfile
-SHA1 9ebcea620130bd6b3dfa7d2bca41ceb7ec1dcd27 dist.ini
-SHA1 f9473e36c90b1954ecb6080acd6a0ea677d1eedb lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
-SHA1 d969e81f18f4c7bacfb51e63ea8d0c9a0bcd7b36 lib/Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm
-SHA1 c9225ada4385206bd1f917e22826e071b6ec800d lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
-SHA1 b3b1d7360627ac142ce041a0210f8fe253b89128 lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
-SHA1 1cf2bd630580723e0b86ea19fbe11cda45a98dea lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
-SHA1 de8100fe0806519393ae1aaec6dea93cd46ac45c lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
-SHA1 ac3b895ed003996032eb21d4ae65f7e2606545ad lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
-SHA1 3fc2da128608dd05f700c161f952acd37b4fce99 lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
+SHA1 ab24f49e0ff1c53266c725ac8448e6786e097e8a META.json
+SHA1 2f88b309fc12577dc0347a006b0abbadbc4396f5 META.yml
+SHA1 001b97719be8d47723d215f965ab60755fff9250 Makefile.PL
+SHA1 215c1d979e61b419b1e583af3cb7ebf7af688077 README
+SHA1 231701a182e400d3c7ff9513f4b0a54062788b93 cpanfile
+SHA1 10c3f8c6a263c7cc4485237ac44950df7600e71c dist.ini
+SHA1 42f53e72ebe3096900028e0b03ad5269e738b13a lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
+SHA1 491c5d2c7b337f680162a8b802ae3e8226ad7c9a lib/Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm
+SHA1 9ad09abbc29d90112f5f0c177bd97e9849d44789 lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
+SHA1 440bc5c674f8861908a03733ac0dcf7bec9af807 lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
+SHA1 5804eb8b6c789e08045bbe19e4923f0d24b3f0a4 lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
+SHA1 8ac9b6829164dd1d525c11ee7f826d00b72f3fcd lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
+SHA1 f8359f6e42354750b1ffe25f5c7e966ad1289914 lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
+SHA1 d1bc8be431cf3664d85ff3995331d32541aa618a lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
 SHA1 c522c3928158e64bd97d34d20cbfe0b5305a7eb2 t/00-check-deps.t
 SHA1 6ed493839b3d57734de9418fdab3e2818436b731 t/00-compile.t
 SHA1 db10de36bd5672e5bd1088540f8a75db31af4bc3 t/00-load.t
-SHA1 e1eac1994eba4585fef45c705e6214a761090d15 t/000-report-versions-tiny.t
-SHA1 9018498d414fd4cc67c792c76e8f40ccb1996c0c xt/author/pod-spell.t
+SHA1 ae3dea075008e3968cf749a09ed66a80670112ea t/000-report-versions-tiny.t
+SHA1 a99d7a9ab0e54782f2e7f4bf0764cfebf3da0aef xt/author/pod-spell.t
 SHA1 a7948d34cfaad400286ea5d5fa6206c4c7e2552c xt/release/consistent-version.t
 SHA1 b3915eaac65e18e6a048b34a4b873beccab326b4 xt/release/eol.t
 SHA1 badbc58499d04efb4d3c2f67aab3e7b36eb5c1bc xt/release/has-version.t
 SHA1 0a991505f6e6ca40cab49d57fed1451d04b1f10e xt/release/minimum-version.t
 SHA1 0fafbff8b6f5d5072f8edb7603e2fc15b846c37b xt/release/no-smart-comments.t
-SHA1 8747fcb1ebfa464750b53867169f0d6871cee5fa xt/release/no-tabs.t
+SHA1 54333eea2b284cccde4997c97476ddfa33aac3e7 xt/release/no-tabs.t
 SHA1 fc6fbac2b797fc18e6b9b40d10838ca9bfdae8ae xt/release/pod-coverage.t
 SHA1 5ab33e6f96eec10426048f9d5ac0ea37a2b3b450 xt/release/pod-linkcheck.t
 SHA1 bcaadc77f98230783f1828284f16cb20ce969bbf xt/release/pod-syntax.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.14 (GNU/Linux)
 
-iQEcBAEBAgAGBQJTSGV1AAoJEOd5N1CvIgQk6XoH/1/sFzuVlzsa9ZrdstNqOHYF
-VUWef3QvSK2YlWAz5tPrusT8l2XiOT+TMRP6HAQVoNAUKL1MV5QQnLTKGKE3Um0J
-lR0HqN77PvFDj4t22B0a385COAk0B78cIaTFvpMLn4DxTvfjYv7jI9Hctub9wnLJ
-S99QYmayeeD8l6wm0f848wpFwYQHQHzFT1JI2agYd6hMpgMERONYX+Zlu6NzYaOz
-7ZlU3cFzoDlyWiamkNCtK/jGC0q1TUY5/tXJ2zgTj6+OAd1JmQATOxskCIu7lJuW
-V59XjPweI2I0RmYnxAZtpyq9F/3pKGJJqrufBijBS+nJEfyFLi+09+0SN7PPpNE=
-=hl++
+iQEcBAEBAgAGBQJTUFiUAAoJEOd5N1CvIgQk0fsIAIQQPbhjVBNoCPEMoCT7tX5Q
+kMp3XtMKAKn0vJzfCV6IFe281gO+QMDZz319OjgaRGOprroXDqLNgsYwegghcW58
+C7axu3ApLSo6Iu+teejK4z+eFeoFu7bxQlujQRrly3isssKB/3HnP/Th2jWlnwJ6
+bevw64o3WrKctES+e/vp8kvXko1df1fV2V2h/U+DgNKVr6NCxLFO5+w7EUYbKRkp
+cq8jqkNvJ1v+6psRiGE/f2ThhNZg04Vda9MWs2D0YgYU9+pNziJllGmlVOJEIC2u
+Qjul9KNCQHJUhOufF1NJqvF2puj2dl3j9DLmTMCg/kLemL/MuJBFAMgjgX8yXfs=
+=LZyk
 -----END PGP SIGNATURE-----
