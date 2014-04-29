@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use 5.006;
+use 5.010000;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -92,10 +92,13 @@ my %WriteMakefileArgs = (
     "MooseX::RelatedClasses" => 0,
     "Path::Class" => 0,
     "Pod::Coverage::TrustPod" => 0,
+    "Pod::Elemental::Element::Pod5::Command" => 0,
+    "Pod::Elemental::Element::Pod5::Ordinary" => 0,
     "Pod::Elemental::Transformer::List" => 0,
     "Pod::Weaver::Config::Assembler" => 0,
     "Pod::Weaver::Plugin::SingleEncoding" => 0,
     "Pod::Weaver::Plugin::StopWords" => 0,
+    "Pod::Weaver::Section::Authors" => 0,
     "Pod::Weaver::Section::CollectWithIntro" => 0,
     "Pod::Weaver::Section::Contributors" => 0,
     "Pod::Weaver::Section::SeeAlso" => 0,
@@ -106,6 +109,8 @@ my %WriteMakefileArgs = (
     "Test::Pod::Content" => 0,
     "Test::Pod::Coverage" => 0,
     "Test::Pod::LinkCheck" => 0,
+    "URI::Escape::XS" => 0,
+    "aliased" => 0,
     "autobox::Core" => 0,
     "autodie" => "0.20",
     "namespace::autoclean" => 0,
@@ -119,7 +124,7 @@ my %WriteMakefileArgs = (
     "Test::CheckDeps" => "0.010",
     "Test::More" => "0.94"
   },
-  "VERSION" => "0.047",
+  "VERSION" => "0.048",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -201,10 +206,13 @@ my %FallbackPrereqs = (
   "MooseX::RelatedClasses" => 0,
   "Path::Class" => 0,
   "Pod::Coverage::TrustPod" => 0,
+  "Pod::Elemental::Element::Pod5::Command" => 0,
+  "Pod::Elemental::Element::Pod5::Ordinary" => 0,
   "Pod::Elemental::Transformer::List" => 0,
   "Pod::Weaver::Config::Assembler" => 0,
   "Pod::Weaver::Plugin::SingleEncoding" => 0,
   "Pod::Weaver::Plugin::StopWords" => 0,
+  "Pod::Weaver::Section::Authors" => 0,
   "Pod::Weaver::Section::CollectWithIntro" => 0,
   "Pod::Weaver::Section::Contributors" => 0,
   "Pod::Weaver::Section::SeeAlso" => 0,
@@ -217,6 +225,8 @@ my %FallbackPrereqs = (
   "Test::Pod::Content" => 0,
   "Test::Pod::Coverage" => 0,
   "Test::Pod::LinkCheck" => 0,
+  "URI::Escape::XS" => 0,
+  "aliased" => 0,
   "autobox::Core" => 0,
   "autodie" => "0.20",
   "namespace::autoclean" => 0,

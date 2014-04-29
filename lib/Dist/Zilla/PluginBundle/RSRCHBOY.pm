@@ -11,8 +11,8 @@ package Dist::Zilla::PluginBundle::RSRCHBOY;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
 }
-# git description: 0.046-5-g17113ed
-$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.047';
+# git description: 0.047-1-ga18276b
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.048';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -335,13 +335,15 @@ __END__
 
 =for :stopwords Chris Weyl Neil Bowers Sergey Romanov GitHub Plugins
 
+=for :stopwords Wishlist flattr flattr'ed gittip gittip'ed
+
 =head1 NAME
 
 Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.047 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 17, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.048 of Dist::Zilla::PluginBundle::RSRCHBOY - released April 29, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -461,6 +463,17 @@ feature.
 =head1 AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
+
+=head2 SAYING THANKS IN A MATERIALISTIC WAY
+
+Please note B<I do not expect to be gittip'ed or flattr'ed for this work>,
+rather B<it is simply a very pleasant surprise>. I largely create and release
+works like this because I need them or I find it enjoyable; however, don't let
+that stop you giving me money if you feel like it ;)
+
+L<flattr this!|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22>
+L<gittip me!|https://www.gittip.com/RsrchBoy/>
+L<Amazon Wishlist|http://www.amazon.com/gp/registry/wishlist/3G2DQFPBA57L6>
 
 =head1 CONTRIBUTORS
 

@@ -8,11 +8,10 @@ build_requires:
   IPC::Open3: '0'
   Test::CheckDeps: '0.010'
   Test::More: '0.94'
-  perl: '5.006'
 configure_requires:
   ExtUtils::MakeMaker: '6.30'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.140640'
+generated_by: 'Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.141170'
 license: lgpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -25,28 +24,31 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::RSRCHBOY:
     file: lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
-    version: '0.047'
+    version: '0.048'
   Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git:
     file: lib/Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm
-    version: '0.047'
+    version: '0.048'
   Pod::Weaver::PluginBundle::RSRCHBOY:
     file: lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
-    version: '0.047'
+    version: '0.048'
+  Pod::Weaver::Section::RSRCHBOY::Authors:
+    file: lib/Pod/Weaver/Section/RSRCHBOY/Authors.pm
+    version: '0.048'
   Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
-    version: '0.047'
+    version: '0.048'
   Pod::Weaver::Section::RSRCHBOY::LazyAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
-    version: '0.047'
+    version: '0.048'
   Pod::Weaver::Section::RSRCHBOY::RequiredAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
-    version: '0.047'
+    version: '0.048'
   Pod::Weaver::Section::RSRCHBOY::RoleParameters:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
-    version: '0.047'
+    version: '0.048'
   Pod::Weaver::SectionBase::CollectWithIntro:
     file: lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
-    version: '0.047'
+    version: '0.048'
 requires:
   Archive::Tar::Wrapper: '0'
   Config::MVP::Slicer: '0.302'
@@ -119,10 +121,13 @@ requires:
   MooseX::RelatedClasses: '0'
   Path::Class: '0'
   Pod::Coverage::TrustPod: '0'
+  Pod::Elemental::Element::Pod5::Command: '0'
+  Pod::Elemental::Element::Pod5::Ordinary: '0'
   Pod::Elemental::Transformer::List: '0'
   Pod::Weaver::Config::Assembler: '0'
   Pod::Weaver::Plugin::SingleEncoding: '0'
   Pod::Weaver::Plugin::StopWords: '0'
+  Pod::Weaver::Section::Authors: '0'
   Pod::Weaver::Section::CollectWithIntro: '0'
   Pod::Weaver::Section::Contributors: '0'
   Pod::Weaver::Section::SeeAlso: '0'
@@ -133,17 +138,19 @@ requires:
   Test::Pod::Content: '0'
   Test::Pod::Coverage: '0'
   Test::Pod::LinkCheck: '0'
+  URI::Escape::XS: '0'
+  aliased: '0'
   autobox::Core: '0'
   autodie: '0.20'
   namespace::autoclean: '0'
-  perl: '5.006'
+  perl: v5.10.0
   strict: '0'
   warnings: '0'
 resources:
   bugtracker: https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
   homepage: https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy
   repository: https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git
-version: '0.047'
+version: '0.048'
 x_Dist_Zilla:
   perl:
     version: '5.018002'
@@ -172,11 +179,11 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RSRCHBOY/Git::NextVersion'
-      version: '2.021'
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::ContributorsFromGit
       name: '@RSRCHBOY/ContributorsFromGit'
-      version: '0.012'
+      version: '0.013'
     -
       class: Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch
       config:
@@ -214,7 +221,7 @@ x_Dist_Zilla:
           phase: build
           skip: []
       name: '@RSRCHBOY/PromptIfStale'
-      version: '0.021'
+      version: '0.022'
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@RSRCHBOY/PruneCruft'
@@ -389,7 +396,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@RSRCHBOY/CheckPrereqsIndexed'
-      version: '0.010'
+      version: '0.012'
     -
       class: Dist::Zilla::Plugin::Git::Remote::Update
       name: '@RSRCHBOY/GitFetchOrigin'
@@ -422,7 +429,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RSRCHBOY/Git::Check'
-      version: '2.021'
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::Commit
       config:
@@ -445,7 +452,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RSRCHBOY/Git::Commit'
-      version: '2.021'
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Test::CheckDeps
       name: '@RSRCHBOY/Test::CheckDeps'
@@ -472,14 +479,14 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '1'
-          tag: '0.047'
+          tag: '0.048'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RSRCHBOY/Git::Tag'
-      version: '2.021'
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::CommitBuild
       config:
@@ -493,7 +500,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RSRCHBOY/Git::CommitBuild::Build'
-      version: '2.021'
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::CommitBuild
       config:
@@ -507,7 +514,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RSRCHBOY/Git::CommitBuild::Release'
-      version: '2.021'
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::Git::Push
       config:
@@ -519,7 +526,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: '@RSRCHBOY/Git::Push'
-      version: '2.021'
+      version: '2.022'
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@RSRCHBOY/UploadToCPAN'
@@ -559,7 +566,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ReadmeAnyFromPod
       name: '@RSRCHBOY/ReadmeMarkdownInRoot'
-      version: '0.133360'
+      version: '0.141120'
     -
       class: Dist::Zilla::Plugin::PodWeaver
       config:
@@ -663,9 +670,9 @@ x_Dist_Zilla:
               name: '@RSRCHBOY/Bugs'
               version: '4.006'
             -
-              class: Pod::Weaver::Section::Authors
-              name: '@RSRCHBOY/Authors'
-              version: '4.006'
+              class: Pod::Weaver::Section::RSRCHBOY::Authors
+              name: RSRCHBOY::Authors
+              version: ~
             -
               class: Pod::Weaver::Section::Contributors
               name: '@RSRCHBOY/Contributors'

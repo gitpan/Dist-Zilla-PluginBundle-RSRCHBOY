@@ -10,6 +10,7 @@ my @files = (
     'lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm',
     'lib/Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm',
     'lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm',
+    'lib/Pod/Weaver/Section/RSRCHBOY/Authors.pm',
     'lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm',
     'lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm',
     'lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm',

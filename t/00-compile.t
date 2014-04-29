@@ -4,7 +4,7 @@ use warnings;
 
 # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.040
 
-use Test::More  tests => 8 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 9 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
@@ -12,6 +12,7 @@ my @module_files = (
     'Dist/Zilla/PluginBundle/RSRCHBOY.pm',
     'Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm',
     'Pod/Weaver/PluginBundle/RSRCHBOY.pm',
+    'Pod/Weaver/Section/RSRCHBOY/Authors.pm',
     'Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm',
     'Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm',
     'Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm',

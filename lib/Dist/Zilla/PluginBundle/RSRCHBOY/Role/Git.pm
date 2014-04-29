@@ -11,7 +11,7 @@ package Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.047';
+$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.048';
 # ABSTRACT: A helper role for Git::Raw operations
 
 use Moose::Role;
@@ -49,13 +49,15 @@ __END__
 
 =for :stopwords Chris Weyl Bowers Neil Romanov Sergey
 
+=for :stopwords Wishlist flattr flattr'ed gittip gittip'ed
+
 =head1 NAME
 
 Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - A helper role for Git::Raw operations
 
 =head1 VERSION
 
-This document describes version 0.047 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released April 17, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.048 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released April 29, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 ATTRIBUTES
 
@@ -103,6 +105,17 @@ feature.
 =head1 AUTHOR
 
 Chris Weyl <cweyl@alumni.drew.edu>
+
+=head2 SAYING THANKS IN A MATERIALISTIC WAY
+
+Please note B<I do not expect to be gittip'ed or flattr'ed for this work>,
+rather B<it is simply a very pleasant surprise>. I largely create and release
+works like this because I need them or I find it enjoyable; however, don't let
+that stop you giving me money if you feel like it ;)
+
+L<flattr this!|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22>
+L<gittip me!|https://www.gittip.com/RsrchBoy/>
+L<Amazon Wishlist|http://www.amazon.com/gp/registry/wishlist/3G2DQFPBA57L6>
 
 =head1 COPYRIGHT AND LICENSE
 
