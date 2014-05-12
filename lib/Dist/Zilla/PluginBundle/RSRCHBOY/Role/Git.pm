@@ -11,7 +11,7 @@ package Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.048';
+$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.049';
 # ABSTRACT: A helper role for Git::Raw operations
 
 use Moose::Role;
@@ -20,7 +20,6 @@ use MooseX::AttributeShortcuts 0.023;
 
 use autobox::Core;
 use Git::Raw 0.32;
-use File::Slurp 'slurp';
 
 with 'MooseX::RelatedClasses' => {
     namespace        => 'Git::Raw',
@@ -57,7 +56,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - A helper role for Git::Raw oper
 
 =head1 VERSION
 
-This document describes version 0.048 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released April 29, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.049 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released May 12, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 ATTRIBUTES
 
@@ -106,16 +105,24 @@ feature.
 
 Chris Weyl <cweyl@alumni.drew.edu>
 
-=head2 SAYING THANKS IN A MATERIALISTIC WAY
+=head2 I'm a material boy in a material world
+
+=begin html
+
+<a href="https://www.gittip.com/RsrchBoy/"><img src="https://raw.githubusercontent.com/gittip/www.gittip.com/master/www/assets/%25version/logo.png" /></a>
+<a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
+<a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
+
+=end html
 
 Please note B<I do not expect to be gittip'ed or flattr'ed for this work>,
 rather B<it is simply a very pleasant surprise>. I largely create and release
 works like this because I need them or I find it enjoyable; however, don't let
-that stop you giving me money if you feel like it ;)
+that stop you if you feel like it ;)
 
-L<flattr this!|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22>
-L<gittip me!|https://www.gittip.com/RsrchBoy/>
-L<Amazon Wishlist|http://www.amazon.com/gp/registry/wishlist/3G2DQFPBA57L6>
+L<Flattr this|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22>,
+L<gittip me|https://www.gittip.com/RsrchBoy/>, or indulge my
+L<Amazon Wishlist|http://bit.ly/rsrchboys-wishlist>...  If you so desire.
 
 =head1 COPYRIGHT AND LICENSE
 
