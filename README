@@ -3,8 +3,8 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes version 0.049 of
-    Dist::Zilla::PluginBundle::RSRCHBOY - released May 12, 2014 as part of
+    This document describes version 0.050 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released July 05, 2014 as part of
     Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
@@ -83,13 +83,13 @@ SEE ALSO
 
 SOURCE
     The development version is on github at
-    <http://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy>
+    <http://https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
     and may be cloned from
-    <git://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git>
+    <git://https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
 
 BUGS
     Please report any bugs or feature requests on the bugtracker website
-    https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
+    https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
 
     When submitting a bug or request, please include a test-file or a patch
     to an existing test-file that illustrates the bug or desired feature.
@@ -105,7 +105,7 @@ AUTHOR
 
     Flattr this
     <https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithu
-    b.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20C
+    b.com%2FRsrchBoy%2FDist-Zilla-PluginBundle-RSRCHBOY&title=RsrchBoy's%20C
     PAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-P
     luginBundle-RSRCHBOY%20in%20the%20CPAN%22>, gittip me
     <https://www.gittip.com/RsrchBoy/>, or indulge my Amazon Wishlist

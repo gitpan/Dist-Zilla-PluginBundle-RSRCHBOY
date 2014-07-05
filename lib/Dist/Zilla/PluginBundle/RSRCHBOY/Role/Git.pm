@@ -11,7 +11,7 @@ package Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git;
 BEGIN {
   $Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::AUTHORITY = 'cpan:RSRCHBOY';
 }
-$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.049';
+$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.050';
 # ABSTRACT: A helper role for Git::Raw operations
 
 use Moose::Role;
@@ -56,7 +56,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - A helper role for Git::Raw oper
 
 =head1 VERSION
 
-This document describes version 0.049 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released May 12, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.050 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released July 05, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 ATTRIBUTES
 
@@ -89,13 +89,13 @@ L<Dist::Zilla::PluginBundle::RSRCHBOY|Dist::Zilla::PluginBundle::RSRCHBOY>
 
 =head1 SOURCE
 
-The development version is on github at L<http://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy>
-and may be cloned from L<git://https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git>
+The development version is on github at L<http://https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY>
+and may be cloned from L<git://https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git>
 
 =head1 BUGS
 
 Please report any bugs or feature requests on the bugtracker website
-https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
+https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues
 
 When submitting a bug or request, please include a test-file or a
 patch to an existing test-file that illustrates the bug or desired
@@ -111,7 +111,7 @@ Chris Weyl <cweyl@alumni.drew.edu>
 
 <a href="https://www.gittip.com/RsrchBoy/"><img src="https://raw.githubusercontent.com/gittip/www.gittip.com/master/www/assets/%25version/logo.png" /></a>
 <a href="http://bit.ly/rsrchboys-wishlist"><img src="http://wps.io/wp-content/uploads/2014/05/amazon_wishlist.resized.png" /></a>
-<a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
+<a href="https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2FDist-Zilla-PluginBundle-RSRCHBOY&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22"><img src="http://api.flattr.com/button/flattr-badge-large.png" /></a>
 
 =end html
 
@@ -120,7 +120,7 @@ rather B<it is simply a very pleasant surprise>. I largely create and release
 works like this because I need them or I find it enjoyable; however, don't let
 that stop you if you feel like it ;)
 
-L<Flattr this|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2Fdist-zilla-pluginbundle-rsrchboy&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22>,
+L<Flattr this|https://flattr.com/submit/auto?user_id=RsrchBoy&url=https%3A%2F%2Fgithub.com%2FRsrchBoy%2FDist-Zilla-PluginBundle-RSRCHBOY&title=RsrchBoy's%20CPAN%20Dist-Zilla-PluginBundle-RSRCHBOY&tags=%22RsrchBoy's%20Dist-Zilla-PluginBundle-RSRCHBOY%20in%20the%20CPAN%22>,
 L<gittip me|https://www.gittip.com/RsrchBoy/>, or indulge my
 L<Amazon Wishlist|http://bit.ly/rsrchboys-wishlist>...  If you so desire.
 

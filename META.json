@@ -4,7 +4,7 @@
       "Chris Weyl <cweyl@alumni.drew.edu>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.016, CPAN::Meta::Converter version 2.141170",
+   "generated_by" : "Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.140640",
    "license" : [
       "lgpl_2_1"
    ],
@@ -32,6 +32,7 @@
             "Test::NoTabs" : "0",
             "Test::Pod" : "1.41",
             "Test::Pod::Coverage" : "1.08",
+            "Test::Spelling" : "0.12",
             "version" : "0.9901"
          }
       },
@@ -72,6 +73,7 @@
             "Dist::Zilla::Plugin::PodSyntaxTests" : "0",
             "Dist::Zilla::Plugin::PodWeaver" : "4.000",
             "Dist::Zilla::Plugin::Prepender" : "0",
+            "Dist::Zilla::Plugin::PromptIfStale" : "0",
             "Dist::Zilla::Plugin::PruneFiles" : "0",
             "Dist::Zilla::Plugin::ReadmeAnyFromPod" : "0",
             "Dist::Zilla::Plugin::ReadmeFromPod" : "0",
@@ -146,57 +148,57 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       },
       "Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       },
       "Pod::Weaver::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       },
       "Pod::Weaver::Section::RSRCHBOY::Authors" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/Authors.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       },
       "Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       },
       "Pod::Weaver::Section::RSRCHBOY::LazyAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       },
       "Pod::Weaver::Section::RSRCHBOY::RequiredAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       },
       "Pod::Weaver::Section::RSRCHBOY::RoleParameters" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       },
       "Pod::Weaver::SectionBase::CollectWithIntro" : {
          "file" : "lib/Pod/Weaver/SectionBase/CollectWithIntro.pm",
-         "version" : "0.049"
+         "version" : "0.050"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues"
+         "web" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY/issues"
       },
-      "homepage" : "https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy",
+      "homepage" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git",
-         "web" : "https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy"
+         "url" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY.git",
+         "web" : "https://github.com/RsrchBoy/Dist-Zilla-PluginBundle-RSRCHBOY"
       }
    },
-   "version" : "0.049",
+   "version" : "0.050",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.018002"
+         "version" : "5.020000"
       },
       "plugins" : [
          {
@@ -215,7 +217,7 @@
          {
             "class" : "Dist::Zilla::Plugin::NextRelease",
             "name" : "@RSRCHBOY/NextRelease",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
@@ -230,7 +232,7 @@
                }
             },
             "name" : "@RSRCHBOY/Git::NextVersion",
-            "version" : "2.022"
+            "version" : "2.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::ContributorsFromGit",
@@ -270,7 +272,7 @@
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
             "name" : "@RSRCHBOY/GatherDir",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::PromptIfStale",
@@ -287,12 +289,12 @@
                }
             },
             "name" : "@RSRCHBOY/PromptIfStale",
-            "version" : "0.022"
+            "version" : "0.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
             "name" : "@RSRCHBOY/PruneCruft",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Describe",
@@ -302,12 +304,12 @@
          {
             "class" : "Dist::Zilla::Plugin::ExecDir",
             "name" : "@RSRCHBOY/ExecDir",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::ShareDir",
             "name" : "@RSRCHBOY/ShareDir",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::MakeMaker",
@@ -317,12 +319,12 @@
                }
             },
             "name" : "@RSRCHBOY/MakeMaker",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::Manifest",
             "name" : "@RSRCHBOY/Manifest",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::SurgicalPkgVersion",
@@ -347,7 +349,7 @@
          {
             "class" : "Dist::Zilla::Plugin::AutoPrereqs",
             "name" : "@RSRCHBOY/AutoPrereqs",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prepender",
@@ -357,7 +359,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Test::PodSpelling",
             "name" : "@RSRCHBOY/Test::PodSpelling",
-            "version" : "2.006007"
+            "version" : "2.006008"
          },
          {
             "class" : "Dist::Zilla::Plugin::ConsistentVersionTest",
@@ -367,12 +369,12 @@
          {
             "class" : "Dist::Zilla::Plugin::PodCoverageTests",
             "name" : "@RSRCHBOY/PodCoverageTests",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
             "name" : "@RSRCHBOY/PodSyntaxTests",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::NoTabs",
@@ -412,7 +414,7 @@
                }
             },
             "name" : "@RSRCHBOY/Test::Compile",
-            "version" : "2.040"
+            "version" : "2.043"
          },
          {
             "class" : "Dist::Zilla::Plugin::NoSmartCommentsTests",
@@ -452,22 +454,22 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
             "name" : "@RSRCHBOY/MetaConfig",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",
             "name" : "@RSRCHBOY/MetaJSON",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaYAML",
             "name" : "@RSRCHBOY/MetaYAML",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaNoIndex",
             "name" : "@RSRCHBOY/MetaNoIndex",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
@@ -477,7 +479,7 @@
                      {
                         "class" : "Dist::Zilla::Plugin::FinderCode",
                         "name" : "@RSRCHBOY/MetaProvides::Package/AUTOVIV/:InstallModulesPM",
-                        "version" : "5.016"
+                        "version" : "5.019"
                      }
                   ]
                },
@@ -493,12 +495,12 @@
          {
             "class" : "Dist::Zilla::Plugin::GithubMeta",
             "name" : "@RSRCHBOY/GithubMeta",
-            "version" : "0.44"
+            "version" : "0.46"
          },
          {
             "class" : "Dist::Zilla::Plugin::TestRelease",
             "name" : "@RSRCHBOY/TestRelease",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckChangesHasContent",
@@ -550,7 +552,7 @@
                }
             },
             "name" : "@RSRCHBOY/Git::Check",
-            "version" : "2.022"
+            "version" : "2.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
@@ -579,7 +581,7 @@
                }
             },
             "name" : "@RSRCHBOY/Git::Commit",
-            "version" : "2.022"
+            "version" : "2.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::CheckDeps",
@@ -614,7 +616,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : "1",
-                  "tag" : "0.049",
+                  "tag" : "0.050",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -624,7 +626,7 @@
                }
             },
             "name" : "@RSRCHBOY/Git::Tag",
-            "version" : "2.022"
+            "version" : "2.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::CommitBuild",
@@ -642,7 +644,7 @@
                }
             },
             "name" : "@RSRCHBOY/Git::CommitBuild::Build",
-            "version" : "2.022"
+            "version" : "2.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::CommitBuild",
@@ -660,7 +662,7 @@
                }
             },
             "name" : "@RSRCHBOY/Git::CommitBuild::Release",
-            "version" : "2.022"
+            "version" : "2.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
@@ -677,12 +679,12 @@
                }
             },
             "name" : "@RSRCHBOY/Git::Push",
-            "version" : "2.022"
+            "version" : "2.023"
          },
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
             "name" : "@RSRCHBOY/UploadToCPAN",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::Signature",
@@ -707,17 +709,17 @@
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
             "name" : "@RSRCHBOY/ConfirmRelease",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::License",
             "name" : "@RSRCHBOY/License",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::CPANFile",
             "name" : "@RSRCHBOY/CPANFile",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::CopyFilesFromBuild",
@@ -896,7 +898,7 @@
                }
             },
             "name" : "DistZillaRuntimeRequires",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -907,7 +909,7 @@
                }
             },
             "name" : "PodWeaverPrereqs",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -918,52 +920,52 @@
                }
             },
             "name" : "UnincorporatedPrereqs",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":InstallModules",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":IncModules",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":TestFiles",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ExecFiles",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ShareFiles",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":MainModule",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":AllFiles",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":NoFiles",
-            "version" : "5.016"
+            "version" : "5.019"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : "@RSRCHBOY/MetaProvides::Package/AUTOVIV/:InstallModulesPM",
-            "version" : "5.016"
+            "version" : "5.019"
          }
       ],
       "zilla" : {
@@ -971,7 +973,7 @@
          "config" : {
             "is_trial" : "0"
          },
-         "version" : "5.016"
+         "version" : "5.019"
       }
    },
    "x_authority" : "cpan:RSRCHBOY",
