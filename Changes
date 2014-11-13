@@ -1,5 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-RSRCHBOY
 
+0.052     2014-11-12 22:09:14 PST-0800
+	* [dzil] EOLTests becomes Test::EOL
+
 0.051     2014-10-14 22:34:15 PDT-0700
 	* Add Dist::Zilla::Plugin::Run::AfterMint as a minting prereq.
 

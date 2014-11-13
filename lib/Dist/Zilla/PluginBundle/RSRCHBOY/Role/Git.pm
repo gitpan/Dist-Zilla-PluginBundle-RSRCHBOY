@@ -8,10 +8,8 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git;
-BEGIN {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::AUTHORITY = 'cpan:RSRCHBOY';
-}
-$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.051';
+our $AUTHORITY = 'cpan:RSRCHBOY';
+$Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git::VERSION = '0.052';
 # ABSTRACT: A helper role for Git::Raw operations
 
 use Moose::Role;
@@ -56,7 +54,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - A helper role for Git::Raw oper
 
 =head1 VERSION
 
-This document describes version 0.051 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released October 14, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.052 of Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git - released November 12, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 ATTRIBUTES
 

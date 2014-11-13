@@ -8,11 +8,9 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
-BEGIN {
-  $Dist::Zilla::PluginBundle::RSRCHBOY::AUTHORITY = 'cpan:RSRCHBOY';
-}
-# git description: 0.050-1-g68f850e
-$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.051';
+our $AUTHORITY = 'cpan:RSRCHBOY';
+# git description: 0.051-1-g5d2481d
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.052';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -169,7 +167,7 @@ sub author_tests {
             PodCoverageTests
             PodSyntaxTests
             Test::NoTabs
-            EOLTests
+            Test::EOL
             HasVersionTests
             Test::Compile
             NoSmartCommentsTests
@@ -342,7 +340,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.051 of Dist::Zilla::PluginBundle::RSRCHBOY - released October 14, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.052 of Dist::Zilla::PluginBundle::RSRCHBOY - released November 12, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 

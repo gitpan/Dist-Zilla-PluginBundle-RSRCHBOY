@@ -8,10 +8,8 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Pod::Weaver::SectionBase::CollectWithIntro;
-BEGIN {
-  $Pod::Weaver::SectionBase::CollectWithIntro::AUTHORITY = 'cpan:RSRCHBOY';
-}
-$Pod::Weaver::SectionBase::CollectWithIntro::VERSION = '0.051';
+our $AUTHORITY = 'cpan:RSRCHBOY';
+$Pod::Weaver::SectionBase::CollectWithIntro::VERSION = '0.052';
 # ABSTRACT: Extends CollectWithIntro to provide a better default plugin name
 
 use Moose;
@@ -43,7 +41,7 @@ Pod::Weaver::SectionBase::CollectWithIntro - Extends CollectWithIntro to provide
 
 =head1 VERSION
 
-This document describes version 0.051 of Pod::Weaver::SectionBase::CollectWithIntro - released October 14, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.052 of Pod::Weaver::SectionBase::CollectWithIntro - released November 12, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

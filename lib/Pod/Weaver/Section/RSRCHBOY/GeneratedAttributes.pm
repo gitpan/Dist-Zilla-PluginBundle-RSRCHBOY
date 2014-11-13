@@ -8,10 +8,8 @@
 #   The GNU Lesser General Public License, Version 2.1, February 1999
 #
 package Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes;
-BEGIN {
-  $Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::AUTHORITY = 'cpan:RSRCHBOY';
-}
-$Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.051';
+our $AUTHORITY = 'cpan:RSRCHBOY';
+$Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.052';
 # ABSTRACT: Prefaced generated-only attributes
 
 use Moose;
@@ -48,7 +46,7 @@ Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - Prefaced generated-only at
 
 =head1 VERSION
 
-This document describes version 0.051 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released October 14, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.052 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released November 12, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

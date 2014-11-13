@@ -8,10 +8,12 @@ build_requires:
   IPC::Open3: '0'
   Test::CheckDeps: '0.010'
   Test::More: '0.94'
+  perl: v5.10.0
 configure_requires:
   ExtUtils::MakeMaker: '0'
+  perl: v5.10.0
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.142690'
+generated_by: 'Dist::Zilla version 5.025, CPAN::Meta::Converter version 2.142690'
 license: lgpl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -24,31 +26,31 @@ no_index:
 provides:
   Dist::Zilla::PluginBundle::RSRCHBOY:
     file: lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm
-    version: '0.051'
+    version: '0.052'
   Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git:
     file: lib/Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm
-    version: '0.051'
+    version: '0.052'
   Pod::Weaver::PluginBundle::RSRCHBOY:
     file: lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm
-    version: '0.051'
+    version: '0.052'
   Pod::Weaver::Section::RSRCHBOY::Authors:
     file: lib/Pod/Weaver/Section/RSRCHBOY/Authors.pm
-    version: '0.051'
+    version: '0.052'
   Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm
-    version: '0.051'
+    version: '0.052'
   Pod::Weaver::Section::RSRCHBOY::LazyAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm
-    version: '0.051'
+    version: '0.052'
   Pod::Weaver::Section::RSRCHBOY::RequiredAttributes:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm
-    version: '0.051'
+    version: '0.052'
   Pod::Weaver::Section::RSRCHBOY::RoleParameters:
     file: lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm
-    version: '0.051'
+    version: '0.052'
   Pod::Weaver::SectionBase::CollectWithIntro:
     file: lib/Pod/Weaver/SectionBase/CollectWithIntro.pm
-    version: '0.051'
+    version: '0.052'
 requires:
   Archive::Tar::Wrapper: '0'
   Config::MVP::Slicer: '0.302'
@@ -65,7 +67,6 @@ requires:
   Dist::Zilla::Plugin::ConsistentVersionTest: '0'
   Dist::Zilla::Plugin::ContributorsFromGit: '0.010'
   Dist::Zilla::Plugin::CopyFilesFromBuild: '0'
-  Dist::Zilla::Plugin::EOLTests: '0'
   Dist::Zilla::Plugin::Git::CommitBuild: '2.009'
   Dist::Zilla::Plugin::Git::Describe: '0'
   Dist::Zilla::Plugin::Git::NextVersion: '0'
@@ -98,6 +99,7 @@ requires:
   Dist::Zilla::Plugin::TaskWeaver: '0'
   Dist::Zilla::Plugin::Test::CheckDeps: '0'
   Dist::Zilla::Plugin::Test::Compile: '0'
+  Dist::Zilla::Plugin::Test::EOL: '0'
   Dist::Zilla::Plugin::Test::MinimumVersion: '2.000005'
   Dist::Zilla::Plugin::Test::NoTabs: '0'
   Dist::Zilla::Plugin::Test::Pod::LinkCheck: '0'
@@ -150,7 +152,7 @@ resources:
   bugtracker: https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy/issues
   homepage: https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy
   repository: https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy.git
-version: '0.051'
+version: '0.052'
 x_Dist_Zilla:
   perl:
     version: '5.020001'
@@ -168,7 +170,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: '@RSRCHBOY/NextRelease'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
       config:
@@ -207,8 +209,19 @@ x_Dist_Zilla:
       version: '0.011'
     -
       class: Dist::Zilla::Plugin::GatherDir
+      config:
+        Dist::Zilla::Plugin::GatherDir:
+          exclude_filename:
+            - LICENSE
+            - cpanfile
+          exclude_match: []
+          follow_symlinks: '0'
+          include_dotfiles: '0'
+          prefix: ''
+          prune_directory: []
+          root: .
       name: '@RSRCHBOY/GatherDir'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       config:
@@ -221,11 +234,11 @@ x_Dist_Zilla:
           phase: build
           skip: []
       name: '@RSRCHBOY/PromptIfStale'
-      version: '0.027'
+      version: '0.029'
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@RSRCHBOY/PruneCruft'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Git::Describe
       name: '@RSRCHBOY/Git::Describe'
@@ -233,22 +246,22 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@RSRCHBOY/ExecDir'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::ShareDir
       name: '@RSRCHBOY/ShareDir'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::MakeMaker
       config:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 1
       name: '@RSRCHBOY/MakeMaker'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@RSRCHBOY/Manifest'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::SurgicalPkgVersion
       name: '@RSRCHBOY/SurgicalPkgVersion'
@@ -260,7 +273,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MinimumPerl
       name: '@RSRCHBOY/MinimumPerl'
-      version: '1.003'
+      version: '1.006'
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@RSRCHBOY/ReportVersions::Tiny'
@@ -268,7 +281,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@RSRCHBOY/AutoPrereqs'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Prepender
       name: '@RSRCHBOY/Prepender'
@@ -284,11 +297,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PodCoverageTests
       name: '@RSRCHBOY/PodCoverageTests'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@RSRCHBOY/PodSyntaxTests'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Test::NoTabs
       config:
@@ -301,9 +314,12 @@ x_Dist_Zilla:
       name: '@RSRCHBOY/Test::NoTabs'
       version: '0.09'
     -
-      class: Dist::Zilla::Plugin::EOLTests
-      name: '@RSRCHBOY/EOLTests'
-      version: '0.02'
+      class: Dist::Zilla::Plugin::Test::EOL
+      config:
+        Dist::Zilla::Plugin::Test::EOL:
+          filename: xt/author/eol.t
+      name: '@RSRCHBOY/Test::EOL'
+      version: '0.15'
     -
       class: Dist::Zilla::Plugin::HasVersionTests
       name: '@RSRCHBOY/HasVersionTests'
@@ -324,7 +340,7 @@ x_Dist_Zilla:
             - ':ExecFiles'
           skips: []
       name: '@RSRCHBOY/Test::Compile'
-      version: '2.047'
+      version: '2.051'
     -
       class: Dist::Zilla::Plugin::NoSmartCommentsTests
       name: '@RSRCHBOY/NoSmartCommentsTests'
@@ -339,11 +355,11 @@ x_Dist_Zilla:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 1
       name: '@RSRCHBOY/RunExtraTests'
-      version: '0.022'
+      version: '0.024'
     -
       class: Dist::Zilla::Plugin::CheckExtraTests
       name: '@RSRCHBOY/CheckExtraTests'
-      version: '0.022'
+      version: '0.024'
     -
       class: Dist::Zilla::Plugin::Test::MinimumVersion
       name: '@RSRCHBOY/Test::MinimumVersion'
@@ -351,23 +367,23 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Authority
       name: '@RSRCHBOY/Authority'
-      version: '1.006'
+      version: '1.009'
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@RSRCHBOY/MetaConfig'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@RSRCHBOY/MetaJSON'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@RSRCHBOY/MetaYAML'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::MetaNoIndex
       name: '@RSRCHBOY/MetaNoIndex'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       config:
@@ -376,7 +392,7 @@ x_Dist_Zilla:
             -
               class: Dist::Zilla::Plugin::FinderCode
               name: '@RSRCHBOY/MetaProvides::Package/AUTOVIV/:InstallModulesPM'
-              version: '5.020'
+              version: '5.025'
         Dist::Zilla::Role::MetaProvider::Provider:
           inherit_missing: '1'
           inherit_version: '1'
@@ -390,11 +406,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@RSRCHBOY/TestRelease'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::CheckChangesHasContent
       name: '@RSRCHBOY/CheckChangesHasContent'
-      version: '0.006'
+      version: '0.007'
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@RSRCHBOY/CheckPrereqsIndexed'
@@ -481,7 +497,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '1'
-          tag: '0.051'
+          tag: '0.052'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local
@@ -532,7 +548,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@RSRCHBOY/UploadToCPAN'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Signature
       name: '@RSRCHBOY/Signature'
@@ -552,15 +568,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@RSRCHBOY/ConfirmRelease'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::License
       name: '@RSRCHBOY/License'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::CPANFile
       name: '@RSRCHBOY/CPANFile'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::CopyFilesFromBuild
       name: '@RSRCHBOY/CopyFilesFromBuild'
@@ -586,35 +602,35 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Plugin::EnsurePod5
               name: '@CorePrep/EnsurePod5'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Plugin::H1Nester
               name: '@CorePrep/H1Nester'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Name
               name: '@RSRCHBOY/Name'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Version
               name: '@RSRCHBOY/Version'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Region
               name: '@RSRCHBOY/prelude'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Generic
               name: SYNOPSIS
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Generic
               name: DESCRIPTION
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Generic
               name: OVERVIEW
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::RSRCHBOY::RoleParameters
               name: 'ROLE PARAMETERS'
@@ -630,39 +646,39 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::Collect
               name: ATTRIBUTES
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Collect
               name: METHODS
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Collect
               name: 'REQUIRED METHODS'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Collect
               name: FUNCTIONS
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Collect
               name: TYPES
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Collect
               name: TEST_FUNCTIONS
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Leftovers
               name: '@RSRCHBOY/Leftovers'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::Region
               name: '@RSRCHBOY/postlude'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::SeeAlso
               name: '@RSRCHBOY/SeeAlso'
-              version: '1.002'
+              version: '1.003'
             -
               class: Pod::Weaver::Section::SourceGitHub
               name: '@RSRCHBOY/SourceGitHub'
@@ -670,7 +686,7 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::Bugs
               name: '@RSRCHBOY/Bugs'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Section::RSRCHBOY::Authors
               name: RSRCHBOY::Authors
@@ -682,15 +698,15 @@ x_Dist_Zilla:
             -
               class: Pod::Weaver::Section::Legal
               name: '@RSRCHBOY/Legal'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Plugin::Transformer
               name: '@RSRCHBOY/List'
-              version: '4.006'
+              version: '4.008'
             -
               class: Pod::Weaver::Plugin::SingleEncoding
               name: '@RSRCHBOY/SingleEncoding'
-              version: '4.006'
+              version: '4.008'
       name: '@RSRCHBOY/PodWeaver'
       version: '4.006'
     -
@@ -700,7 +716,7 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: DistZillaRuntimeRequires
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -708,7 +724,7 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: PodWeaverPrereqs
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -716,7 +732,7 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: MintingPrereqs
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -724,48 +740,48 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: UnincorporatedPrereqs
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':IncModules'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':MainModule'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':AllFiles'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':NoFiles'
-      version: '5.020'
+      version: '5.025'
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: '@RSRCHBOY/MetaProvides::Package/AUTOVIV/:InstallModulesPM'
-      version: '5.020'
+      version: '5.025'
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: '0'
-    version: '5.020'
+    version: '5.025'
 x_authority: cpan:RSRCHBOY
 x_contributors:
   - 'Neil Bowers <neil@bowers.com>'
