@@ -135,6 +135,7 @@
             "namespace::autoclean" : "0",
             "perl" : "v5.10.0",
             "strict" : "0",
+            "utf8" : "0",
             "warnings" : "0"
          }
       },
@@ -152,39 +153,39 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       },
       "Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       },
       "Pod::Weaver::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       },
       "Pod::Weaver::Section::RSRCHBOY::Authors" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/Authors.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       },
       "Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       },
       "Pod::Weaver::Section::RSRCHBOY::LazyAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       },
       "Pod::Weaver::Section::RSRCHBOY::RequiredAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       },
       "Pod::Weaver::Section::RSRCHBOY::RoleParameters" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       },
       "Pod::Weaver::SectionBase::CollectWithIntro" : {
          "file" : "lib/Pod/Weaver/SectionBase/CollectWithIntro.pm",
-         "version" : "0.053"
+         "version" : "0.054"
       }
    },
    "release_status" : "stable",
@@ -199,7 +200,7 @@
          "web" : "https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy"
       }
    },
-   "version" : "0.053",
+   "version" : "0.054",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.020001"
@@ -646,7 +647,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : "1",
-                  "tag" : "0.053",
+                  "tag" : "0.054",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -720,11 +721,6 @@
             "class" : "Dist::Zilla::Plugin::Signature",
             "name" : "@RSRCHBOY/Signature",
             "version" : "1.100930"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Twitter",
-            "name" : "@RSRCHBOY/Twitter",
-            "version" : "0.026"
          },
          {
             "class" : "Dist::Zilla::Plugin::InstallRelease",

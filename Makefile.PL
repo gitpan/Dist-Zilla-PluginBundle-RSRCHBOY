@@ -124,6 +124,7 @@ my %WriteMakefileArgs = (
     "autodie" => "0.20",
     "namespace::autoclean" => 0,
     "strict" => 0,
+    "utf8" => 0,
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
@@ -133,7 +134,7 @@ my %WriteMakefileArgs = (
     "Test::CheckDeps" => "0.010",
     "Test::More" => "0.94"
   },
-  "VERSION" => "0.053",
+  "VERSION" => "0.054",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -241,6 +242,7 @@ my %FallbackPrereqs = (
   "autodie" => "0.20",
   "namespace::autoclean" => 0,
   "strict" => 0,
+  "utf8" => 0,
   "warnings" => 0
 );
 

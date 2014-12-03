@@ -148,6 +148,7 @@ eval { $v .= pmver('autobox::Core','any version') };
 eval { $v .= pmver('autodie','0.20') };
 eval { $v .= pmver('namespace::autoclean','any version') };
 eval { $v .= pmver('strict','any version') };
+eval { $v .= pmver('utf8','any version') };
 eval { $v .= pmver('warnings','any version') };
 
 

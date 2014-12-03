@@ -9,10 +9,13 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 our $AUTHORITY = 'cpan:RSRCHBOY';
-# git description: 0.052-1-g5043844
-$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.053';
+# git description: 0.053-1-gd065657
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.054';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
+
+use utf8;
+use v5.10;
 
 use Moose;
 use namespace::autoclean;
@@ -52,10 +55,10 @@ has $_ => (is => 'lazy', isa => 'Bool')
 has "is_$_" => (is => 'lazy', isa => 'Bool', builder => $_d->($_))
     for qw{ task };
 
-sub _build_sign               { shift->payload->{sign}               || 1 }
-sub _build_tweet              { shift->payload->{tweet}              || 1 }
-sub _build_github             { shift->payload->{github}             || 1 }
-sub _build_install_on_release { shift->payload->{install_on_release} || 1 }
+sub _build_sign               { shift->payload->{sign}               // 1 }
+sub _build_tweet              { shift->payload->{tweet}              // 1 }
+sub _build_github             { shift->payload->{github}             // 1 }
+sub _build_install_on_release { shift->payload->{install_on_release} // 1 }
 
 has _copy_from_build => (
     is      => 'lazy',
@@ -340,7 +343,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.053 of Dist::Zilla::PluginBundle::RSRCHBOY - released December 02, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.054 of Dist::Zilla::PluginBundle::RSRCHBOY - released December 02, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
