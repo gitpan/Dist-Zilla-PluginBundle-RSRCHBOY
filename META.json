@@ -4,7 +4,7 @@
       "Chris Weyl <cweyl@alumni.drew.edu>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.025, CPAN::Meta::Converter version 2.142690",
+   "generated_by" : "Dist::Zilla version 5.025, CPAN::Meta::Converter version 2.143240",
    "license" : [
       "lgpl_2_1"
    ],
@@ -152,39 +152,39 @@
    "provides" : {
       "Dist::Zilla::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       },
       "Dist::Zilla::PluginBundle::RSRCHBOY::Role::Git" : {
          "file" : "lib/Dist/Zilla/PluginBundle/RSRCHBOY/Role/Git.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       },
       "Pod::Weaver::PluginBundle::RSRCHBOY" : {
          "file" : "lib/Pod/Weaver/PluginBundle/RSRCHBOY.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       },
       "Pod::Weaver::Section::RSRCHBOY::Authors" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/Authors.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       },
       "Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/GeneratedAttributes.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       },
       "Pod::Weaver::Section::RSRCHBOY::LazyAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/LazyAttributes.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       },
       "Pod::Weaver::Section::RSRCHBOY::RequiredAttributes" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RequiredAttributes.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       },
       "Pod::Weaver::Section::RSRCHBOY::RoleParameters" : {
          "file" : "lib/Pod/Weaver/Section/RSRCHBOY/RoleParameters.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       },
       "Pod::Weaver::SectionBase::CollectWithIntro" : {
          "file" : "lib/Pod/Weaver/SectionBase/CollectWithIntro.pm",
-         "version" : "0.052"
+         "version" : "0.053"
       }
    },
    "release_status" : "stable",
@@ -199,7 +199,7 @@
          "web" : "https://github.com/RsrchBoy/dist-zilla-pluginbundle-rsrchboy"
       }
    },
-   "version" : "0.052",
+   "version" : "0.053",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.020001"
@@ -307,7 +307,7 @@
                }
             },
             "name" : "@RSRCHBOY/PromptIfStale",
-            "version" : "0.029"
+            "version" : "0.032"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
@@ -417,7 +417,7 @@
                }
             },
             "name" : "@RSRCHBOY/Test::EOL",
-            "version" : "0.15"
+            "version" : "0.16"
          },
          {
             "class" : "Dist::Zilla::Plugin::HasVersionTests",
@@ -449,7 +449,7 @@
          {
             "class" : "Dist::Zilla::Plugin::NoSmartCommentsTests",
             "name" : "@RSRCHBOY/NoSmartCommentsTests",
-            "version" : "0.006"
+            "version" : "0.007"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Pod::LinkCheck",
@@ -464,12 +464,12 @@
                }
             },
             "name" : "@RSRCHBOY/RunExtraTests",
-            "version" : "0.024"
+            "version" : "0.025"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckExtraTests",
             "name" : "@RSRCHBOY/CheckExtraTests",
-            "version" : "0.024"
+            "version" : "0.025"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::MinimumVersion",
@@ -540,7 +540,7 @@
          {
             "class" : "Dist::Zilla::Plugin::CheckPrereqsIndexed",
             "name" : "@RSRCHBOY/CheckPrereqsIndexed",
-            "version" : "0.012"
+            "version" : "0.013"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Remote::Update",
@@ -628,7 +628,7 @@
                }
             },
             "name" : "@RSRCHBOY/CheckSelfDependency",
-            "version" : "0.007"
+            "version" : "0.008"
          },
          {
             "class" : "Dist::Zilla::Plugin::Travis::ConfigForReleaseBranch",
@@ -646,7 +646,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : "1",
-                  "tag" : "0.052",
+                  "tag" : "0.053",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -720,6 +720,11 @@
             "class" : "Dist::Zilla::Plugin::Signature",
             "name" : "@RSRCHBOY/Signature",
             "version" : "1.100930"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Twitter",
+            "name" : "@RSRCHBOY/Twitter",
+            "version" : "0.026"
          },
          {
             "class" : "Dist::Zilla::Plugin::InstallRelease",

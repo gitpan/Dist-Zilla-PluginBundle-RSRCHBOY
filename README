@@ -3,8 +3,8 @@ NAME
     RSRCHBOY!
 
 VERSION
-    This document describes version 0.052 of
-    Dist::Zilla::PluginBundle::RSRCHBOY - released November 12, 2014 as part
+    This document describes version 0.053 of
+    Dist::Zilla::PluginBundle::RSRCHBOY - released December 02, 2014 as part
     of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 SYNOPSIS
@@ -42,7 +42,7 @@ OPTIONS
 
     See also Dist::Zilla::Plugin::Signature.
 
-  tweet (boolean; default: false)
+  tweet (boolean; default: true)
     If set to a true value, we'll use Dist::Zilla::Plugin::Twitter to tweet
     when a release occurs.
 

@@ -40,10 +40,10 @@ Git
 Pod
 Weaver
 Section
-Authors
+RequiredAttributes
 SectionBase
 CollectWithIntro
-RoleParameters
-LazyAttributes
 GeneratedAttributes
-RequiredAttributes
+LazyAttributes
+RoleParameters
+Authors

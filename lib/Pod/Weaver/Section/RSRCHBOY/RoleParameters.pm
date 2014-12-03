@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::Section::RSRCHBOY::RoleParameters;
 our $AUTHORITY = 'cpan:RSRCHBOY';
-$Pod::Weaver::Section::RSRCHBOY::RoleParameters::VERSION = '0.052';
+$Pod::Weaver::Section::RSRCHBOY::RoleParameters::VERSION = '0.053';
 # ABSTRACT: Prefaced role parameters section
 
 use Moose;
@@ -45,7 +45,7 @@ Pod::Weaver::Section::RSRCHBOY::RoleParameters - Prefaced role parameters sectio
 
 =head1 VERSION
 
-This document describes version 0.052 of Pod::Weaver::Section::RSRCHBOY::RoleParameters - released November 12, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.053 of Pod::Weaver::Section::RSRCHBOY::RoleParameters - released December 02, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

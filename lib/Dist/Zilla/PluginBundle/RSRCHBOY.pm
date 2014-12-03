@@ -9,8 +9,8 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 our $AUTHORITY = 'cpan:RSRCHBOY';
-# git description: 0.051-1-g5d2481d
-$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.052';
+# git description: 0.052-1-g5043844
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.053';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -53,7 +53,7 @@ has "is_$_" => (is => 'lazy', isa => 'Bool', builder => $_d->($_))
     for qw{ task };
 
 sub _build_sign               { shift->payload->{sign}               || 1 }
-sub _build_tweet              { shift->payload->{tweet}              || 0 }
+sub _build_tweet              { shift->payload->{tweet}              || 1 }
 sub _build_github             { shift->payload->{github}             || 1 }
 sub _build_install_on_release { shift->payload->{install_on_release} || 1 }
 
@@ -340,7 +340,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.052 of Dist::Zilla::PluginBundle::RSRCHBOY - released November 12, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.053 of Dist::Zilla::PluginBundle::RSRCHBOY - released December 02, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
@@ -389,7 +389,7 @@ git) and also generate a SIGNATURE file.
 
 See also L<Dist::Zilla::Plugin::Signature>.
 
-=head2 tweet (boolean; default: false)
+=head2 tweet (boolean; default: true)
 
 If set to a true value, we'll use L<Dist::Zilla::Plugin::Twitter> to tweet
 when a release occurs.
