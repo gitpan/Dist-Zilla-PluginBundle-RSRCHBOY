@@ -9,7 +9,7 @@
 #
 package Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes;
 our $AUTHORITY = 'cpan:RSRCHBOY';
-$Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.054';
+$Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes::VERSION = '0.055';
 # ABSTRACT: Prefaced generated-only attributes
 
 use Moose;
@@ -46,7 +46,7 @@ Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - Prefaced generated-only at
 
 =head1 VERSION
 
-This document describes version 0.054 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released December 02, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.055 of Pod::Weaver::Section::RSRCHBOY::GeneratedAttributes - released December 27, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SEE ALSO
 

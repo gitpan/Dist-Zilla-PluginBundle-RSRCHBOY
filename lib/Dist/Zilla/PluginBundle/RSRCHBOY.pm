@@ -9,8 +9,8 @@
 #
 package Dist::Zilla::PluginBundle::RSRCHBOY;
 our $AUTHORITY = 'cpan:RSRCHBOY';
-# git description: 0.053-1-gd065657
-$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.054';
+# git description: 0.054-1-g77bdb49
+$Dist::Zilla::PluginBundle::RSRCHBOY::VERSION = '0.055';
 
 # ABSTRACT: Zilla your distributions like RSRCHBOY!
 
@@ -258,9 +258,7 @@ sub configure {
             MakeMaker
             Manifest
             SurgicalPkgVersion
-            ReadmeFromPod
             MinimumPerl
-
             ReportVersions::Tiny
         },
         [ AutoPrereqs => $autoprereq_opts ],
@@ -273,13 +271,16 @@ sub configure {
         'License',
         'CPANFile',
 
-        [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
-
         [ ReadmeAnyFromPod  => ReadmeMarkdownInRoot => {
             type     => 'markdown',
             filename => 'README.mkdn',
             location => 'root',
         }],
+        [ ReadmeAnyFromPod  => ReadmeTxt => {
+            type     => 'text',
+            filename => 'README',
+        }],
+        [ CopyFilesFromBuild => { copy => $self->_copy_from_build } ],
 
         ($self->is_task ? 'TaskWeaver' : $podweaver),
     );
@@ -343,7 +344,7 @@ Dist::Zilla::PluginBundle::RSRCHBOY - Zilla your distributions like RSRCHBOY!
 
 =head1 VERSION
 
-This document describes version 0.054 of Dist::Zilla::PluginBundle::RSRCHBOY - released December 02, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
+This document describes version 0.055 of Dist::Zilla::PluginBundle::RSRCHBOY - released December 27, 2014 as part of Dist-Zilla-PluginBundle-RSRCHBOY.
 
 =head1 SYNOPSIS
 
